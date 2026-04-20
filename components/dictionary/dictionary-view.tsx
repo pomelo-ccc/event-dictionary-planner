@@ -1,7 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { Plus, Search, Download, Upload, FileCode2, LayoutList, LayoutGrid, X } from "lucide-react"
+import { Plus, Search, Download, Upload, FileCode2, LayoutList, LayoutGrid, X, Layers } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { groupColorMap } from "@/lib/mock-data"
@@ -89,6 +89,11 @@ export function DictionaryView({ items, setItems, groups: GROUPS, setGroups }: P
 
   function handleSave(data: EventDictionaryItem) {
     if (editing) {
+      // Edit mode: check if the new name conflicts with OTHER existing items
+      if (items.some((i) => i.id !== data.id && i.type_name === data.type_name)) {
+        alert(`已存在名为 "${data.type_name}" 的事件类型`)
+        return
+      }
       setItems(items.map((i) => (i.id === data.id ? data : i)))
     } else {
       // Create new: Prevent duplicate type_name
@@ -99,6 +104,27 @@ export function DictionaryView({ items, setItems, groups: GROUPS, setGroups }: P
       setItems([...items, { ...data, id: `d${Date.now()}` }])
     }
     setSheetOpen(false)
+  }
+
+  function handleDeduplicate() {
+    const map = new Map<string, EventDictionaryItem>()
+    let removedCount = 0
+    
+    // We keep the first one we encounter (you can also reverse iterate to keep the newest)
+    for (const item of items) {
+      if (!map.has(item.type_name)) {
+        map.set(item.type_name, item)
+      } else {
+        removedCount++
+      }
+    }
+
+    if (removedCount > 0) {
+      setItems(Array.from(map.values()))
+      alert(`去重完成！清理了 ${removedCount} 条重复数据。`)
+    } else {
+      alert("当前字典中没有重复的事件类型。")
+    }
   }
 
   function handleImport(newItems: EventDictionaryItem[]) {
@@ -274,6 +300,10 @@ export function DictionaryView({ items, setItems, groups: GROUPS, setGroups }: P
                 <LayoutList className="h-3.5 w-3.5" />
               </button>
             </div>
+            <Button variant="outline" size="sm" className="h-8" onClick={handleDeduplicate}>
+              <Layers className="h-3.5 w-3.5" />
+              一键去重
+            </Button>
             <Button variant="outline" size="sm" className="h-8" onClick={() => setYamlOpen(true)}>
               <Download className="h-3.5 w-3.5" />
               导出 YAML
