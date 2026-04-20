@@ -136,7 +136,7 @@ export default function Page() {
     const pdmFiles = files.filter((f) => f.project === "PDM")
     const hasPDMCode = pdmFiles.some((f) => f.groups.some((g) => g.cards.some((c) => Boolean(c.code))))
     if (!hasPDMCode) {
-      fetch("/api/pdm-report")
+      fetch("/data/pdm-report.json")
         .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
         .then((json) => {
           const parsed = parsePDMReport(json)
@@ -151,7 +151,7 @@ export default function Page() {
     const umcFiles = files.filter((f) => f.project === "UMC")
     const hasUMCCode = umcFiles.some((f) => f.groups.some((g) => g.cards.some((c) => Boolean(c.code))))
     if (!hasUMCCode) {
-      fetch("/api/umc-report")
+      fetch("/data/umc-report.json")
         .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
         .then((json) => {
           const parsed = parseUMCReport(json)
@@ -166,7 +166,7 @@ export default function Page() {
     const ppmFiles = files.filter((f) => f.project === "PPM")
     const hasPPMCode = ppmFiles.some((f) => f.groups.some((g) => g.cards.some((c) => Boolean(c.code))))
     if (!hasPPMCode) {
-      fetch("/api/ppm-report")
+      fetch("/data/ppm-report.json")
         .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
         .then((json) => {
           const parsed = parsePPMReport(json)
