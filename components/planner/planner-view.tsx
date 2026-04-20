@@ -26,7 +26,36 @@ import {
 } from "@/components/ui/dialog"
 import type { EventDictionaryItem, EventFile, FunctionCard as FunctionCardType, ProjectId, SplitGroup } from "@/lib/types"
 import { cn } from "@/lib/utils"
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable"
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import {
+  vscDarkPlus,
+  oneDark,
+  oneLight,
+  dracula,
+  nord,
+  nightOwl,
+  materialDark,
+  materialLight,
+  synthwave84,
+  atomDark,
+} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Copy, Check } from "lucide-react"
 import { KanbanColumn } from "./kanban-column"
+
+const CODE_THEMES: Record<string, { name: string; style: any }> = {
+  oneDark: { name: "Zed One Theme", style: oneDark },
+  vscDarkPlus: { name: "VS Code Dark+", style: vscDarkPlus },
+  dracula: { name: "Dracula", style: dracula },
+  nord: { name: "Nord", style: nord },
+  nightOwl: { name: "Night Owl", style: nightOwl },
+  materialDark: { name: "Material Dark", style: materialDark },
+  materialLight: { name: "Material Light", style: materialLight },
+  synthwave84: { name: "Synthwave '84", style: synthwave84 },
+  atomDark: { name: "Atom Dark", style: atomDark },
+  oneLight: { name: "One Light", style: oneLight },
+}
 import { FunctionCard } from "./function-card"
 
 interface Props {
@@ -45,6 +74,9 @@ export function PlannerView({ project, files, setFiles, dictionary, setDictionar
   const [addFileDialogOpen, setAddFileDialogOpen] = useState(false)
   const [newFileName, setNewFileName] = useState("")
   const [deleteFileId, setDeleteFileId] = useState<string | null>(null)
+  const [selectedCardId, setSelectedCardId] = useState<string | null>(null)
+  const [theme, setTheme] = useState("oneDark")
+  const [isCopied, setIsCopied] = useState(false)
 
   // when project switches, ensure activeFile belongs to it
   const activeFile = projectFiles.find((f) => f.id === activeFileId) || projectFiles[0] || null
@@ -188,10 +220,24 @@ export function PlannerView({ project, files, setFiles, dictionary, setDictionar
   const fileTotalLines = activeFile?.groups.reduce((acc, g) => acc + g.cards.reduce((a, c) => a + c.lines, 0), 0) ?? 0
   const fileTotalFns = activeFile?.groups.reduce((acc, g) => acc + g.cards.length, 0) ?? 0
 
+  const selectedCard = selectedCardId ? findCard(selectedCardId) : null;
+
+  const handleCopy = async () => {
+    if (!selectedCard?.code) return
+    try {
+      await navigator.clipboard.writeText(selectedCard.code)
+      setIsCopied(true)
+      setTimeout(() => setIsCopied(false), 2000)
+    } catch (e) {
+      console.error("Failed to copy", e)
+    }
+  }
+
   return (
-    <div className="flex h-[calc(100vh-3.5rem)] overflow-hidden">
+    <ResizablePanelGroup direction="horizontal" className="h-[calc(100vh-3.5rem)] w-full overflow-hidden">
       {/* Left: file list */}
-      <aside className="flex w-72 flex-col border-r border-border bg-card">
+      <ResizablePanel defaultSize={20} minSize={15} maxSize={30}>
+        <aside className="flex h-full flex-col bg-card">
         <div className="flex items-center justify-between border-b border-border px-4 py-3">
           <div className="flex items-center gap-2">
             <FileCode2 className="h-3.5 w-3.5 text-muted-foreground" />
@@ -312,9 +358,13 @@ export function PlannerView({ project, files, setFiles, dictionary, setDictionar
           </div>
         </div>
       </aside>
+      </ResizablePanel>
+
+      <ResizableHandle withHandle className="bg-border" />
 
       {/* Main: kanban */}
-      <div className="flex flex-1 flex-col overflow-hidden bg-muted/30">
+      <ResizablePanel defaultSize={selectedCard ? 50 : 80}>
+      <div className="flex h-full flex-col overflow-hidden bg-muted/30">
         {/* File header */}
         <div className="flex items-center gap-3 border-b border-border bg-background px-6 py-3">
           {activeFile ? (
@@ -372,6 +422,8 @@ export function PlannerView({ project, files, setFiles, dictionary, setDictionar
                       onUpdate={updateGroup}
                       onDelete={() => confirmDeleteGroup(g.id)}
                       onDictionaryUpdate={setDictionary}
+                      selectedCardId={selectedCardId}
+                      onSelectCard={setSelectedCardId}
                     />
                   ))}
                 </SortableContext>
@@ -379,7 +431,7 @@ export function PlannerView({ project, files, setFiles, dictionary, setDictionar
                 {/* Add column placeholder */}
                 <button
                   onClick={addGroup}
-                  className="flex h-full w-72 shrink-0 flex-col items-center justify-center gap-1.5 rounded-lg border border-dashed border-border bg-card/40 text-xs text-muted-foreground hover:border-foreground/40 hover:bg-card hover:text-foreground"
+                  className="flex h-full w-[46rem] shrink-0 flex-col items-center justify-center gap-1.5 rounded-lg border border-dashed border-border bg-card/40 text-xs text-muted-foreground hover:border-foreground/40 hover:bg-card hover:text-foreground"
                 >
                   <Plus className="h-4 w-4" />
                   新增拆分分组
@@ -459,7 +511,67 @@ export function PlannerView({ project, files, setFiles, dictionary, setDictionar
           </DialogContent>
         </Dialog>
       </div>
-    </div>
+      </ResizablePanel>
+
+      {/* Right: Code Viewer */}
+      {selectedCard && (
+        <>
+          <ResizableHandle withHandle className="bg-border" />
+          <ResizablePanel defaultSize={30} minSize={20} maxSize={50}>
+            <div className="flex h-full flex-col bg-background border-l border-border">
+              <div className="flex items-center justify-between border-b border-border px-4 py-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-semibold text-foreground truncate max-w-[200px]" title={selectedCard.name}>
+                    {selectedCard.name}
+                  </span>
+                  <span className="rounded bg-muted px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground shrink-0">
+                    {selectedCard.lines}L
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Select value={theme} onValueChange={setTheme}>
+                    <SelectTrigger className="h-6 w-[140px] text-[10px] border-border bg-background focus:ring-0 focus:ring-offset-0">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {Object.entries(CODE_THEMES).map(([key, t]) => (
+                        <SelectItem key={key} value={key} className="text-[10px]">
+                          {t.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <button
+                    onClick={handleCopy}
+                    className="flex h-6 w-6 items-center justify-center rounded text-muted-foreground hover:bg-accent hover:text-foreground"
+                    title="复制代码"
+                  >
+                    {isCopied ? <Check className="h-3.5 w-3.5 text-emerald-500" /> : <Copy className="h-3.5 w-3.5" />}
+                  </button>
+                  <button
+                    onClick={() => setSelectedCardId(null)}
+                    className="flex h-6 w-6 items-center justify-center rounded text-muted-foreground hover:bg-accent hover:text-foreground"
+                    aria-label="关闭代码面板"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div className="flex-1 overflow-auto bg-[#1E1E1E]">
+                <SyntaxHighlighter
+                  language="typescript"
+                  style={CODE_THEMES[theme].style}
+                  customStyle={{ margin: 0, padding: '1rem', minHeight: '100%', fontSize: '13px' }}
+                  showLineNumbers
+                >
+                  {selectedCard.code || `// 占位代码：没有真实代码内容\n// 函数名称：${selectedCard.name}\n// 行数估算：${selectedCard.lines} 行\n\nfunction ${selectedCard.name}() {\n  // TODO: Implement ${selectedCard.name}\n}`}
+                </SyntaxHighlighter>
+              </div>
+            </div>
+          </ResizablePanel>
+        </>
+      )}
+    </ResizablePanelGroup>
   )
 }
 

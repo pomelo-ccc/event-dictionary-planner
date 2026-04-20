@@ -7,6 +7,7 @@ interface PPMMethod {
   comment: string
   lineCount: number
   isAsync: boolean
+  code?: string
 }
 
 interface PPMAnalysis {
@@ -39,6 +40,7 @@ interface UMCMethod {
   end_line: number
   lines: number
   comment: string
+  code?: string
 }
 
 interface UMCFile {
@@ -68,6 +70,7 @@ interface PDMMethod {
   startLine: number
   endLine: number
   lines: number
+  code?: string
 }
 
 interface PDMDetail {
@@ -105,6 +108,9 @@ export function parsePPMReport(report: PPMReport): EventFile[] {
       if (method.comment) {
         card.note = method.comment
       }
+      if (method.code) {
+        card.code = method.code
+      }
       return card
     })
 
@@ -139,6 +145,9 @@ export function parseUMCReport(report: UMCReport): EventFile[] {
       }
       if (method.comment) {
         card.note = method.comment
+      }
+      if (method.code) {
+        card.code = method.code
       }
       return card
     })
@@ -175,6 +184,9 @@ export function parsePDMReport(report: PDMReport): EventFile[] {
       }
       if (method.comment) {
         card.note = method.comment
+      }
+      if (method.code) {
+        card.code = method.code
       }
       return card
     })

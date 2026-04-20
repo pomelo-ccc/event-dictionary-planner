@@ -32,6 +32,8 @@ export interface FunctionCard {
   starred?: boolean
   /** 使用次数统计 */
   usageCount?: number
+  /** 函数代码内容 */
+  code?: string
 }
 
 export interface SplitGroup {

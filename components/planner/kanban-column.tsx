@@ -21,6 +21,8 @@ interface Props {
   onUpdate: (g: SplitGroup) => void
   onDelete: () => void
   onDictionaryUpdate?: (updated: EventDictionaryItem[]) => void
+  selectedCardId?: string | null
+  onSelectCard?: (id: string) => void
 }
 
 type ViewMode = "all" | "grouped"
@@ -32,12 +34,12 @@ interface GroupedCards {
   cards: FunctionCardType[]
 }
 
-export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictionaryUpdate }: Props) {
+export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictionaryUpdate, selectedCardId, onSelectCard }: Props) {
   const totalLines = group.cards.reduce((acc, c) => acc + (c.lines || 0), 0)
   const [editingName, setEditingName] = useState(false)
   const [draftName, setDraftName] = useState(group.name)
   const [adding, setAdding] = useState(false)
-  const [draftCard, setDraftCard] = useState({ name: "", lines: 0 })
+  const [draftCard, setDraftCard] = useState({ name: "" })
   const [viewMode, setViewMode] = useState<ViewMode>("all")
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set())
   const [showStarredOnly, setShowStarredOnly] = useState(false)
@@ -92,12 +94,12 @@ export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictiona
     const newCard: FunctionCardType = {
       id: `c${Date.now()}`,
       name: draftCard.name.trim(),
-      lines: draftCard.lines || 0,
+      lines: 0,
       event_type: undefined,
       note: "",
     }
     onUpdate({ ...group, cards: [...group.cards, newCard] })
-    setDraftCard({ name: "", lines: 0 })
+    setDraftCard({ name: "" })
     if (continueAdding) {
       setTimeout(() => inputRef.current?.focus(), 0)
     } else {
@@ -123,7 +125,7 @@ export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictiona
   return (
     <div
       className={cn(
-        "flex h-full w-72 shrink-0 flex-col rounded-lg border bg-muted/40 transition-colors",
+        "flex h-full w-[46rem] shrink-0 flex-col rounded-lg border bg-muted/40 transition-colors",
         isOver ? "border-foreground/30 bg-foreground/[0.03]" : "border-border",
       )}
     >
@@ -220,7 +222,7 @@ export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictiona
       </div>
 
       {/* Cards */}
-      <div ref={setNodeRef} className="flex-1 space-y-2 overflow-y-auto p-2">
+      <div ref={setNodeRef} className="flex-1 space-y-3 overflow-y-auto p-3">
         {/* 收藏区域 */}
         {starredCards.length > 0 && (
           <div className="rounded-md border border-amber-200 bg-amber-50/50 p-2">
@@ -238,6 +240,8 @@ export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictiona
                     onChange={updateCard}
                     onDelete={() => deleteCard(card.id)}
                     onToggleDictionaryStar={toggleDictionaryStar}
+                    isSelected={selectedCardId === card.id}
+                    onClick={() => onSelectCard?.(card.id)}
                   />
                 ))}
               </div>
@@ -281,6 +285,8 @@ export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictiona
                           onChange={updateCard}
                           onDelete={() => deleteCard(card.id)}
                           onToggleDictionaryStar={toggleDictionaryStar}
+                          isSelected={selectedCardId === card.id}
+                          onClick={() => onSelectCard?.(card.id)}
                         />
                       ))}
                     </div>
@@ -302,6 +308,8 @@ export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictiona
                 onChange={updateCard}
                 onDelete={() => deleteCard(card.id)}
                 onToggleDictionaryStar={toggleDictionaryStar}
+                isSelected={selectedCardId === card.id}
+                onClick={() => onSelectCard?.(card.id)}
               />
             ))}
           </SortableContext>
@@ -321,7 +329,7 @@ export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictiona
 
         {/* Quick entry */}
         {adding && (
-          <div className="rounded-md border border-foreground/30 bg-card p-2 shadow-sm ring-1 ring-foreground/10">
+          <div className="rounded-lg border border-foreground/30 bg-card p-3 shadow-sm ring-1 ring-foreground/10">
             <input
               ref={inputRef}
               value={draftCard.name}
@@ -333,20 +341,13 @@ export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictiona
                 }
                 if (e.key === "Escape") {
                   setAdding(false)
-                  setDraftCard({ name: "", lines: 0 })
+                  setDraftCard({ name: "" })
                 }
               }}
               placeholder="函数名称,回车连录"
               className="w-full bg-transparent font-mono text-[13px] font-semibold outline-none placeholder:text-muted-foreground/60"
             />
             <div className="mt-2 flex items-center gap-2">
-              <input
-                type="number"
-                value={draftCard.lines || ""}
-                onChange={(e) => setDraftCard((d) => ({ ...d, lines: Number(e.target.value) || 0 }))}
-                placeholder="行数"
-                className="h-6 w-16 rounded bg-muted/60 px-1.5 text-center font-mono text-[11px] tabular-nums outline-none ring-1 ring-transparent focus:ring-foreground/20"
-              />
               <span className="text-[10px] text-muted-foreground">
                 <kbd className="rounded border border-border bg-background px-1 font-mono">Enter</kbd> 连录{" "}
                 <kbd className="ml-1 rounded border border-border bg-background px-1 font-mono">Esc</kbd> 取消
@@ -355,7 +356,7 @@ export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictiona
                 <button
                   onClick={() => {
                     setAdding(false)
-                    setDraftCard({ name: "", lines: 0 })
+                    setDraftCard({ name: "" })
                   }}
                   className="flex h-6 w-6 items-center justify-center rounded text-muted-foreground hover:bg-accent"
                   aria-label="取消"

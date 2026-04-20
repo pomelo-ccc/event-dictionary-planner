@@ -54,14 +54,14 @@ export function EventTypePicker({
           type="button"
           disabled={disabled}
           className={cn(
-            "flex h-9 w-full items-center gap-2 rounded-xl border px-3 text-left shadow-sm transition-all outline-none",
+            "flex min-h-9 w-full items-center gap-2 rounded-xl border px-3 py-1.5 text-left shadow-sm transition-all outline-none",
             selectedTone ? cn(selectedTone.bg, selectedTone.text, selectedTone.ring, "ring-1 ring-inset") : "border-border/70 bg-background text-foreground hover:bg-muted/50",
             open && "border-foreground/20 ring-2 ring-ring/20",
             disabled && "cursor-not-allowed opacity-60",
           )}
         >
           <Zap className="h-3.5 w-3.5 shrink-0 opacity-70" />
-          <span className="min-w-0 flex-1 truncate font-mono text-xs font-medium">
+          <span className="min-w-0 flex-1 break-words font-mono text-[11px] font-medium leading-tight">
             {value || <span className="text-muted-foreground">选择事件类型</span>}
           </span>
           <ChevronDown className={cn("h-3.5 w-3.5 shrink-0 opacity-50 transition-transform", open && "rotate-180")} />
@@ -106,7 +106,7 @@ export function EventTypePicker({
           </label>
         </div>
 
-        <ScrollArea className="max-h-[28rem]">
+        <ScrollArea className="h-[28rem]">
           <div className="space-y-3 p-2.5">
             {dictionary.length === 0 ? (
               <EmptyState message="字典为空，先去字典页录入事件类型" />
