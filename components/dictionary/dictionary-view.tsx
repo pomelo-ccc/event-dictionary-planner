@@ -91,6 +91,11 @@ export function DictionaryView({ items, setItems, groups: GROUPS, setGroups }: P
     if (editing) {
       setItems(items.map((i) => (i.id === data.id ? data : i)))
     } else {
+      // Create new: Prevent duplicate type_name
+      if (items.some((i) => i.type_name === data.type_name)) {
+        alert(`已存在名为 "${data.type_name}" 的事件类型`)
+        return
+      }
       setItems([...items, { ...data, id: `d${Date.now()}` }])
     }
     setSheetOpen(false)
@@ -107,12 +112,24 @@ export function DictionaryView({ items, setItems, groups: GROUPS, setGroups }: P
       setGroups([...GROUPS, ...newGroups])
     }
 
-    // Add items with unique IDs
-    const itemsWithIds = newItems.map(item => ({
-      ...item,
-      id: `d${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
-    }))
-    setItems([...items, ...itemsWithIds])
+    // Deduplicate logic: use existing items map for fast lookup
+    const existingTypeNames = new Set(items.map((it) => it.type_name))
+    const itemsToAdd: EventDictionaryItem[] = []
+
+    for (const newItem of newItems) {
+      // Only add if type_name does not exist
+      if (!existingTypeNames.has(newItem.type_name)) {
+        itemsToAdd.push({
+          ...newItem,
+          id: `d${Date.now()}-${Math.random().toString(36).slice(2, 9)}`,
+        })
+        existingTypeNames.add(newItem.type_name) // prevent duplicates within newItems itself
+      }
+    }
+
+    if (itemsToAdd.length > 0) {
+      setItems([...items, ...itemsToAdd])
+    }
   }
 
   function handleDelete(id: string) {

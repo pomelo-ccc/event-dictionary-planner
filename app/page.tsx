@@ -84,9 +84,30 @@ function DataSyncButtons({
           const data = JSON.parse(content)
           if (data.files && data.dictionary && data.dictGroups) {
             setFiles(data.files)
-            setDictionary(data.dictionary)
-            setDictGroups(data.dictGroups)
-            alert("导入成功！")
+            
+            // Deduplicate incoming dictionary by type_name against current dictionary
+            const existingTypeNames = new Set(dictionary.map(d => d.type_name))
+            const mergedDict = [...dictionary]
+            for (const incomingDict of data.dictionary) {
+              if (!existingTypeNames.has(incomingDict.type_name)) {
+                mergedDict.push(incomingDict)
+                existingTypeNames.add(incomingDict.type_name)
+              }
+            }
+            setDictionary(mergedDict)
+
+            // Deduplicate incoming dictGroups against current dictGroups
+            const existingGroups = new Set(dictGroups)
+            const mergedGroups = [...dictGroups]
+            for (const g of data.dictGroups) {
+              if (!existingGroups.has(g)) {
+                mergedGroups.push(g)
+                existingGroups.add(g)
+              }
+            }
+            setDictGroups(mergedGroups)
+
+            alert("导入并合并成功（重复类型已跳过）！")
           } else {
             alert("文件格式不正确，缺少必要的数据字段")
           }
