@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useMemo } from "react"
 import { MoreHorizontal, Plus, Pencil, Trash2, Check, X, Star, ChevronDown, ChevronRight, Layers } from "lucide-react"
 import { useDroppable } from "@dnd-kit/core"
 import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable"
-import type { SplitGroup, EventDictionaryItem, FunctionCard as FunctionCardType } from "@/lib/types"
+import type { SplitGroup, EventDictionaryItem, FunctionCard as FunctionCardType, ProjectId } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { FunctionCard } from "./function-card"
 import {
@@ -23,6 +23,7 @@ interface Props {
   onDictionaryUpdate?: (updated: EventDictionaryItem[]) => void
   selectedCardId?: string | null
   onSelectCard?: (id: string) => void
+  project?: ProjectId
 }
 
 type ViewMode = "all" | "grouped"
@@ -34,7 +35,7 @@ interface GroupedCards {
   cards: FunctionCardType[]
 }
 
-export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictionaryUpdate, selectedCardId, onSelectCard }: Props) {
+export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictionaryUpdate, selectedCardId, onSelectCard, project }: Props) {
   const totalLines = group.cards.reduce((acc, c) => acc + (c.lines || 0), 0)
   const [editingName, setEditingName] = useState(false)
   const [draftName, setDraftName] = useState(group.name)
@@ -242,6 +243,7 @@ export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictiona
                     onToggleDictionaryStar={toggleDictionaryStar}
                     isSelected={selectedCardId === card.id}
                     onClick={() => onSelectCard?.(card.id)}
+                    project={project}
                   />
                 ))}
               </div>
@@ -287,6 +289,7 @@ export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictiona
                           onToggleDictionaryStar={toggleDictionaryStar}
                           isSelected={selectedCardId === card.id}
                           onClick={() => onSelectCard?.(card.id)}
+                          project={project}
                         />
                       ))}
                     </div>
@@ -310,6 +313,7 @@ export function KanbanColumn({ group, dictionary, onUpdate, onDelete, onDictiona
                 onToggleDictionaryStar={toggleDictionaryStar}
                 isSelected={selectedCardId === card.id}
                 onClick={() => onSelectCard?.(card.id)}
+                project={project}
               />
             ))}
           </SortableContext>

@@ -1,0 +1,64 @@
+Table Name,Description,Label,Action,Property Key,Property Value
+ItemManageSearchTable,料件管理,basic.common.table.ItemManageSearchTable,,bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|size|canExport|canSet|select|size|wrap|frozenRight|frozen|,true|true|true|true|false|true|true|true|true|small|true|true|multi|middle|true|1|2|
+sysDataPermTable,数据权限表格,basic.common.table.sysChangeNoticeTable,,frozenRight,1
+sysDataPermErrTable,数据权限表格,basic.common.table.sysChangeNoticeTable,,frozenRight,1
+sysPermiSimulationTable,权限计算表格,basic.common.table.sysChangeNoticeTable,,frozenRight,1
+sysObjectPermiTable,对象权限表格,basic.common.table.sysChangeNoticeTable,,frozenRight,1
+sysFilePermiTable,附件权限表格,basic.common.table.sysChangeNoticeTable,,frozenRight,1
+sysRelatePermiTable,关联权限表格,basic.common.table.sysChangeNoticeTable,,frozenRight,1
+sysOrganizationTable,组织结构,basic.common.table.tempSysOrganizationTable,,frozenRight|canExport|pageSizeIndex,1|true|1
+sysClassificationCodeManageTable,分类组码管理,basic.common.table.sysClassificationCodeManageTable,,frozen|frozenRight|sizeChanger|canExport,1|1|true|false
+sysNormalCodeManageTable,普通组码管理,basic.common.table.sysNormalCodeManageTable,,frozen|frozenRight|sizeChanger|canExport,1|1|true|false
+tempSysBOMBusinessObjectTable,BOM业务对象,basic.common.table.tempSysBOMBusinessObjectTable,,pagination,FALSE
+tempSysReportFormsTable,报表,basic.common.table.tempSysBOMBusinessObjectTable,,pagination|frozenRight,false|1
+sysRoleTable,角色管理,basic.common.table.tempSysRoleTable,,pagination,false,
+sysOrganGroupTable,组织结构部门管理,systemSetting.organization.commonTitle.group,,pagination|quickFilterMatcher|isExternalFilterPresent|doesExternalFilterPass,false|sysOrganGroupFilterAction|sysOrganGroupHasExternalFilter|sysOrganGroupExternalFilterPasses,
+sysCodeItemTable,组码管理子项,basic.common.table.sysCodeItemTable,,pagination|canSize|height|clickAndSelected|select|frozenRight|showFooter,false|false|80vh|true|normal|1|false
+sysWorkflowTemplateTable,工作流模板清单,basic.common.table.testTable,,frozenRight|mode|canExport|sizeChanger,2|edit|false|true
+sysWFSelectObjectClassficationTable,选择对象及分类,basic.common.table.sysWFSelectObjectClassficationTable,,frozenRight|canSet|canExport|canSize|total|showFooter|pagination,1|false|false|false|false|false|false
+sysMilestoneLeftTable,里程碑左边table,basic.common.table.,,total,false
+sysExceptionDateTable,例外日期table,basic.common.table.,,|total|canExport|total,|false|false|false
+sysExceptionDateDetailsTable,例外日期详情信息,basic.common.table.,,showFooter|total|canExport|total,false|false|false|false
+sysTransformationTypeTable,转换类型,basic.common.table.,,pagination|frozenRight,false|1
+sysConfigurationTransformationTable,转换配置,basic.common.table.,,canSet|canExport|canSize|frozenRight,false|false|false|1
+sysSignatureSchemeTable,签章方案,basic.common.table.,,canSet|canExport|canSize|total,false|false|false|false
+sysClassificationSynthesisRulesPasteTable,合成规则黏贴表格,合成规则黏贴表格,,showFooter|frozenRight|total|getRowClass,false|1|false|if($data.ERRORTYPE == 'PASTE_ERROR'){return 'ClassfycolumnRed'}else if($data.ERRORTYPE == 'PASTE_EXCEPTION'){return 'ClassfycolumnOrange'}
+sysClassificationCodeSegmentPasteTable,码段黏贴表格,码段黏贴表格,,showFooter|frozenRight|total|getRowClass,false|1|false|if($data.message){return 'ClassfycolumnRed'}else if($data.ERRORTYPE == 'PASTE_EXCEPTION'){return 'ClassfycolumnOrange'}
+sysClassificationRulesDelErrorTable,删除合成规则失败表格,删除合成规则失败表格,,frozenRight|total,1|false
+sysClassificationCodeDelErrorTable,删除码段失败表格,删除码段失败表格,,frozenRight|total,1|false
+sysClassificationSynthesisRulesTable,合成规则表格,合成规则表格,,frozenRight|height|total,1|100%|false
+sysClassificationCodeSegmentTable,码段表格,码段表格,,frozenRight|total,1|false
+sysClassificationCodeSegmentTypeTable,码段流水码类型值表格,码段表格,,frozenRight|total,1|false
+sysClassificationAddSynthesisRulesTable,新增合成规则表格,新增合成规则表格,,total|frozenRight,true|1
+sysRevisionRuleTable,修订规则table,basic.common.table.,,total|canExport|canSize|mode|process|pagination|select,true|false|false|edit|reviseAfterLifecycleAction|false|normal
+sysTransferWorkflowSettingTable,流程配置,,,total|canSet|canExport|canSize|process,false|false|false|false|sysTransferWorkflowSettingAction
+sysTransferObjectTable,转换对象,,,total|canSet|canExport|canSize,false|false|false|false
+sysERPIntegratedTemplateTable,ERP集成模板table,basic.common.table.,,total|canExport|mode|height|frozen|frozenRight|canSet|canSize,true|false|edit|calc(100vh - 450px)|1|1|true|true
+sysERPIntegratedProductLibraryTable,ERP集成产品库table,basic.common.table.,,total|canExport|canSize|mode|height|canSet|showIndex|canSize|frozenRight,true|false|false|edit|calc(100vh - 140px)|true|true|true|1
+sysERPSelectIntegratedProductLibraryTable,ERP选择集成产品库table,basic.common.table.,,total|canExport|canSize|canSet|showIndex|pagination|sizeChanger|canSize,true|false|false|true|true|true|true|true
+sysERPIntegratedAddProductLibraryTable,ERP集成模板添加产品库table,basic.common.table.,,total|canExport|canSize|mode|canSet|showIndex|pagination|canSize,true|false|false|edit|true|true|true|true
+sysAddSignatureSchemeTable,添加模板签章,basic.common.table.sysAddSignatureSchemeTable,,
+sysAddSignatureSchemeSingleTable,添加模板签章,basic.common.table.sysAddSignatureSchemeSingleTable,,select,single
+sysWFAttachmentPermiTable,附件权限权限表格,basic.common.table.sysWFAttachmentPermiTable,,pagination|total|canExport|canSet|canSize|height|width|mode|showFooter|title|showAddRow|select,false|false|false|false|false|170px|670px|edit|false|systemSetting.workflowTemplate.permissionSetting.file.title|false|normal
+sysWFFormUIPermiTable,Form UI权限表格,basic.common.table.sysWFFormUIPermiTable,,pagination|total|canExport|canSet|canSize|height|width|mode|showFooter|title|showAddRow|select,false|false|false|false|false|220px|670px|edit|false|systemSetting.workflowTemplate.permissionSetting.form.title|false|normal
+sysWFAssociationPermiTable,关联关系权限表格,basic.common.table.sysWFAssociationPermiTable,,pagination|total|canExport|canSet|canSize|height|width|mode|showFooter|title|showAddRow|select,false|false|false|false|false|380px|670px|edit|false|systemSetting.workflowTemplate.permissionSetting.relation.title|false|normal
+sysWFPermiClassficationTable,流程权限分类表格,basic.common.table.sysWFPermiClassficationTable,,canSize|canSet|canExport|total|height|width|pagination|select|showFooter,false|false|false|false|80vh|500px|false|normal|false
+sysBomRelationTable,bom关系,bom关系,,frozenRight|canExport|select|initQuery,1|false|normal|false
+sysBomTemplateTable,bom模板新,basic.common.table.tempSysBomTemplateTable,,frozen|frozenRight|canExport|initQuery|clickAndSelected|select|afterQueryData,2|2|false|false|true|normal
+sysAddBomTemplateBottomTable,bom导出格式模板,bom导出格式模板,,frozenRight|canExport|pagination,1|false|false
+sysOrganErrGroupTable,导入部门失败展示的表格,basic.common.table.tempSysRoleTable,,pagination,false,
+sysOrganErrUserTable,导入用户失败展示的表格,basic.common.table.tempSysRoleTable,,pagination|frozenRight,false|1,
+sysClassifyRulesErrTable,导入规则失败展示的表格,basic.common.table.tempSysRoleTable,,pagination|frozenRight,false|1,
+sysCalendarErrTable,导入日历失败展示的表格,basic.common.table.tempSysRoleTable,,pagination|frozenRight,false|1,
+sysCompositeFieldTable,合成字段,basic.common.table.sysCompositeFieldTable,,total|canSet|canExport|canSize,false|false|false|false
+sysAssociationTemplateTable,关联模板,basic.common.table.tempSysRelationTemplateTable,,frozen|frozenRight|canExport|initQuery|clickAndSelected|select|afterQueryData,3|2|false|false|true|normal|true
+sysRelationBusinessObjectTable,关系业务对象,basic.common.table.tempSysRelationBusinessObjectTable,,pagination|frozenRight|select|initQuery|canExport,false|1|normal|false|false
+sysBatchErrorShowTable,失败原因(通用表格),basic.common.table.sysBatchErrorShowTable,,select|pagination,none|false
+sysImportCodeErrTable,导入code失败展示的表格,basic.common.table.sysImportCodeErrTable,,pagination|frozenRight|canExport,false|2|true,
+sysDCNodeManageTable,调度中心节点表格,basic.common.table.sysDCNodeManageTable,,pagination|frozenRight|canExport,true|1|true,
+sysDCTaskManageTable,调度中心任务表格,basic.common.table.sysDCTaskManageTable,,pagination|frozenRight|frozen|canExport,true|1|2|true,
+sysDCActuatorManageTable,调度中心执行器表格,basic.common.table.sysDCActuatorManageTable,,pagination|frozenRight|canExport,true|1|true,
+sysCADTemplateTable,CAD模板table,basic.common.table.sysCADTemplateTable,,total|canExport|mode|height|frozen|frozenRight|canSet|canSize,true|false|edit|calc(100vh - 288px)|1|1|false|true
+sysCADTemplateSourceFileTable,料件选择,料件选择,,bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|size|canExport|canSet|select|size|wrap|frozenRight|frozen|select|initQuery,true|true|true|true|false|true|true|true|true|small|false|true|multi|middle|true|1|2|single|false
+sysGlobalSearchTable,全局搜索,basic.common.table.sysGlobalSearchTable,,frozen|frozenRight|draggable|sizeChanger|initQuery,3|1|false|true|false
+sysSelectLocationTable,选择位置,basic.common.table.sysSelectLocationTable,,canExport|frozen,false|2

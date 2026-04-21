@@ -1,0 +1,225 @@
+Table Name,Description,Label,Action,Property Key,Property Value
+sysQuickOperateTable,工作台快捷列表,basic.common.table.sysQuickOperateTable,open:/common/instance?className=$className&mode=create&canExport=false&guid="$guid",total|bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|simple|cardWidth|cardHeight,false|false|false|false|false|false|false|false|false|false|false|100px|80px
+sysWorkbenchTodoTable,工作台待办任务,basic.common.table.sysWorkbenchTodoTable,,bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|simple|frozenRight|select|size|wrap|showAddRow,true|true|true|true|false|true|true|true|true|false|1|multi|middle|true|false
+sysWorkbenchWorkmanshipTaskTable,工作台工艺任务,basic.common.table.sysWorkbenchWorkmanshipTaskTable,,bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|simple|frozen|frozenRight|select|size|wrap|showAddRow,true|true|true|true|false|true|true|true|true|false|2|1|multi|middle|true|false
+BOMEnd2ItemTable,bom添加子阶,basic.common.table.ItemManageTable,,bordered|pagination|sizeChanger|header|expandable|select|fixHeader|noResult|ellipsis|size|canExport|canSet|frozen|frozenRight,true|true|true|true|false|multi|true|true|true|small|true|true|2|2
+ItemManageSearchTable,料件管理,basic.common.table.ItemManageSearchTable,,bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|size|canExport|canSet|select|size|wrap|frozenRight|frozen|isRowCheckable|initQuery,true|true|true|true|false|true|true|true|true|small|true|true|multi|middle|true|1|2|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+ItemManageSearchSingleTable,料件管理,basic.common.table.ItemManageSearchTable,,bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|size|canExport|canSet|select|size|wrap|frozen|select|isRowCheckable|initQuery,true|true|true|true|false|true|true|true|true|small|true|true|multi|middle|true|2|single|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+notifyListTable,通知列表,basic.common.table.notifyListTable,,select,multi
+sysInstanceRelatedItemsDefaultTable,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|frozenRight|sizeChanger|size|canExport,multi|2|1|true|middle|true
+sysInstanceRelatedItemsUsedDefaultTable,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|frozenRight|sizeChanger|size|canExport,multi|2|1|true|middle|true
+sysInstanceReferencedTable,使用情况,basic.common.table.sysInstanceReferencedTable,,total|bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|simple|draggable|select|frozen,false|true|true|true|true|false|true|true|true|true|true|false|multi|2
+sysInstanceWorkflowTable,流程,basic.common.table.sysInstanceWorkflowTable,,canExport|canSet|frozen|frozenRight|size|showAddRow,true|true|2|0|middle|false
+sysRestrictedSubstanceTable,限用物质含量表,basic.common.table.sysRestrictedSubstanceTable,,size|frozenRight|wrap|checkbox|total|processUrl,middle|1|true|true|false|/ItemManagement/IItemManagementService/cellSave
+sysItemRestrictedSubstanceTable,限用物质,basic.common.table.sysItemRestrictedSubstanceTable,,checkbox|total,true|false
+sysInstanceRevisionTable,版本,basic.common.table.sysInstanceRevisionTable,,canExport|canSet|frozen|frozenRight|size|total|showAddRow,true|true|2|0|middle|true|false
+sysItemInstanceRevisionTable,版本,basic.common.table.sysInstanceRevisionTable,,canExport|canSet|frozen|frozenRight|size|total|showAddRow,true|true|2|0|middle|true|false
+sysCadInstanceRevisionTable,版本,basic.common.table.sysInstanceRevisionTable,,canExport|canSet|frozen|frozenRight|size|total|showAddRow,true|true|2|0|middle|true|false
+sysDocInstanceRevisionTable,版本,basic.common.table.sysInstanceRevisionTable,,canExport|canSet|frozen|frozenRight|size|total|showAddRow,true|true|2|0|middle|true|false
+sysInstanceECTable,工程变更,basic.common.table.sysInstanceECTable,,,
+ItemManageTableTest,料件管理,basic.common.table.ItemManageTableTest,,bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|simple|size,true|true|true|true|false|true|true|true|true|true|small
+sysInstanceBOMTable,BOM,basic.common.table.sysInstanceBOMTable,,select,multi
+sysWorkbenchApproveTable,工作台待我审签,basic.common.table.sysWorkbenchApproveTable,,pagination|sizeChanger|frozen|frozenRight|select|size|wrap|showAddRow,true|true|1|1|multi|middle|true|false
+sysFlowTrackTable,流程追踪,basic.common.table.sysFlowTrackTable,,pagination|sizeChanger|frozen|frozenRight|select|size|wrap|showAddRow,true|true|1|1|multi|middle|true|false
+sysWorkbenchChangeTaskTable,工作台变更任务,basic.common.table.sysWorkbenchChangeTaskTable,,pagination|sizeChanger|wrap|frozen|frozenRight|showAddRow,true|true|true|2|1|false
+sysWorkbenchProjectTaskTable,工作台项目任务,basic.common.table.sysWorkbenchProjectTaskTable,,pagination|sizeChanger|frozen|showAddRow|frozenRight,true|true|1|false|1
+sysTBWorkbenchProjectTaskTable,工作台TB项目任务,basic.common.table.sysWorkbenchProjectTaskTable,,pagination|sizeChanger|frozen|showAddRow|frozenRight,true|true|1|false|1
+sysMyPendingDatasTable,工作台我的处理,workbench.sysMyPendingDatasTable.title,,frozen|pagination|sizeChanger|frozenRight|select|size|wrap|canExport|cardWidth|cardHeight|showAddRow|height,2|true|true|1|multi|middle|true|true|275px|250px|false|560px
+sysAssignTaskManagementTable,工作台分派任务管理,workbench.sysAssignTaskManagementTable.title,,pagination|sizeChanger|frozenRight|select|size|wrap|canExport|cardWidth|cardHeight|showAddRow,true|true|1|multi|middle|true|false|275px|250px|false
+sysMyAttentionTable,我的关注,basic.common.table.sysMyAttentionTable,,total|bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|simple|cardWidth|cardHeight,false|false|false|false|false|false|false|false|false|false|false|100px|80px
+sysPublicSpaceTable,公共空间,basic.common.table.publicSpaceTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|pageSizeIndex,multi|2|1|true|middle|true|220px|250px|12|24|1
+sysPublicSpaceItemTable,公共空间详情,basic.common.table.publicSpaceTable,,initQuery|select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|canSwitch|pageSizeOptions|showAddRow|pageSizeIndex|canExport|customView|isRowCheckable,false|multi|2|1|true|middle|true|220px|250px|17|24|true|10;20;50;100;500|false|1|true|true|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysCADPublicSpaceTable,公共空间(CAD),basic.common.table.publicSpaceTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|canExport,multi|3|1|true|middle|true|220px|250px|12|24|false
+sysCADPublicSpaceItemTable,公共空间详情(CAD),basic.common.table.publicSpaceTable,,initQuery|select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|canSwitch|pageSizeOptions|canExport|draggable|action|showMode,false|multi|3|1|true|middle|true|150px|170px|20|24|true|10;20;50;100;500|false|true|event/name?moveProcess=sysDesginCardDragOver|card
+sysCADProductDesignTable,产品设计(CAD),basic.common.table.sysProductDesignTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|canExport,multi|3|1|true|middle|true|220px|250px|12|24|false
+sysCADProductDesignDetailTable,产品设计明细(CAD),basic.common.table.sysProductDesignDetailTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|canSwitch|pageSizeOptions|canExport|draggable|action|showMode|initQuery,multi|2|1|true|middle|true|150px|170px|20|24|true|10;20;50;100;500|false|true|event/name?moveProcess=sysDesginCardDragOver|card|false
+sysProductDesignTable,产品设计,basic.common.table.sysProductDesignTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|pageSizeIndex,multi|2|1|true|middle|true|220px|250px|12|24|1
+sysProductDesignStoreTable,产品设计库,basic.common.table.sysProductDesignStoreTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|canExport|pageSizeIndex,multi|2|1|true|middle|true|271px|250px|12|24|true|1
+sysMainObjectSelectTable,选择主对象,basic.common.table.sysMainObjectSelectTable,,select|frozen|frozenRight|sizeChanger|size|wrap|isRowCheckable|initQuery,single|2|1|true|middle|true|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+sysProductDesignDetailTable,产品设计明细,basic.common.table.sysProductDesignDetailTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|canSwitch|pageSizeOptions|initQuery|showAddRow|pageSizeIndex|customView|isRowCheckable,multi|2|1|true|middle|true|220px|250px|17|24|true|10;20;50;100;500|false|false|1|true|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysProductSearchTable,产品设计明细,basic.common.table.sysProductSearchTable,,select|frozen|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|canSwitch|pageSizeOptions|initQuery|showAddRow|pageSizeIndex,multi|3|true|middle|true|220px|250px|20|24|true|10;20;50;100;500|false|false|1
+sysProductItemTemplateManageTable,产品设计模板管理,basic.common.table.sysProductTemplateManageTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|canSwitch|pageSizeOptions|initQuery,multi|3|1|true|middle|true|220px|250px|20|24|true|10;20;50;100;500|false
+sysProductDesignPartTable,零部件查看,basic.common.table.sysProductDesignPartTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols,multi|2|1|true|middle|true|220px|250px|12|24
+sysProductDesignDocTable,文档视图查看,basic.common.table.sysProductDesignDocTable,,select|frozen|frozenRight|sizeChanger|size|wrap,multi|2|1|true|middle|true
+sysProductDesignPngTable,图档视图查看,basic.common.table.sysProductDesignPngTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols,multi|2|1|true|middle|true|220px|250px|12|24
+sysBatchErrorShowTable,失败原因,basic.common.table.sysBatchErrorShowTable,,select|pagination|canExport,none|false|true
+sysRecentlyOpenedTable,最近打开,basic.common.header.sysRecentlyOpenedTable,,bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|size|frozenRight|frozen|canExport|select|pageSizeIndex,true|true|true|true|false|false|true|true|true|small|1|2|true|multi|1
+sysMaintainProductStructureTable,维护产品结构,productdesign.title.sysMaintainProductStructureTable,,draggable|pagination|total|select|mode|size|frozenRight|wrap|frozen|canExport|processUrl|checkStrictly|showFooter|dragProcess,true|false|false|multi|edit|middle|1|true|1|false|/ItemManagement/IItemManagementService/cellSave|false|false|sysMaintainBomDragAction
+sysMaintainProductStructureCheckTable,维护产品结构,productdesign.title.sysMaintainProductStructureTable,,draggable|pagination|total|select|mode|size|frozenRight|wrap|frozen|canExport|processUrl,true|false|false|multi|edit|middle|1|true|1|false|/ItemManagement/IItemManagementService/cellSave
+sysViewComprehensiveOverviewTable,查看综合视图,basic.common.header.sysViewComprehensiveOverviewTable,,total|canExport|size|select|isOnlyRead|wrap|frozen|canExpand|canLocation|showFooter,false|false|middle|multi|true|true|3|true|true|false
+sysTaskManagementTable,任务管理,basic.common.header.sysTaskManagementTable,,canExport|size|frozenRight,false|middle|1
+sysNewTaskAddDeliverablesTable,交付物,交付物,,canExport|size|frozenRight|pagination,false|middle|1|false
+sysScenceEntryTable,快捷操作,basic.common.table.sysScenceEntryTable,,,
+sysNoticeTable_,系统通知,basic.common.table.sysNoticeTable,,bordered|pagination|sizeChanger|header|expandable|cardCheckbox|fixHeader|noResult|ellipsis|size|canSet|cardWidth|cardHeight|cardCols|cardRows|select|simple|canExport|showCardLabel|canSwitch|action,true|true|true|true|false|true|true|true|true|small|false|100%|90px|32|4|multi|true|false|true|false|sysClickSetReadAction
+sysNoticeTable,系统通知,basic.common.table.sysNoticeTable,,showTopToolbar|bordered|pagination|sizeChanger|header|expandable|cardCheckbox|fixHeader|noResult|ellipsis|size|canSet|cardWidth|cardHeight|cardCols|cardRows|select|simple|canExport|showCardLabel|canSwitch|action,false|true|true|true|true|false|true|true|true|true|small|false|100%|90px|32|3|multi|true|false|false|false|sysClickSetReadAction
+sysTeamTable,团队,basic.common.table.sysTeamTable,,canExport|select|frozenRight|pagination,false|normal|1|false
+sysDemandTable,需求管理,basic.common.table.sysDemandTable,,size|sizeChanger|frozen|frozenRight,middle|true|2|1
+sysDemandItemTable,需求条目,basic.common.table.sysDemandItemTable,,size|sizeChanger|frozen|frozenRight|total|select,middle|true|2|1|false|multi
+sysCockpitProjectDetailTable,项目明细,basic.common.table.sysCockpitProjectDetailTable,,size|sizeChanger|frozen|frozenRight,middle|true|2|1
+sysFileTable,文件,basic.common.table.sysFolderTable,,select|total|pagination|frozenRight|canExport|sizeChanger,multi|true|true|1|false|true
+sysApproveObjectTable,审批对象,basic.common.table.sysApproveObjectTable,,total|canExport|size|select|frozen|frozenRight|pagination|showAddRow|sizeChanger|getRowClass,true|false|middle|multi|3|2|true|false|true|if($data.ISINVALID==='Y'){return 'isInvalid'}
+sysRelationshipViewTable,关联视图,,,canExport|select|frozen|frozenRight|pagination|showAddRow|sizeChanger|getRowClass|showFooter,false|multi|3|2|true|false|true|if($data.ISINVALID==='Y'){return 'isInvalid'}|false
+sysApproveErrorTable,审批无效附件,,,pagination,false
+sysDesignReviewTable,设计评审,basic.common.table.sysDesignReviewTable,,frozenRight,1
+sysBOMTable,BOM,basic.common.table.sysBOMTabel,,showFooter|draggable|pagination|total|select|mode|size|frozenRight|wrap|frozen|processUrl|canExport|checkStrictly|draggable|dragProcess|process|isFrontSort|getRowClass|rowDragValidate|rowDropValidate,false|true|false|false|multi|edit|middle|1|true|2|/ItemManagement/IItemManagementService/cellSave|false|false|true|sysBOMDragAction|sysBomCellSaveAction|true|if($data.cutStatus==='cutting'){return 'bom-del-cutting'}|sysValidBomDragAction|sysValidBomDropAction
+sysParentTable,相关父项,,,select|size|frozenRight|wrap|frozen|total,multi|middle|1|true|2|false
+sysModelReferencedTable,相关父项,,,select|size|frozenRight|wrap|frozen|total,multi|middle|1|true|2|false
+sysDemandManagementTable,需求管理,basic.common.table.sysDemandManagementTable,,size|sizeChanger|frozen|frozenRight|select,middle|true|2|1|multi
+sysTestCaseTable,测试用例,basic.common.table.sysTestCaseTable,,size|sizeChanger|frozen|frozenRight|select,middle|true|2|1|multi
+sysPermissionSettingTable,权限设置,basic.common.table.sysPermissionSettingTable,,,
+sysSetParticipantsTable,设置参与人员,basic.common.table.sysSetParticipantsTable,,pagination|total|canExport|size|canSet|showFooter|showAddRow,false|false|false|middle|false|false|false
+sysModelStructureTable,CAD模型结构,basic.common.table.sysModelStructureTable,,total|canExport|size|frozenRight|wrap|isOnlyRead|frozen,false|false|middle|1|true|true|1
+sysProcessTable,工艺流程组成,basic.common.table.sysProcessTable,,select|fixHeader|noResult|ellipsis|size|canExport|frozen|frozenRight|canSet,multi|true|true|true|small|true|2|1|true
+sysProcessCpTable,工艺流程组成,basic.common.table.sysProcessTable,,select|fixHeader|noResult|ellipsis|size|canExport|frozen|frozenRight,multi|true|true|true|middle|true|2|1
+sysProcessPfmeaTable,工艺流程组成,basic.common.table.sysProcessTable,,select|fixHeader|noResult|ellipsis|size|canExport|frozen|frozenRight,multi|true|true|true|middle|true|2|1
+sysGlobalSearchTable,全局搜索,basic.common.table.sysGlobalSearchTable,,frozen|frozenRight|draggable|canExport|sizeChanger|pageSizeIndex|isRowCheckable|canSet|initQuery,2|1|false|false|true|1|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|true|false
+sysTableObjectGlobalSearchTable,table对象类型全局搜索,basic.common.table.sysGlobalSearchTable,,frozen|frozenRight|draggable|canExport|sizeChanger|select|isRowCheckable|initQuery,2|1|false|false|true|single|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+sysCADGlobalSearchTable,全局搜索(CAD),basic.common.table.sysGlobalSearchTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|canSwitch|pageSizeOptions|canExport|draggable|action|showMode,multi|2|1|true|middle|true|150px|170px|20|24|true|10;20;50;100;500|false|true|event/name?moveProcess=sysDesginCardDragOver|card
+sysECMGlobalSearchTable,全局搜索,basic.common.table.sysECMGlobalSearchTable,,frozen|frozenRight|draggable|sizeChanger|isRowCheckable|initQuery,2|1|false|true|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+sysECMBatchGlobalSearchTable,全局搜索,basic.common.table.sysECMBatchGlobalSearchTable,,frozen|frozenRight|draggable|canExport|sizeChanger|isRowCheckable|initQuery,2|1|false|false|true|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+sysDefaultTable,默认表格,basic.common.table.sysDefaultTable,,select,multi
+testTable,testTable,basic.common.table.testTable,,,
+newTestTable,newTestTable,basic.common.table.newTestTable,,processUrl,/ItemManagement/IItemManagementService/cellSave
+sysFabricationProcessTable,制造工序,route.sysFabricationProcessTable.title,,select|fixHeader|noResult|ellipsis|size|canExport|frozen|frozenRight,multi|true|true|true|middle|true|2|1
+sysProcessCcjyTable,尺寸检验,route.sysProcessCcjyTable.title,,select|fixHeader|noResult|ellipsis|size|canExport|frozen|frozenRight,multi|true|true|true|middle|true|2|1
+sysProcessJgsbTable,加工设备,route.sysProcessCcjyTable.title,,select|fixHeader|noResult|ellipsis|size|canExport|frozen|frozenRight,multi|true|true|true|middle|true|2|1
+sysProcessCpTable_,CP,route.sysProcessCcjyTable.title,,select|fixHeader|noResult|ellipsis|size|canExport|frozen|frozenRight,multi|true|true|true|middle|true|2|1
+sysProcessCgjyTable,常规检验,route.sysProcessCcjyTable.title,,select|fixHeader|noResult|ellipsis|size|canExport|frozen|frozenRight,multi|true|true|true|middle|true|2|1
+sysProcessPfmeaTable_,PFMEA,route.sysProcessCcjyTable.title,,select|fixHeader|noResult|ellipsis|size|canExport|frozen|frozenRight,multi|true|true|true|middle|true|2|1
+sysProcessPfdTable,PFD,route.sysProcessCcjyTable.title,,select|fixHeader|noResult|ellipsis|size|canExport|frozen|frozenRight,multi|true|true|true|middle|true|2|1
+sysProcessGbTable,工步,route.sysProcessCcjyTable.title,,select|fixHeader|noResult|ellipsis|size|canExport|frozen|frozenRight,multi|true|true|true|middle|true|2|1
+sysWorkflowModelStructureTable,模型结构,basic.common.table.sysWorkflowModelStructureTable,,canExport|isOnlyRead|wrap|total|checkStrictly|showFooter|isRowCheckable,false|true|true|false|false|false|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysECOTable,变更指令表格,basic.common.table.sysECNPlanTable,,frozen|frozenRight|canExpand|canLocation|process|sizeChanger,1|1|false|false|sysCellSavePerformerAction|true
+sysWizardECOTable,变更指令表格(向导),basic.common.table.sysECNPlanTable,,frozen|frozenRight|canExpand|canLocation,1|1|false|false
+sysECMAnnexTable,设计变更附件,basic.common.table.sysECMAnnexTable,,frozenRight,1
+sysDrawApproveTable,图纸审批,basic.common.table.sysECMAnnexTable,,|total|canExport|clickAndSelected|showFooter,|false|false|true|false
+sysStructureDrawApproveTable,图纸审批,basic.common.table.sysECMAnnexTable,,|total|canExport|clickAndSelected,|false|false|true
+sysInsIterationTable,版序,,,select|fixHeader|noResult|ellipsis|size|canExport|frozen|frozenRight,multi|true|true|true|middle|true|2|1
+sysECPTable,变更建议表格,basic.common.table.sysECNPlanTable,,frozenRight,1
+sysWizardECPTable,变更建议表格（向导）,basic.common.table.sysECNPlanTable,,frozenRight,1
+sysEcrFileTable,变更请求附件,basic.common.table.sysECMAnnexTable,,frozenRight,1
+sysChangeNoticeTable,变更通知,basic.common.table.sysChangeNoticeTable,,frozenRight,1
+sysChangeScopeTable,变更范围,basic.common.table.sysChangeScopeTable,,frozenRight|process|sizeChanger|pageSizeOptions,1|singleSaveECIAction|true|10;20;50;100;500
+sysECPChangeScopeTable,变更范围(批量变更建议),basic.common.table.sysECPChangeScopeTable,,frozenRight|process|sizeChanger|pageSizeOptions,1|singleSaveECIAction|true|10;20;50;100;500
+sysChangeSuggestionTable,变更建议,basic.common.table.sysChangeSuggestionTable,,frozen|frozenRight|total|wrap|isOnlyRead|canExpand|canLocation,1|1|false|true|false|false|false
+sysPropertyChangeTable,属性变更,basic.common.table.sysPropertyChangeTable,,canSet|canExport,false|false
+sysBOMChangeTable,BOM变更,ecm.title.bomChange,,,
+sysRelateChangeTable,关联关系变更,ecm.title.relatedChange,,,
+sysECOOtherTable,其他,basic.common.table.sysECOOtherTable,,frozenRight|pagination|sizeChanger,1|true|true
+sysSelectLocationTable,选择位置,basic.common.table.sysSelectLocationTable,,canExport|frozen,false|2
+sysIntegrateTable,集成table,basic.common.table.sysInstanceReferencedTable,,frozenRight|pagination|sizeChanger|select|frozen|canExport,1|true|true|multi|2|true
+sysIntegrateParentTable,集成父table,basic.common.table.sysInstanceReferencedTable,,frozenRight|pagination|sizeChanger|select|frozen|clickAndSelected|afterQueryData|title,1|true|true|multi|2|true|true|queue.title.parentQueue
+sysIntegrateChildTable,集成子table,basic.common.table.sysInstanceReferencedTable,,frozenRight|pagination|sizeChanger|select|frozen|title,1|true|true|multi|2|queue.title.childQueue
+sysReportTable,报表table,basic.common.table.sysInstanceReferencedTable,,frozenRight|total|bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|simple|draggable|select|frozen,1|true|true|true|true|true|false|true|true|true|true|true|false|multi|2
+sysFileTransTable,文件转换table,basic.common.table.sysInstanceReferencedTable,,frozenRight|total|bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|simple|draggable|select|frozen,1|true|true|true|true|true|false|true|true|true|true|true|false|multi|2
+sysWizardFileTable,文件,basic.common.table.sysWizardFileTable,,select|total|pagination|frozenRight,multi|false|false|1
+sysEcImpactAnalysisTable,影响分析,basic.common.table.sysEcImpactAnalysisTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|isRowCheckable,multi|2|1|true|middle|true|220px|250px|12|24|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysReplaceProgrammeTable,替代方案表格,common.command.sysReplaceProgrammeTable,,frozen|frozenRight|canExport,2|1|true
+sysMainItemTable,主物料,basic.common.table.sysMainItemTable,,select|frozen|frozenRight|canExport,multi|2|2|true
+sysSubItemTable,替代物料,basic.common.table.sysSubItemTable,,select|frozen|frozenRight|canExport|showIcon|groupField|showField|showValue|showIndex|pagination,multi|1|1|true|true|PRIORITY|ISKEYITEM|Y|false|false
+sysNewUsedBOMTable,被用在BOM表格,basic.common.table.sysNewUsedBOMTable,,frozenRight|frozen,1|2
+sysMainItemAddTable,新增主物料(打开),basic.common.table.sysMainItemAddTable,,frozenRight|frozen,1|2
+sysReferenceMainItemTable,参考主物料表格,basic.common.table.sysReferenceMainItemTable,,frozen,2
+sysReplaceItemAddTable,新增替代物料(打开),basic.common.table.sysReplaceItemAddTable,,,
+sysReferenceReplaceItemTable,参考替代物料表格,basic.common.table.sysReferenceReplaceItemTable,,frozen,2
+sysUsedBOMAddTable,新增被用在BOM表格,basic.common.table.sysUsedBOMAddTable,,,
+sysBOMMainItemTable,BOM主物料,basic.common.table.sysMainItemTable,,select|frozen|canExport,multi|2|true
+sysBOMSubItemTable,BOM替代物料,basic.common.table.sysSubItemTable,,select|frozen|canExport|showIcon|groupField|showField|showValue|showIndex|pagination,multi|3|true|true|PRIORITY|ISKEYITEM|Y|false|false
+sysBOMWithItemTable,BOM取代物料,,,select|frozen|canExport|showIcon|showIndex|pagination,multi|3|true|true|false|false
+ProcessTaskDistributionTable,料件选择,料件选择,,bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|size|canExport|canSet|select|size|wrap|frozenRight|frozen|select|isRowCheckable|initQuery,true|true|true|true|false|true|true|true|true|small|true|true|multi|middle|true|1|2|single|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+sysDesignListTable,设计清单,basic.common.table.sysDesignListTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols,multi|2|1|true|middle|true|220px|250px|12|24
+sysProcessFlowConstituteTable,工艺流程组成,basic.common.table.sysProcessFlowConstituteTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols,multi|2|1|true|middle|true|220px|250px|12|24
+sysProcessFlowConstituteAddTable,工艺流程组成添加弹窗table,basic.common.table.sysProcessFlowConstituteAddTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols,multi|2|1|true|middle|true|220px|250px|12|24
+sysVitemRelatedjtgxlcTable,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|frozenRight|sizeChanger|size|canExport,multi|2|1|true|middle|true
+sysITEM-CAD3D$ITEM-CAD2D$ITEM-ECAD$Table,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|frozenRight|sizeChanger|size|canExport,multi|2|1|true|middle|true
+sysRelatedDocTable,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|frozenRight|sizeChanger|size|canExport,multi|2|1|true|middle|true
+sysCONVERTRELATIONTable,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|frozenRight|sizeChanger|size|canExport,multi|2|1|true|middle|true
+sysCAD3D-CAD2D$Table,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|frozenRight|sizeChanger|size|canExport,multi|2|1|true|middle|true
+sysMODEL-MEMBERTable,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|frozenRight|sizeChanger|size|canExport,multi|2|1|true|middle|true
+sysMODEL-REFERENCETable,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|sizeChanger|size|canExport,multi|2|true|middle|true
+sysITEM-CAD2D$Table,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|sizeChanger|size|canExport,multi|2|true|middle|true
+sysITEM-CAD3D$Table,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|sizeChanger|size|canExport,multi|2|true|middle|true
+sysITEM-ECAD$Table,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|sizeChanger|size|canExport,multi|2|true|middle|true
+sysApproveItemTable,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|sizeChanger|size|canExport,multi|2|true|middle|true
+sysFabricationOutlineProcessFlowConstituteTable,制造大纲工艺流程组成,basic.common.table.sysFabricationOutlineProcessFlowConstituteTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|draggable|dragProcess,multi|2|1|true|middle|true|220px|250px|12|24|true|sysFabricationOutlineDragAction
+sysFabricationOutlineProcessFlowConstituteAddTable,制造大纲工艺流程组成添加弹窗table,basic.common.table.sysFabricationOutlineProcessFlowConstituteAddTable,,select|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|isRowCheckable,multi|true|middle|true|220px|250px|12|24|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysAssemblyOutlineProcessFlowConstituteTable,装配大纲工艺流程组成,basic.common.table.sysAssemblyOutlineProcessFlowConstituteTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|canExport|draggable|dragProcess,multi|2|1|true|middle|true|220px|250px|12|24|false|true|sysAssemblyOutlineDragAction
+sysAssemblyOutlineProcessFlowConstituteAddTable,制造大纲工艺流程组成添加弹窗table,basic.common.table.sysFabricationOutlineProcessFlowConstituteAddTable,,select|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|isRowCheckable,multi|true|middle|true|220px|250px|12|24|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysOperatingStationAddTable,装配大纲工艺流程组成添加作业站弹窗table,basic.common.table.sysOperatingStationAddTable,,select|sizeChanger|size|wrap|cardWidth|cardHeight|isRowCheckable,multi|true|middle|true|220px|250px|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysAssemblyOutlineProcessFlowConstituteProcessAddTable,制造大纲工艺流程组成工序添加弹窗table,basic.common.table.sysAssemblyOutlineProcessFlowConstituteProcessAddTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols,multi|2|1|true|middle|true|220px|250px|12|24
+sysDeviceTable,加工设备,加工设备,,canSet|canExport|canSet|total|showFooter|frozenRight|isRowCheckable,false|false|true|true|true|1|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysDeviceSearchTable,加工设备,加工设备,,canSet|canExport|canSet|total|showFooter|sizeChanger|pageSizeIndex|isRowCheckable|initQuery,false|false|true|true|true|true|0|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+sysMeasuringToolTable,量检具,量检具,,canSet|canExportt|canSet|total|showFooter|frozenRight|isRowCheckable,false|false|true|true|true|1|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysMeasuringToolSearchTable,量检具,量检具,,canSet|canExportt|canSet|total|showFooter|sizeChanger|pageSizeIndex|isRowCheckable|initQuery,false|false|true|true|true|true|0|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+sysMoldFixtureTable,模夹具,模夹具,,canSet|canExportt|canSet|total|showFooter|frozenRight|isRowCheckable,false|false|true|true|true|1|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysMoldFixtureSearchTable,模夹具,模夹具,,canSet|canExportt|canSet|total|showFooter|sizeChanger|pageSizeIndex|isRowCheckable|initQuery,false|false|true|true|true|true|0|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+sysCGJYTable,常规检验,常规检验,,canSet|canExportt|canSet|total|showFooter|frozenRight|isRowCheckable,false|false|true|true|true|1|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysCGJYSearchTable,常规检验,常规检验,,canSet|canExportt|canSet|total|showFooter|sizeChanger|pageSizeIndex|isRowCheckable|initQuery,false|false|true|true|true|true|0|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+sysCCJYTable,尺寸检验,尺寸检验,,canSet|canExportt|canSet|total|showFooter|frozenRight|isRowCheckable,false|false|true|true|true|1|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysCCJYSearchTable,尺寸检验,尺寸检验,,canSet|canExportt|canSet|total|showFooter|sizeChanger|pageSizeIndex|isRowCheckable|initQuery,false|false|true|true|true|true|0|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+sysProcessMainItemTable,主料,主料,,canSet|canExportt|canSet|total|process|showFooter|frozenRight|isRowCheckable,false|false|true|true|sysProcessCellSaveAction|true|1|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysProcessMainItemSearchTable,主料,主料,,canSet|canExportt|canSet|total|process|showFooter|sizeChanger|pageSizeIndex|frozen|isRowCheckable|initQuery,false|false|true|true|sysProcessCellSaveAction|true|true|0|2|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+sysSecondaryItemTable,辅料,辅料,,canSet|canExportt|canSet|total|process|showFooter|frozenRight|isRowCheckable,false|false|true|true|sysProcessCellSaveAction|true|1|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysSecondaryItemSearchTable,辅料,辅料,,canSet|canExportt|canSet|total|process|showFooter|sizeChanger|pageSizeIndex|frozen|isRowCheckable|initQuery,false|false|true|true|sysProcessCellSaveAction|true|true|0|2|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`|false
+sysProductTemplateManageTable,产品库模板管理,产品库模板管理,,canExport,true
+sysObjectSearchTable2,object搜索,basic.common.table.sysObjectSearchTable,,frozen|canExport|select|clickAndChecked|sizeChanger,2|false|single|true|true
+sysProTemplateManageTable,模板管理二级table,basic.common.table.sysProTemplateManageTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|canSwitch|pageSizeOptions|initQuery|isRowCheckable,multi|2|1|true|middle|true|220px|250px|20|24|true|10;20;50;100;500|false|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+sysLightWeightFileTable,图纸审批文件table,图纸审批文件table,,canSet|canExport,false|false
+sysLightWeightDrawingFileTable,轻量化图纸审批table,轻量化图纸审批table,,|total|canExport|clickAndSelected|showFooter,|false|false|true|false
+sysInstanceAddDeliverablesTable,实例页面交付物,交付物,,canExport|size|frozenRight,false|middle|1
+sysInstanceSubtasksTable,子任务,子任务,,canExport|size|frozenRight|frozen|sizeChanger,false|middle|1|2|true
+sysNewOutFileTable,文件,basic.common.table.sysFolderTable,,total|frozenRight|canExport|sizeChanger|clickAndSelected|showAddRow,true|1|false|true|true|false
+sysNewOutFileTaskTable,文件,basic.common.table.sysFolderTable,,total|frozenRight|canExport|sizeChanger|clickAndSelected|showAddRow|select,true|1|false|true|true|false|normal
+sysJournalListTable,日志列表,日志,,bordered|pagination|sizeChanger|header|expandable|checkbox|fixHeader|noResult|ellipsis|size|canSet|cardWidth|cardHeight|cardCols|cardRows|select|simple|canExport|showCardLabel|canSwitch,true|false|true|true|false|false|true|true|true|small|false|100%|80px|32|4|multi|true|false|false|false
+sysInstanceOperateAddDeliverablesTable,添加交付物,添加交付物,,canExport|size|frozenRight,false|middle|1
+sysFolderPermissionsTable,文件夹权限table,文件夹权限,,canExport|canSize|mode|canSet|showIndex|height|selectionMode|rowAddAction|showFooter|frozenRight,false|false|edit|true|true|400px|normal|folderPermissionsRowAddAction|false|1
+sysProjectManagementTable,项目管理,basic.common.table.sysProjectManagementTable,,frozenRight,1
+sysProjectWbsTable,任务,basic.common.table.sysProjectWbsTable,,frozenRight|processUrl|total|canExport,1|/ProjectManagement/ITaskService/taskSave|false|false
+sysProjectTemplateTable,项目模板,basic.common.table.sysProjectTemplateTable,,,
+sysProjectTemplateManageTable,项目模板管理,basic.common.table.sysProjectTemplateManageTable,,frozen|frozenRight,2|1
+sysProcessTaskDeliverablesTable,工艺分工实例页面交付物,交付物,,canExport|size|frozenRight|showFooter|frozen,false|middle|1|false|2
+sysOutlineSearchTable,大纲搜索table,basic.common.table.sysOutlineSearchTable,,frozen|canExport|select,3|false|single
+sysMyCalendarTaskTable,我的日程,basic.common.table.sysMyCalendarTaskTable,,frozen|height|sizeChanger,2|100%|1
+sysProcessNewOutFileTable,工序文件,basic.common.table.sysFolderTable,,total|frozenRight|canExport|sizeChanger|clickAndSelected|showAddRow|select,true|1|false|true|true|false|normal
+sysProcessManagementTable,工艺管理,basic.common.table.sysProcessManagementTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|pageSizeIndex,multi|2|1|true|middle|true|220px|250px|12|24|1
+sysProcessManagementDetailTable,工艺管理明细,basic.common.table.sysProcessManagementDetailTable,,select|frozen|frozenRight|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|canSwitch|pageSizeOptions|initQuery|showAddRow|pageSizeIndex|customView,multi|2|1|true|middle|true|220px|250px|20|24|true|10;20;50;100;500|false|false|1|true
+sysChangeContentTable,编辑变更内容,basic.common.table.sysChangeNoticeTable,,frozenRight|frozen|pagination|process|rowClass|total|canSet,1|2|false|sysChangeContentRowAction|ecm-more-changes|false|false
+sysBOMCompareTable,bom比较,bom比较,,canSet|canExport|height|canExpand|canLocation|total|showFooter|isExternalFilterPresent|doesExternalFilterPass|select|expandLevel,false|false|400px|true|true|false|false|sysBomCompareFilterPresentAction|sysBomCompareFilterPassesAction|multi|0
+sysBOMCompareTestTable,bom比较,bom比较,,canSet|canExport|height|canExpand|canLocation|total|showFooter|isExternalFilterPresent|doesExternalFilterPass|select|expandLevel,false|false|400px|true|true|false|false|sysBomCompareFilterPresentAction|sysBomCompareFilterPassesAction|normal|0
+sysBOMComparePositionTable,bom比较,bom比较,,canSet|canExport|height|canExpand|canLocation|total|showFooter|isExternalFilterPresent|doesExternalFilterPass|select|expandLevel,false|false|400px|true|true|false|false|sysBomCompareFilterPresentAction|sysBomCompareFilterPassesAction|multi|0
+sysChangeGlobalSearchTable,全局搜索,basic.common.table.sysGlobalSearchTable,,frozen|frozenRight|draggable|canExport|sizeChanger|select|isRowCheckable|initQuery,2|1|false|true|true|single|`($origin["HASAUTH"] === true || $origin['HASAUTH']===undefined)`|false
+sysBomForkTable,BOM,basic.common.table.sysBOMTabel,,pagination|total|select|mode|size|frozenRight|wrap|frozen|process|canExport|checkStrictly|draggable|dragProcess|getRowClass,false|false|multi|edit|middle|1|true|2|sysBomForkCellAction|false|false|false|sysBOMDragAction|`if($data['ISALLOWDERIVE']==='N' && (!$data['DERIVE_CASE'] || $data['DERIVE_CASE']==='0'))return 'bom-not-fork';if($data['DERIVE_CASE']==='2'){if($data['DERIVE_ISUPDATE']==='Y')return 'bom-fork-edit';return 'bom-fork'};if($data['DERIVE_CASE']==='3')return 'bom-add';if($data['DERIVE_CASE']==='5')return 'bom-del';if($data['DERIVE_CASE']==='4')return 'bom-replace';return 'bom-fork-empty'`
+sysBomForkParentTable,BOM,basic.common.table.sysBOMTabel,,pagination|total|canExport|canSet|canSize|showFooter|showZebraLine|canSet|canLocation|canExpand|showIndex,false|false|false|false|false|false|false|false|false|false|false
+sysBomHisFromTable,BOM,basic.common.table.sysBOMTabel,,pagination|total|canExport|canSet|canSize|showFooter|showZebraLine|canSet|canLocation|canExpand|showIndex,false|false|false|false|false|false|false|false|false|false|false
+sysBomHisToTable,BOM,basic.common.table.sysBOMTabel,,pagination|total|canExport|canSet|canSize|showFooter|showZebraLine|canSet|canLocation|canExpand|showIndex|frozenRight,false|false|false|false|false|false|false|false|false|false|false|1
+sysProcessMainItemAddStructureTable,工序主料从bom添加产品结构,productdesign.title.sysProcessMainItemAddStructureTable,,pagination|total|select|mode|size|wrap|frozen|canExport|processUrl|checkStrictly|showFooter,false|false|multi|edit|middle|true|1|false|/ItemManagement/IItemManagementService/cellSave|false|false
+sysBRSReferenceReplaceItemTable,参考替代物料表格,basic.common.table.sysReferenceReplaceItemTable,,frozen|isRowCheckable,2|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+
+sysBRSPartTable,bom替代查看替代,,,frozenRight|process,1|sysBRSPartRowAction
+sysBRSDetailRightMainTable,BRSAFDM,,,frozenRight|select|clickAndSelected|frozen|sizeChanger|pageSizeIndex,1|multi|true|2|true|0
+sysBRSDetailRightComMainTable,BRSAFDM,,,frozenRight|select|clickAndSelected|initQuery|frozen|sizeChanger|pageSizeIndex|pagination,1|multi|true|false|2|true|0|true
+sysBRSDetailRightReplaceTable,,,,frozenRight|initQuery|rowAddAction|process|sizeChanger|pagination,1|false|sysBRSDRRowEditAction|sysBRSSubRowAction|false|false
+sysBRSDetailRightComReplaceTable,,,,frozenRight|rowAddAction|process|select|clickAndSelected|pagination,1|sysBRSDRRowEditAction|sysBRSSubRowAction|multi|true|false
+sysBRSDetailRightGlobalReplaceTable,,,,frozenRight|rowAddAction|process|pagination,1|sysBRSDRRowEditAction|sysBRSSubRowAction|false
+sysBRSDRRSearchTable,替代申请单-替代表格-元件搜索,,,select|isRowCheckable|sizeChanger,single|`($origin["HASAUTH"] === true || $origin['HASAUTH']===undefined)`|true
+sysBRSDRRModifySearchTable,替代申请单-替代表格-元件修改搜索,,,select|isRowCheckable,single|`($origin["HASAUTH"] === true || $origin['HASAUTH']===undefined)`
+sysBRSWorkbenchSearchTable,,,,pagination|isRowCheckable|pageSizeOptions|sizeChanger,true|`($origin["HASAUTH"] === true || $origin['HASAUTH']===undefined)`|10;20;50;100;500|true
+sysInstanceBRSPartTable,实例界面-替代关系-局部替代,,,,
+sysBRSGlobalWorkbenchSearchTable,,,,pagination|isRowCheckable,true|`($origin["HASAUTH"] === true || $origin['HASAUTH']===undefined)`
+sysBRSWholeTable,bom替代查看替代,,,frozenRight,1 
+sysBRSInstanceWholeTable,实例界面-替代关系-全局替代,,,frozenRight,1 
+sysBRSNewUsedBOMTable,被用在BOM表格,basic.common.table.sysBRSNewUsedBOMTable,,frozenRight|frozen|select|initQuery|isRowCheckable|sizeChanger,1|2|multi|true|`($origin["HASAUTH"] === true || $origin['HASAUTH']===undefined)`|true
+sysBRSMainObjectSelectTable,选择主对象,basic.common.table.sysMainObjectSelectTable,,select|frozen|frozenRight|sizeChanger|size|wrap|isRowCheckable|initQuery,single|3|1|true|middle|true|`($origin["HASAUTH"] === true || $origin['HASAUTH']===undefined)`|false
+sysAssociatedMaterialTable,被物料关联对象,basic.common.table.sysGlobalSearchTable,,showFooter|total,false|false
+sysFileAttachmentTypeClassificationTable,文件附件类型分类,basic.common.table.sysGlobalSearchTable,,showFooter|total,false|false
+sysModelStructureWithNoPreviewTable,CAD模型结构(无预览),basic.common.table.sysModelStructureTable,,total|canExport|size|frozenRight|wrap|isOnlyRead|frozen,false|false|middle|1|true|true|1
+sysTBDeliverablesTable,任务对象交付物表格,交付物,,canExport|canExpand|canLocation|canSet|size|frozenRight,false|false|false|false|middle|1
+sysTBProjectStructuretTable,交付物清单项目结构table,交付物清单项目结构table,,showFooter|select|mode|size|wrap|frozen|canExport|total|pagination,true|multi|view|middle|true|2|false|false|false
+sysTBDeliveryItemSummaryTable,交付物清单交付项汇总table,交付物清单交付项汇总table,,select|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|total|pagination,multi|true|middle|true|220px|250px|12|24|false|false
+sysTBDeliverablesSummaryTable,交付物清单交付物汇总table,交付物清单交付物汇总table,,select|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|total|pagination,multi|true|middle|true|220px|250px|12|24|false|false
+sysTBGlobalSearchTable,全局搜索,basic.common.table.sysGlobalSearchTable,,frozen|frozenRight|draggable|canExport|select|isRowCheckable,2|1|false|true|single|`($origin['HASAUTH'] === true || $origin['HASAUTH']===undefined)`
+['HASAUTH']===undefined)`
+sysChangeScopeAddTable,全局搜索,basic.common.table.sysGlobalSearchTable,,frozen|frozenRight|sizeChanger|isRowCheckable|canSet|initQuery,2|1|true|`($origin["HASAUTH"] === true || $origin['HASAUTH']===undefined)`|true|true
+sysBomViewWithItemTable,,,,process|frozenRight,sysBomViewWithItemAction|1
+sysBomImportErrorTable,失败原因,basic.common.table.sysBomImportErrorTable,,pagination|showFooter|frozenRight,false|false|1
+sysGlobalSearchObjectSearchTable,全局搜索对象搜索,basic.common.table.sysGlobalSearchObjectSearchTable,,frozen|draggable|canExport|isRowCheckable|sizeChanger|initQuery,3|false|true|`($origin["HASAUTH"] === true || $origin['HASAUTH']===undefined)`|true|true

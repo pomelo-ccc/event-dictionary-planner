@@ -1,0 +1,488 @@
+Table Name,Column Name,Description,Label,Key,Property Key,Property Value
+sysProjectManagementTable,Warning,预警,project.title.warning,EARLYWARNING,type|width|colorMapping,code|170px|DELAY:#ec818e;POTENTIALRISK:#c8cb00;PROGRESSIONTIME:#1fc933;NOTSTARTED:#e4a53e
+sysProjectManagementTable,ID,编号,project.title.id,ID$,width|canSort|action|full|prefix|cellRenderer,170px|true|sysOpenGeneralBlankAction|true|ICON$|iconWithToolbar
+sysProjectManagementTable,NAME,名称,project.title.name,NAME$,width|position|action,200px|2/5/3/9|sysOpenGeneralDrawerAction
+sysProjectManagementTable,ExecuteStatus,执行状态,project.title.executeStatus,EXECUTESTATUS,width|type|canFilter|colorMapping|filterURL|filterParams,115px|code|true|APP:#518ce6;PUS:#484848;SSP:#fc6c85;INI:#e6a542;RUN:#619392;COP:#38cd90|/rewrite/SysModel/CommonModel/listOptions|codeName=ExecuteStatus
+sysProjectManagementTable,ImportanceLevel,重要程度,project.title.importantLevel,IMPORTANCELEVEL,width|type|canFilter|filterURL|filterParams,115px|code|true|/rewrite/SysModel/CommonModel/listOptions|codeName=ImportanceLevel
+sysProjectManagementTable,FromTemplate,项目模板,project.title.projectTemplate,FROMTEMPLATE,type|width|action,object|190px|open:instance/class_Part?route=/instance&guid=$FROMTEMPLATE&className=$FROMTEMPLATE$CLASSNAME&classGuid=$FROMTEMPLATE$CLASS&titleExpression=$FROMTEMPLATE$FULLNAME
+sysProjectManagementTable,SPI,SPI,project.title.SPI,SPI,width,80px
+sysProjectManagementTable,completerate,完成率,project.title.completeRate,COMPLETIONRATE,canSort|width|type,true|160px|progress
+sysProjectManagementTable,PlanStartTime,计划开始时间,project.title.planStartTime,PLANSTARTTIME,type|format|width,date|yyyy-MM-dd|180px
+sysProjectManagementTable,PlanFinishTime,计划结束时间,project.title.planEndTime,PLANFINISHTIME,type|format|width,date|yyyy-MM-dd|180px
+sysProjectManagementTable,Executor,项目经理,project.title.manager,EXECUTOR,type|canFilter|width|filterURL,user|true|125px|/rewrite/SysModel/CommonModel/listOptions
+sysProjectManagementTable,STATUS,状态,common.field.status,STATUS$,width|type|canFilter|colorMapping|filterURL,100px|state|true|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080|/rewrite/SysModel/CommonModel/listOptions
+sysProjectManagementTable,ActualStartTime,实际开始时间,project.title.actualStartTime,ACTUALSTARTTIME,type|format|width|canSort,date|yyyy-MM-dd|180px|true
+sysProjectManagementTable,ActualFinishTime,实际结束时间,project.title.actualFinishTime,ACTUALFINISHTIME,type|format|width|canSort,date|yyyy-MM-dd|180px|true
+sysProjectManagementTable,ProjectType,里程碑类型,project.title.mileStoneType,PROJECTTYPE,type|width|canFilter|filterURL,code|150px|true|/mileStone/listMileStone
+sysProjectManagementTable,NEXTCHECKPOINT,上一里程碑,project.title.preMileStone,FINISHEDCHECKPOINT,width,150px
+sysProjectManagementTable,FINISHEDCHECKPOINT,下一里程碑,project.title.nextMileStone,NEXTCHECKPOINT,width,150px
+sysProjectManagementTable,PROGRAMTYPE,项目类别,project.title.programType,PROGRAMTYPE,canFilter|canSort|type|filterURL|filterParams|width,true|true|code|/rewrite/SysModel/CommonModel/listOptions|codeName=ProgramType|150px
+sysProjectManagementTable,position,位置,common.field.position,PROJECTFOLDER$,width|action|expression|disExp,250px|event:positionLinkAction|$PROJECTFOLDER$NAME|!$HASAUTH&&$HASAUTH!==undefined
+sysProjectManagementTable,CREATEUSER$,创建者,common.field.createuser,CREATEUSER$,type|canFilter|width,user|true|150px
+sysProjectManagementTable,CREATETIME,创建时间,common.field.createtime,CREATETIME$,type|format|width,date|yyyy-MM-dd HH:mm:ss|180px
+sysProjectManagementTable,UPDATEUSER$,更新者,common.field.updateuser,UPDATEUSER$,type|canFilter|width,user|true|150px
+sysProjectManagementTable,UPDATETIME,更新时间,common.field.updatetime,UPDATETIME$,type|format|width|canSort|order,date|yyyy-MM-dd HH:mm:ss|180px|true|desc
+sysProjectManagementTable,operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysProjectManagementOptionToolbar|120px
+sysProjectWbsTable,NAME,名称,common.field.name,NAME$,canLocatable|disExp|cellEditableExpression|editable|width|cellRenderer|position|suffix|prefix|action|cellClassNameExpression|milestoneExp|milestoneColorKey,true|$ISROOT=='Y'|$current['ISROOT']!=='Y'&&$current['ISEDIT$']&& $current['HAVEWORKFLOW']!=='Y'|true|400px|milestone|2/5/3/9|sysWbsTableHiddenToolbar|TASKTYPE$ICON$|event:sysProjectWbsNameClickAction|if($ISROOT!=='Y'){return 'projectWbsColor';}|$TASKTYPE$CODE === 'MILESTONE'|COLOR
+sysProjectWbsTable,wbs,编号,project.title.wbsNo,WBSNUMBER,width|canLocatable,90px|true
+sysProjectWbsTable,TaskType,任务类型,project.title.taskType,TASKTYPE,type|typeValue|editable|width,code|TaskType|false|115px
+sysProjectWbsTable,ImportanceLevel,重要程度,project.title.importantLevel,IMPORTANCELEVEL,type|typeValue|editable,code|ImportanceLevel|false
+sysProjectWbsTable,ISMANUALPLAN,手动计划,project.title.isManualPlan,ISMANUALPLAN,type|editable|width,boolean|false|200px
+sysProjectWbsTable,PlanStartTime,计划开始时间,project.title.planStartTime,PLANSTARTTIME,type|format|editable|cellEditableExpression|disabledDateField|disabledMode,date|yyyy-MM-dd|true|$current['ISROOT']!=='Y'&&$current['ISEDIT$']&&$current['TASKTYPE$CODE']!=='SUMMARY'&&$current['HAVEWORKFLOW']!=='Y'|PROJECT#PLANSTARTTIME|before
+sysProjectWbsTable,PlanFinishTime,计划结束时间,project.title.planEndTime,PLANFINISHTIME,type|format|editable|width|cellEditableExpression|disabledDateField|disabledMode,date|yyyy-MM-dd|true|125px|$current['ISROOT']!=='Y'&&$current['ISEDIT$']&&$current['TASKTYPE$CODE']!=='SUMMARY'&&$current['HAVEWORKFLOW']!=='Y'|PLANSTARTTIME|before
+sysProjectWbsTable,ACTUALSTARTTIME,实际开始,project.title.actualStartTime,ACTUALSTARTTIME,type|format,date|yyyy-MM-dd
+sysProjectWbsTable,ACTUALFINISHTIME,实际结束,project.title.actualFinishTime,ACTUALFINISHTIME,type|format|editable|width,date|yyyy-MM-dd|false|125px
+sysProjectWbsTable,ExecuteStatus,执行状态,project.title.executeStatus,EXECUTESTATUS,type|typeValue|editable|width|colorMapping,code|ExecuteStatus|false|100px|APP:#518ce6;PUS:#484848;SSP:#fc6c85;INI:#e6a542;RUN:#619392;COP:#38cd90
+sysProjectWbsTable,OnTimeState,准时状态,project.title.onTime,ONTIMESTATE,type|typeValue|editable|width|colorMapping,code|OnTimeState|false|100px|delay:#ec818e;potentialRisk:#c8cb00;progressonTime:#1fc933;
+sysProjectWbsTable,OperationState,可操作状态,project.title.operationStatus,OPERATIONSTATE,type|typeValue|editable|width,code|OperationState|false|110px
+sysProjectWbsTable,PlannedDuration,计划工期(天),project.title.planDuration,PLANNEDDURATION,type|min|width|editable|cellEditableExpression,numerical|0|120px|true|$current['ISROOT']!=='Y'&&$current['ISEDIT$']&&$current['TASKTYPE$CODE']!=='SUMMARY'&&$current['HAVEWORKFLOW']!=='Y'
+sysProjectWbsTable,PlanWorkload,计划工作量(时),project.title.planWorkload,PLANWORKLOAD,type|min|width|cellEditableExpression|editable,numerical|0|140px|$current['ISROOT']!=='Y'&&$current['ISEDIT$']&&$current['TASKTYPE$CODE']!=='SUMMARY'&&$current['HAVEWORKFLOW']!=='Y'|true
+sysProjectWbsTable,ACTUALWORKLOAD,实际工作量(时),project.title.actualWorkload,ACTUALWORKLOAD,type|min|width,numerical|0|140px
+sysProjectWbsTable,RELATIONPROJECT,关联子项目,project.title.relatedSubProject,RELATIONPROJECT,type|width|action,object|120px|open:instance/class_Part?route=/instance&baseUri=ppm&guid=$RELATIONPROJECT&className=$RELATIONPROJECT$CLASSNAME&mode="edit"
+sysProjectWbsTable,Executor,执行人,project.title.executor,EXECUTOR,type|editable|width|optionURL|optionParams|cellEditableExpression,combo|true|100px|/team/listTeamUserOption|projectGuid=$OWNERPROJECT&roleGuid=$EXECUTORROLE|$current['ISROOT']!=='Y'&&$current['ISEDIT$']&&$current['TASKTYPE$CODE']!=='SUMMARY'&&$current['TASKTYPE$NAME']!=='SUMMARY'&&$current['HAVEWORKFLOW']!=='Y'
+sysProjectWbsTable,ExecutorRole,执行角色,project.title.executorRole,EXECUTORROLE,translateType|width|type|editable|optionURL|optionParams|multiple|cellEditableExpression,translate|100px|combo|true|/team/listOptionProjectRole|projectGuid=$OWNERPROJECT|false|$current['ISROOT']!=='Y'&&$current['ISEDIT$']&&$current['TASKTYPE$CODE']!=='SUMMARY'&&$current['TASKTYPE$NAME']!=='SUMMARY'&&$current['HAVEWORKFLOW']!=='Y'
+sysProjectWbsTable,PredecessorRelation,前置任务,project.title.predecessorRelation,PREDECESSORRELATION,type|editable|width|cellEditableExpression,string|true|100px|$current['ISROOT']!=='Y'&&$current['ISEDIT$']&&$current['TASKTYPE$CODE']!=='SUMMARY'&&$current['HAVEWORKFLOW']!=='Y'
+sysProjectWbsTable,HASDELIVERYITEM,有交付项?,project.title.hasDeliveryItem,HASDELIVERYITEM,|type,|boolean
+sysProjectWbsTable,operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysProjectWbsOptionToolbar|350px,
+sysProjectTemplateWbsTable,NAME,名称,common.field.name,NAME$,milestoneExp|disExp|cellRenderer|milestoneColorKey|cellEditableExpression|editable|width|position|suffix|prefix|action|cellClassNameExpression,$TASKTYPE$CODE === 'MILESTONE'|$ISROOT=='Y'|milestone|COLOR|$current['ISROOT']!=='Y'&&$current['ISEDIT$']|true|400px|2/5/3/9|sysWbsTemplateTableHiddenToolbar|TASKTYPE$ICON$|event:sysProjectWbsNameClickAction|if($ISROOT!=='Y'){return 'projectWbsColor';}
+sysProjectTemplateWbsTable,wbs,编号,project.title.wbsNo,WBSNUMBER,width,90px
+sysProjectTemplateWbsTable,PlannedDuration,计划工期(天),project.title.planDuration,PLANNEDDURATION,type|min|width|editable|cellEditableExpression,numerical|0|120px|true|$current['ISROOT']!=='Y'&&$current['ISEDIT$']&&$current['TASKTYPE$CODE']!=='SUMMARY'
+sysProjectTemplateWbsTable,PlanWorkload,计划工作量(时),project.title.planWorkload,PLANWORKLOAD,type|min|width|cellEditableExpression|editable,numerical|0|140px|$current['ISROOT']!=='Y'&&$current['ISEDIT$']&&$current['TASKTYPE$CODE']!=='SUMMARY'&&$current['TASKTYPE$NAME']!=='SUMMARY'|true
+sysProjectTemplateWbsTable,PredecessorRelation,前置任务,project.title.predecessorRelation,PREDECESSORRELATION,type|editable|width|cellEditableExpression,string|true|120px|$current['ISROOT']!=='Y'&&$current['ISEDIT$']&&$current['TASKTYPE$CODE']!=='SUMMARY'
+sysProjectTemplateWbsTable,ExecutorRole,执行角色,project.title.executorRole,EXECUTORROLE,translateType|width|type|editable|optionURL|optionParams|multiple|cellEditableExpression,translate|140px|combo|true|/team/listOptionProjectRole|projectGuid=$OWNERPROJECT|false|$current['ISROOT']!=='Y'&&$current['ISEDIT$']&&$current['TASKTYPE$CODE']!=='SUMMARY'&&$current['TASKTYPE$NAME']!=='SUMMARY'
+sysProjectTemplateWbsTable,HASDELIVERYITEM,有交付项?,project.title.hasDeliveryItem,HASDELIVERYITEM,|type,|boolean
+sysProjectTemplateWbsTable,operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysProjectTemplateWbsOptionToolbar|330px,
+sysProjectTemplateTable,ID,编号,project.title.id,ID$,action|full|prefix|width,open:instance/class_Part?route=/instance&baseUri=ppm&guid=$GUID$&className=$CLASSNAME$&mode="edit"|true|ICON$|160px
+sysProjectTemplateTable,NAME,名称,project.title.name,NAME$,width|position|action,200px|2/5/3/9|drawer:page/sysInstancePreviewPage?guid=$GUID$&classGuid=$CLASSGUID$&className=$CLASSNAME$&mode="view"
+sysProjectTemplateTable,ProjectType,里程碑类型,project.title.mileStoneType,PROJECTTYPE,type,code
+sysProjectTemplateTable,FromTemplate,项目模板,project.title.projectTemplate,FROMTEMPLATE,type,object
+sysProjectTemplateTable,ExecuteStatus,执行状态,project.title.executeStatus,EXECUTESTATUS,type|typeValue|colorMapping,code|ExecuteStatus|APP:#518ce6;PUS:#484848;SSP:#fc6c85;INI:#e6a542;RUN:#619392;COP:#38cd90
+sysProjectTemplateTable,OnTimeState,准时状态,project.title.onTime,ONTIMESTATE,type|typeValue,code|OnTimeState
+sysProjectTemplateTable,STATUS,状态,common.field.status,STATUS$,type|canFilter|colorMapping,state|true|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080
+sysProjectTemplateTable,TaskPerformerType,执行方式,project.title.taskPerformerType,TASKPERFORMERTYPE,type|typeValue,code|TaskPerformerType
+sysProjectTemplateTable,TaskStartType,任务启动模式,project.title.taskStartType,TASKSTARTTYPE,type|typeValue,code|TaskStartType
+sysProjectTemplateTable,PlanStartTime,计划开始时间,project.title.planStartTime,PLANSTARTTIME,type|format,date|yyyy-MM-dd
+sysProjectTemplateTable,PlanFinishTime,计划结束时间,project.title.planEndTime,PLANFINISHTIME,type|format,date|yyyy-MM-dd
+sysProjectTemplateTable,PlanDuration,计划工期(天),project.title.planDuration,PLANDURATION,
+sysProjectTemplateTable,ImportanceLevel,重要程度,project.title.importantLevel,IMPORTANCELEVEL,type|typeValue,code|ImportanceLevel
+sysProjectTemplateTable,Executor,项目经理,project.title.manager,EXECUTOR,type,user
+sysProjectTemplateTable,CREATEUSER,创建者,common.field.createuser,CREATEUSER$NAME,,
+sysProjectTemplateTable,CREATETIME,创建时间,common.field.createtime,CREATETIME$,type|format|width,date|yyyy-MM-dd HH:mm:ss|180px
+sysProjectTemplateTable,updatetime,更新时间,common.field.updatetime,UPDATETIME$,canSort|type|format|order|width,true|date|yyyy-MM-dd HH:mm:ss|desc|180px
+sysProjectTemplateManageTable,ID,编号,project.title.id,ID$,action|full|prefix|width|cellRenderer,open:instance/class_Part?route=/instance&baseUri=ppm&guid=$GUID$&className=$CLASSNAME$&mode="edit"|true|ICON$|160px|iconWithToolbar
+sysProjectTemplateManageTable,NAME,名称,project.title.name,NAME$,width|position|action,200px|2/5/3/9|drawer:page/sysProjectTemplatePreviewPage?guid=$GUID$&classGuid=$CLASSGUID$&className=$CLASSNAME$&mode="view"&passData=false
+sysProjectTemplateManageTable,AVAILABLE,模板状态,project.title.templateStatus,TEMPLATESTATUS,width|type|canFilter|colorMapping|filterURL|filterParams|translateType,130px|code|true|Available:#29cc74;NotAvailable:#808080;Obsolete:#FF0000;|/rewrite/SysModel/CommonModel/listOptions|codeName=TemplateStatus|translate
+sysProjectTemplateManageTable,CREATEUSER,创建者,common.field.createuser,CREATEUSER$NAME,width,100px
+sysProjectTemplateManageTable,CREATETIME,创建时间,common.field.createtime,CREATETIME$,type|format|width,date|yyyy-MM-dd HH:mm:ss|180px
+sysProjectTemplateManageTable,updatetime,更新时间,common.field.updatetime,UPDATETIME$,canSort|type|format|order|width,true|date|yyyy-MM-dd HH:mm:ss|desc|180px
+sysProjectTemplateManageTable_,PRODUCTTYPE,产品类别,project.title.productType,PRODUCTTYPE,width,150px
+sysProjectTemplateManageTable,PROGRAMTYPE,项目类型,project.title.projectType,PROGRAMTYPE,type|width,code|150px
+sysProjectTemplateManageTable,operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysProjectTemplateManageOptionToolbar|160px,
+sysProjectTemplateTeamResourceTable,ROLENAME,角色名称,project.role.form.name,ROLENAME,editable|cellEditableExpression|width|translateType,true|if($current && $current.ROLEID!=='ManagerRole' && $current.ROLEID!=='receiver'){return true}|200px|translate
+sysProjectTemplateTeamResourceTable,DESCRIPTION,说明,project.title.description,DESCRIPTION,editable|cellEditableExpression|width,true|if($current && $current.ROLEID!=='ManagerRole' && $current.ROLEID!=='receiver'){return true}|400px
+sysProjectTemplateTeamResourceTable,Operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysProjectTemplateTeamResourceOperationToolbar|100px
+sysProjectChangeTable,ID,编号,common.field.id,ID$,width|full|action|prefix,200px|true|open:/?guid=$GUID$&classGuid=$CLASSGUID$&className=$CLASSNAME$&route=/project-change-record-list&urlKey='CLASSNAME$:CLASSGUID$:GUID$:FULLNAME$'|ICON$
+sysProjectChangeTable,botitle,变更类型,project.title.change.boTitle,CHANGETYPE$TITLE,translateType|width,split|150px
+sysProjectChangeTable,SOLUTION,问题描述,project.title.change.solution,SOLUTION,width,200px
+sysProjectChangeTable,DESCRIPTION,调整方案,project.title.change.description,DESCRIPTION,width,200px
+sysProjectChangeTable,STATUS$,状态,common.field.status,STATUS$,width|canFilter|type|colorMapping,100px|true|state|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080
+sysProjectChangeTable,CREATETIME$,变更开始时间,project.title.change.startTime,CREATETIME$,type|format|width,date|yyyy-MM-dd|150px
+sysProjectChangeTable,RELEASETIME$,变更完成时间,project.title.change.finishTime,RELEASETIME$,type|format|width,date|yyyy-MM-dd|150px
+sysProjectChangeTable,CREATEUSER$,变更者,project.title.change.performer,OWNERUSER$FULLNAME$,width,100px
+sysProjectChangeRecordListTable,FULLNAME$,名称,common.field.name,FULLNAME$,width|cellClassNameExpression,150px|if($ISDELIVERABLEDIFFLENT==='Y'){return 'differentdeliverables'}else if($ISALLDIFFERENT==='Y'){return 'totallydifferent'}
+sysProjectChangeRecordListTable,WBSNUMBER,WBS号,project.title.wbsNo,WBSNUMBER,cellClassNameExpression,if($ISDELIVERABLEDIFFLENT==='Y'){return 'differentdeliverables'}else if($ISALLDIFFERENT==='Y'){return 'totallydifferent'}
+sysProjectChangeRecordListTable,IMPORTANCELEVEL,重要程度,project.title.importantLevel,IMPORTANCELEVEL,type|typeValue|cellClassNameExpression,code|ImportanceLevel|if($ISDELIVERABLEDIFFLENT==='Y'){return 'differentdeliverables'}else if($ISALLDIFFERENT==='Y'){return 'totallydifferent'}
+sysProjectChangeRecordListTable,EXECUTESTATUS,执行状态,project.title.executeStatus,EXECUTESTATUS,type|typeValue|cellClassNameExpression|filterURL,code|ExecuteStatus|if($ISDELIVERABLEDIFFLENT==='Y'){return 'differentdeliverables'}else if($ISALLDIFFERENT==='Y'){return 'totallydifferent'}|/rewrite/SysModel/CommonModel/listOptions?type=status
+sysProjectChangeRecordListTable,PlanStartTime,计划开始时间,project.title.planStartTime,PLANSTARTTIME,type|format|cellClassNameExpression,date|yyyy-MM-dd|if($ISDELIVERABLEDIFFLENT==='Y'){return 'differentdeliverables'}else if($ISALLDIFFERENT==='Y'){return 'totallydifferent'}else if($PLANSTARTTIME_OLD){return 'differenttime'}
+sysProjectChangeRecordListTable,PlanFinishTime,计划结束时间,project.title.planEndTime,PLANFINISHTIME,type|format|cellClassNameExpression,date|yyyy-MM-dd|if($ISDELIVERABLEDIFFLENT==='Y'){return 'differentdeliverables'}else if($ISALLDIFFERENT==='Y'){return 'totallydifferent'}else if($PLANFINISHTIME_OLD){return 'differenttime'}
+sysProjectChangeRecordListTable,PLANNEDDURATION,计划工期(天),project.title.planDuration,PLANNEDDURATION,width|cellClassNameExpression,150px|if($ISDELIVERABLEDIFFLENT==='Y'){return 'differentdeliverables'}else if($ISALLDIFFERENT==='Y'){return 'totallydifferent'}
+sysProjectChangeRecordListTable,PLANWORKLOAD,计划工作量(时),project.title.planWorkload,PLANWORKLOAD,width|cellClassNameExpression,150px|if($ISDELIVERABLEDIFFLENT==='Y'){return 'differentdeliverables'}else if($ISALLDIFFERENT==='Y'){return 'totallydifferent'}
+sysProjectChangeRecordListTable,EXECUTOR,执行人,project.field.executor,EXECUTOR,type|width|cellClassNameExpression,user|100px|if($ISDELIVERABLEDIFFLENT==='Y'){return 'differentdeliverables'}else if($ISALLDIFFERENT==='Y'){return 'totallydifferent'}else if($EXECUTOR$NAME_OLD){return 'differentexecutor'}
+sysProjectDetailTeamSourceTable,ROLENAME,团队角色,project.title.teamRole,ROLENAME,width|translateType,150px|translate
+sysProjectDetailTeamSourceTable,DESCRIPTION,说明,project.title.description,DESCRIPTION,width,350px
+sysProjectDetailWarningTable,EVENTTYPE$TITLE,事件类型,project.title.eventType,EVENTTYPE$TITLE,width,180px
+sysProjectDetailWarningTable,INTERVALUE,间隔:/SPI小于,project.title.warningInterValue,INTERVALUE,width,150px
+sysProjectDetailWarningTable,ISENABLE,启动状态,project.title.startStatus,ISENABLE,type|width,boolean|100px
+sysProductWarningTable,EVENTTYPE$TITLE,事件类型,project.title.eventType,EVENTTYPE$TITLE,width,120px
+sysProductWarningTable,INTERVALUE,间隔:/SPI小于,project.title.warningInterValue,INTERVALUE,width,130px
+sysProductWarningTable,ISENABLE,启动状态,project.title.startStatus,ISENABLE,width,100px
+sysProductWarningTable,RELATEDOBJECTTYPE$TITLE,适用对象,project.title.relatedObject,RELATEDOBJECTTYPE$TITLE,width,100px
+sysProductWarningTable,operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysProductWarningOptionToolbar|180px,
+sysMilestoneLeftTable,name,里程碑类型,project.title.mileStoneType,name,width|editable|process,350px|false|sysMilestoneTypeEditAction
+sysMilestoneLeftTable,remark,说明,project.title.description,remark,,
+sysProjectTeamResourceStructureTable,ROLENAME,角色/成员名称,project.title.temRoleName,END2#NAME,editable|type|cellEditableExpression|width|prefix|translateType,true|string|if(foundation?.current['ISROOT'] === 'Y' && foundation?.current['ISEDIT$'] === 'Y'){return true}|180px|ICON$|translate
+sysProjectTeamResourceStructureTable,DESCRIPTION,备注,common.field.remark,END2#DESCRIPTION,type|editable|cellEditableExpression|width|maxLength,string|true|if(foundation?.current['ISROOT'] === 'Y'){return true}|200px|100
+sysProjectTeamResourceStructureTable,Operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysProjectTeamResourceStructureOperateToolbar|300px
+sysWarningAssignedTaskTable,WBSNUMBER,编号,project.title.wbsNo,WBSNUMBER,icon|width,ICON$|100px
+sysWarningAssignedTaskTable,NAME,名称,common.field.name,NAME$,width|position,150px|2/5/3/9
+sysWarningAssignedTaskTable,PlanStartTime,计划开始时间,project.title.planStartTime,PLANSTARTTIME,type|format,date|yyyy-MM-dd
+sysWarningAssignedTaskTable,PlanFinishTime,计划结束时间,project.title.planEndTime,PLANFINISHTIME,type|format,date|yyyy-MM-dd
+sysWarningAssignedTaskTable,PlannedDuration,计划工期(天),project.title.planDuration,PLANNEDDURATION,type,numerical
+sysWarningAssignedTaskTable,operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysWarningAssignedTaskDeleteToolbar|200px
+sysRelevanceWbsTable,NAME,名称,common.field.name,NAME$,width|position|action,200px|2/5/3/9|drawer:page/sysInstancePreviewPage?guid=$GUID$&classGuid=$CLASSGUID$&className=$CLASSNAME$&mode="view"
+sysRelevanceWbsTable,WBSNUMBER,编号,project.title.wbsNo,WBSNUMBER,action|full|icon|width,open:instance/class_Part?route=/instance&baseUri=ppm&guid=$GUID$&className=$CLASSNAME$&mode="edit"|true|ICON$|200px
+sysRelevanceWbsTable,PlannedDuration,计划工期(天),project.title.planDuration,PLANNEDDURATION
+sysRelevanceWbsTable,PlanWorkload,计划工作量(时),project.title.planWorkload,PLANWORKLOAD
+sysProjectStructuretTable,NAME,对象,queue.title.mainobject,END2#NAME,width|action|disExp,250px|sysProjectStructuretAction|$DATATYPE=='deliverableItem'
+sysProjectStructuretTable,CLASSNAME,类型,common.field.botitle,END2#BOTILE,width|translateType,150px|translate
+sysProjectStructuretTable,CLASSIFICATION,分类,common.field.classification,END2#CLSFITILE,translateType|canFilter|width,translate|false|150px
+sysProjectStructuretTable,REVISIONID$,版本,common.field.revision,END2#INSTANCEREVISIONID$,width,70px
+sysProjectStructuretTable,ISNEED,必须?,project.title.deliveryMandatory,END2#ISNEED,type|width,boolean|150px
+sysProjectStructuretTable,ISRELEASE,发布?,project.title.deliveryReleaseNeed,END2#ISRELEASE,type|width,boolean|150px
+sysProjectStructuretTable,CREATEUSER,创建者,common.field.createuser,END2#CREATEUSERNAME,width,150px
+sysProjectStructuretTable,updatetime,修改时间,common.title.modifyTime,END2#UPDATETIME,canSort|type|format|order|width,true|date|yyyy-MM-dd HH:mm:ss|200px
+sysProjectStructuretTable,FILENAME$,主文件,basic.system.field.masterFile,FILE$,width|type|canDeleteExpression|canUploadExpression|previewAction,220px|file|1===1|1===1|filePreviewAction
+sysProjectStructuretTable,MOBILE,提交者,project.title.submitUser,END2#COMMITUSER,width,150px
+sysProjectStructuretTable,STATUS,状态,common.field.status,END2#LIFECYCLEPHASE$TITLE,translateType|width,translate|150px
+sysProjectTemplateStructuretTable,NAME,对象,queue.title.mainobject,END2#NAME,width|action|disExp,250px|sysProjectStructuretAction|$DATATYPE=='deliverableItem'
+sysProjectTemplateStructuretTable,CLASSNAME,类型,common.field.botitle,END2#BOTILE,width|translateType,150px|translate
+sysProjectTemplateStructuretTable,CLASSIFICATION,分类,common.field.classification,END2#CLSFITILE,translateType|canFilter|width,translate|false|150px
+sysProjectTemplateStructuretTable,ISNEED,必须?,project.title.deliveryMandatory,END2#ISNEED,type|width,boolean|150px
+sysProjectTemplateStructuretTable,ISRELEASE,发布?,project.title.deliveryReleaseNeed,END2#ISRELEASE,type|width,boolean|150px
+sysProjectTemplateStructuretTable,CREATEUSER,创建者,common.field.createuser,END2#CREATEUSERNAME,width,150px
+sysProjectTemplateStructuretTable,updatetime,修改时间,common.title.modifyTime,END2#UPDATETIME,canSort|type|format|order|width,true|date|yyyy-MM-dd HH:mm:ss|200px
+sysProjectTemplateStructuretTable,FILENAME$,主文件,basic.system.field.masterFile,FILE$,width|type|canDeleteExpression|canUploadExpression|previewAction,220px|file|1===1|1===1|filePreviewAction
+sysProjectTemplateStructuretTable,MOBILE,提交者,project.title.submitUser,END2#COMMITUSER,width,150px
+sysProjectTemplateStructuretTable,STATUS,状态,common.field.status,END2#LIFECYCLEPHASE$TITLE,translateType|width,translate|150px
+sysTBProjectStructuretTable,NAME,对象,queue.title.mainobject,END2#NAME,width|disExp|action,250px|$ROWKEYCLASSNAME!='PMTask'|sysTBProjectStructuretAction
+sysTBProjectStructuretTable,CLASSNAME,类型,common.field.botitle,END2#BOTILE,width|translateType,150px|translate
+sysTBProjectStructuretTable,CLASSIFICATION,分类,common.field.classification,END2#CLSFITILE,translateType|canFilter|width,translate|false|150px
+sysTBProjectStructuretTable,ISNEED,必须?,project.title.deliveryMandatory,END2#ISNEED,type|width,boolean|150px
+sysTBProjectStructuretTable,ISRELEASE,发布?,project.title.deliveryReleaseNeed,END2#ISRELEASE,type|width,boolean|150px
+sysTBProjectStructuretTable,CREATEUSER,创建者,common.field.createuser,END2#CREATEUSERNAME,width,150px
+sysTBProjectStructuretTable,updatetime,修改时间,common.title.modifyTime,END2#UPDATETIME,canSort|type|format|order|width,true|date|yyyy-MM-dd HH:mm:ss|200px
+sysTBProjectStructuretTable,FILENAME$,主文件,basic.system.field.masterFile,FILE$,width|type|canDeleteExpression|canUploadExpression|previewAction,220px|file|1===1|1===1|filePreviewAction
+sysTBProjectStructuretTable,MOBILE,提交者,project.title.submitUser,END2#COMMITUSER,width,150px
+sysTBProjectStructuretTable,STATUS,状态,common.field.status,END2#LIFECYCLEPHASE$TITLE,translateType|width,translate|150px
+sysDeliveryItemSummaryTable,NAME,对象,queue.title.mainobject,END2#NAME,,
+sysDeliveryItemSummaryTable,CLASSIFICATION,分类,common.field.classification,END2#CLSFITILE,translateType|canFilter,translate|false
+sysDeliveryItemSummaryTable,ISNEED,必须?,project.title.deliveryMandatory,END2#ISNEED,type|width,boolean|100px
+sysDeliveryItemSummaryTable,ISRELEASE,发布?,project.title.deliveryReleaseNeed,END2#ISRELEASE,type|width,boolean|100px
+sysDeliveryItemSummaryTable,CREATEUSERNAME,创建者,common.field.createuser,END2#CREATEUSERNAME,,
+sysTBDeliveryItemSummaryTable,NAME,对象,queue.title.mainobject,END2#NAME,,
+sysTBDeliveryItemSummaryTable,CLASSIFICATION,分类,common.field.classification,END2#CLSFITILE,translateType|canFilter,translate|false
+sysTBDeliveryItemSummaryTable,ISNEED,必须?,project.title.deliveryMandatory,END2#ISNEED,type|width,boolean|100px
+sysTBDeliveryItemSummaryTable,ISRELEASE,发布?,project.title.deliveryReleaseNeed,END2#ISRELEASE,type|width,boolean|100px
+sysTBDeliveryItemSummaryTable,CREATEUSERNAME,创建者,common.field.createuser,END2#CREATEUSERNAME,,
+sysDeliverablesSummaryTable,NAME,对象,queue.title.mainobject,END2#NAME,width|action,200px|open:instance/?route=/instance&baseUri=pdm&guid=$END2#INSTANCEGUID&className=$END2#INSTANCECLASSNAME
+sysDeliverablesSummaryTable,BOTILE,类型,common.field.botitle,END2#BOTILE,width|translateType,150px|translate
+sysDeliverablesSummaryTable,CLASSIFICATION,分类,common.field.classification,END2#CLSFITILE,translateType|canFilter,translate|false
+sysDeliverablesSummaryTable,REVISIONID$,版本,common.field.revision,END2#INSTANCEREVISIONID$,width,70px
+sysDeliverablesSummaryTable,CREATEUSERNAME,创建者,common.field.createuser,END2#CREATEUSERNAME,width,150px
+sysDeliverablesSummaryTable,updatetime,修改时间,common.title.modifyTime,END2#UPDATETIME,canSort|type|format|width,true|date|yyyy-MM-dd HH:mm:ss|200px
+sysDeliverablesSummaryTable,FILENAME$,文件名,basic.system.field.filename,END2#FILENAME$,width,200px,
+sysDeliverablesSummaryTable,MOBILE,提交者,project.title.submitUser,END2#COMMITUSER,width,150px
+sysDeliverablesSummaryTable,STATUS,状态,common.field.status,END2#LIFECYCLEPHASE$TITLE,translateType|width,translate|150px
+sysTBDeliverablesSummaryTable,NAME,对象,queue.title.mainobject,END2#NAME,width|action,200px|open:instance/?route=/instance&baseUri=pdm&guid=$END2#INSTANCEGUID&className=$END2#INSTANCECLASSNAME
+sysTBDeliverablesSummaryTable,BOTILE,类型,common.field.botitle,END2#BOTILE,width|translateType,150px|translate
+sysTBDeliverablesSummaryTable,CLASSIFICATION,分类,common.field.classification,END2#CLSFITILE,translateType|canFilter,translate|false
+sysTBDeliverablesSummaryTable,CREATEUSERNAME,创建者,common.field.createuser,END2#CREATEUSERNAME,width,150px
+sysTBDeliverablesSummaryTable,updatetime,修改时间,common.title.modifyTime,END2#UPDATETIME,canSort|type|format|width,true|date|yyyy-MM-dd HH:mm:ss|200px
+sysTBDeliverablesSummaryTable,FILENAME$,文件名,basic.system.field.filename,END2#FILENAME$,width,200px,
+sysTBDeliverablesSummaryTable,MOBILE,提交者,project.title.submitUser,END2#COMMITUSER,width,150px
+sysTBDeliverablesSummaryTable,STATUS,状态,common.field.status,END2#LIFECYCLEPHASE$TITLE,translateType|width,translate|150px
+sysTaskStructuretTable,NAME,对象,queue.title.mainobject,END2#NAME,action|disExp,sysProjectTaskObjectAction|$DATATYPE=='deliverableItem'
+sysTaskStructuretTable,CLASSNAME,类型,common.field.botitle,TASKTYPE$TITLE,width|translateType,120px|translate
+sysTaskStructuretTable,CLASSIFICATION,分类,common.field.classification,END2#CLSFITILE,translateType|canFilter,translate|false
+sysTaskStructuretTable,ISNEED,必须?,project.title.deliveryMandatory,END2#ISNEED,type|width,boolean|100px
+sysTaskStructuretTable,ISRELEASE,发布?,project.title.deliveryReleaseNeed,END2#ISRELEASE,type|width,boolean|100px
+sysTaskStructuretTable,CREATEUSER,创建者,common.field.createuser,CREATEUSER$,type,user
+sysTaskStructuretTable,updatetime,修改时间,common.title.modifyTime,UPDATETIME$,canSort|type|format|order,true|date|yyyy-MM-dd HH:mm:ss
+sysTaskStructuretTable,FILENAME$,主文件,basic.system.field.masterFile,FILE$,width|type|canDeleteExpression|canUploadExpression|previewAction,150px|file|1===1|1===1|filePreviewAction
+sysTaskStructuretTable,COMMITUSER,提交者,project.title.submitUser,COMMITUSER,,
+sysTaskStructuretTable,STATUS,状态,common.field.status,STATUS$,translateType|type|colorMapping,translate|state|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080
+sysTaskDeliveryItemSummaryTable,NAME,对象,queue.title.mainobject,ID,,
+sysTaskDeliveryItemSummaryTable,CLASSNAME,类型,common.field.botitle,BOTILE,width|translateType,120px|translate
+sysTaskDeliveryItemSummaryTable,CLASSIFICATION,分类,common.field.classification,CLASSIFICATION$TITLE,translateType|canFilter,translate|false
+sysTaskDeliveryItemSummaryTable,ISNEED,必须?,project.title.deliveryMandatory,ISNEED,type|width,boolean|100px
+sysTaskDeliveryItemSummaryTable,ISRELEASE,发布?,project.title.deliveryReleaseNeed,ISRELEASE,type|width,boolean|100px
+sysTaskDeliveryItemSummaryTable,CREATEUSERNAME,创建者,common.field.createuser,CREATEUSERNAME,,
+sysTaskDeliveryItemSummaryTable,updatetime,修改时间,common.title.modifyTime,UPDATETIME,canSort|type|format|width,true|date|yyyy-MM-dd HH:mm:ss|200px
+sysTaskDeliveryItemSummaryTable,REMARK,备注,common.field.remark,REMARK,type|width,string|200px
+sysTaskDeliverablesSummaryTable,NAME,对象,queue.title.mainobject,NAME,action,open:instance/?route=/instance&guid=$INS#GUID$&className=$INS#CLASSNAME$&urlKey=guid:className&baseUri=pdm
+sysTaskDeliverablesSummaryTable,BOTILE,类型,common.field.botitle,BOTILE,width|translateType,120px|translate
+sysTaskDeliverablesSummaryTable,CLASSIFICATION,分类,common.field.classification,CLSFITILE,translateType|canFilter,translate|false
+sysTaskDeliverablesSummaryTable,CREATEUSERNAME,创建者,common.field.createuser,CREATEUSERNAME,,
+sysTaskDeliverablesSummaryTable,updatetime,修改时间,common.title.modifyTime,UPDATETIME,canSort|type|format|order,true|date|yyyy-MM-dd HH:mm:ss
+sysTaskDeliverablesSummaryTable,FILENAME$,文件名,basic.system.field.filename,FILE$,width|type|canDeleteExpression|canUploadExpression|previewAction,150px|file|1===1|1===1|filePreviewAction
+sysTaskDeliverablesSummaryTable,COMMITUSER,提交者,project.title.submitUser,COMMITUSER,,
+sysTaskDeliverablesSummaryTable,STATUS,状态,common.field.status,STATUS$,translateType|type|colorMapping,translate|state|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080
+sysTaskDeliverablesSummaryTable,REMARK,备注,common.field.remark,INS#DESCRIPTION,type|width,string|150px
+sysBatchErrorShowTable,ID,编号,common.field.id,ID$,width,200px
+sysBatchErrorShowTable,NAME,名称,common.field.name,NAME$,width,350px
+sysBatchErrorShowTable,ERROR,失败原因,basic.system.field.error,MESSAGE$,width|translateType|showDetail,450px|translate|true
+sysBatchErrorNotIdTable,NAME,名称,common.field.name,NAME$,width,350px
+sysBatchErrorNotIdTable,ERROR,失败原因,basic.system.field.error,MESSAGE$,width|translateType|showDetail,450px|translate|true
+sysInstanceAddDeliverablesTable,ID$,交付物类型/对象,project.title.deliveryItems,ID,prefix|cellRenderer|type|refreshCall|disExp|width|translateType|action|optionURL|optionParams|cellEditableExpression|editable,INS#ICON$|iconWithToolbar|combo|true|$ISROOT=='Y'|200px|translate|event:openInstanceAction|/lc/model/listClassTree|exceptItfNameList=$exceptItfNameList|`$CANEDIT`|true
+sysInstanceAddDeliverablesTable,CLSFITILE,分类,common.field.classification,CLSFITILE,width|translateType|optionURL|optionParams|cellEditableExpression|editable,150px|translate|/lc/model/listCodeItemTree|classGuid=$CLASSGUID|`$CANEDIT`|true
+sysInstanceAddDeliverablesTable,position,位置,common.field.position,INS#COMMITFOLDER$,width|action|expression|disExp,250px|event:positionLinkAction|$INS#COMMITFOLDER$NAME|!$HASAUTH&&$HASAUTH!==undefined
+sysInstanceAddDeliverablesTable,FILENAME$,主文件,basic.system.field.masterFile,FILE$,width|type|canDeleteExpression|canUploadExpression|previewAction,220px|file|1===1|1===1|filePreviewAction
+sysInstanceAddDeliverablesTable,REVISIONID,版本,common.field.revision,REVISIONID$,width|canSort|expression,80px|false|$INS#REVISIONID$?$INS#REVISIONID$+'.'+$INS#ITERATIONID$:''
+sysInstanceAddDeliverablesTable,ISNEED,必须,project.title.deliveryMandatory,ISNEED,type|width|updateAction|disabledExpression|visibleExpression,switch|100px|updateDeliverablesTempAction|`!$CANEDIT`|`$ISROOT=='Y'`
+sysInstanceAddDeliverablesTable,ISRELEASE,发布,project.title.deliveryReleaseNeed,ISRELEASE,type|width|updateAction|disabledExpression|visibleExpression,switch|100px|updateDeliverablesTempAction|`!$CANEDIT`|`$ISROOT=='Y'`
+sysInstanceAddDeliverablesTable,CREATEUSERNAME,创建者,common.field.createuser,CREATEUSERNAME,type|width,string|150px
+sysInstanceAddDeliverablesTable,COMMITUSER,提交者,project.title.submitUser,COMMITUSER,type|width,string|150px
+sysInstanceAddDeliverablesTable,STATUS,状态,common.field.status,STATUS$,type|width|colorMapping,state|100px|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080
+sysInstanceAddDeliverablesTable,CREATETIME,修改时间,common.title.modifyTime,UPDATETIME,type|format|canSort|width,date|yyyy-MM-dd HH:mm:ss|true|170px
+sysInstanceAddDeliverablesTable,REMARK,备注,common.field.remark,REMARK,type|width,string|150px
+sysInstanceAddDeliverablesTable,operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysInstanceAddDeliverablesToolbar|200px
+sysInstanceAddDeliverablesTemplateTable,ID$,交付物类型/对象,project.title.deliveryItems,ID,prefix|cellRenderer|type|refreshCall|disExp|width|translateType|action|optionURL|optionParams|cellEditableExpression|editable,INS#ICON$|iconWithToolbar|combo|true|$ISROOT=='Y'|200px|translate|event:openInstanceAction|/lc/model/listClassTree|exceptItfNameList=$exceptItfNameList|`$CANEDIT`|true
+sysInstanceAddDeliverablesTemplateTable,CLSFITILE,分类,common.field.classification,CLSFITILE,width|translateType|optionURL|optionParams|cellEditableExpression|editable,150px|translate|/lc/model/listCodeItemTree|classGuid=$CLASSGUID|`$CANEDIT`|true
+sysInstanceAddDeliverablesTemplateTable,ISNEED,必须,project.title.deliveryMandatory,ISNEED,type|width|updateAction|disabledExpression|visibleExpression,switch|100px|updateDeliverablesTempAction|`!$CANEDIT`|`$ISROOT=='Y'`
+sysInstanceAddDeliverablesTemplateTable,ISRELEASE,发布,project.title.deliveryReleaseNeed,ISRELEASE,type|width|updateAction|disabledExpression|visibleExpression,switch|100px|updateDeliverablesTempAction|`!$CANEDIT`|`$ISROOT=='Y'`
+sysInstanceAddDeliverablesTemplateTable,CREATEUSERNAME,创建者,common.field.createuser,CREATEUSERNAME,type|width,string|150px
+sysInstanceAddDeliverablesTemplateTable,CREATETIME,修改时间,common.title.modifyTime,UPDATETIME,type|format|canSort|width,date|yyyy-MM-dd HH:mm:ss|true|250px
+sysInstanceAddDeliverablesTemplateTable,operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysInstanceAddDeliverablesTemplateToolbar|200px
+sysProjectTaskResourceTable,USERNAME,用户名,project.field.user,USERNAME,type|width,string|150px
+sysProjectTaskResourceTable,PROJECTROLENAME,角色,project.field.role,PROJECTROLENAME,type|width|translateType,string|150px|translate
+sysProjectTaskResourceTable,ISEXECUTOR,执行人,project.field.executor,ISEXECUTOR,type|width|updateAction|disabledExpression,switch|90px|editExecutorAction|(!$CANEDIT)&&$PROJECT#EXECUTOR===$sysLogin
+sysProjectTaskResourceTable,RESOURCERATE,占比,project.field.workloadPercentage,RESOURCERATE,type|width|editable,string|150px|false
+sysProjectTaskResourceTable,operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysTaskResourceOperateToolbar|200px
+sysWorkbenchProjectTaskResourceTable,USERNAME,用户名,project.field.user,USERNAME,type|width,string|150px
+sysWorkbenchProjectTaskResourceTable,PROJECTROLENAME,角色,project.field.role,PROJECTROLENAME,type|width|translateType,string|150px|translate
+sysWorkbenchProjectTaskResourceTable,ISEXECUTOR,执行人,project.field.executor,ISEXECUTOR,type|width|updateAction|disabledExpression,switch|150px|editExecutorAction|$ISEXECUTOR === 'Y'
+sysWorkbenchProjectTaskResourceTable,RESOURCERATE,占比,project.field.workloadPercentage,RESOURCERATE,type|width|editable,string|150px|false
+sysWorkbenchProjectTaskResourceTable,operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysWorkbenchTaskResourceOperateToolbar|200px
+sysProjectPreTaskTable,WBSNUMBER,WBS号,project.title.wbsNo,WBSNUMBER,type|width,string|150px
+sysProjectPreTaskTable,FULLNAME,任务名称,project.title.taskName,FULLNAME$,type|width,string|150px
+sysProjectPreTaskTable,PRETASKTYPE,类型,project.title.preTaskType,PRETASKTYPE$TITLE,type|width,string|150px
+sysProjectPreTaskTable,DELAYTIME,间隔时间,project.title.delayTime,DELAYTIME,type|width,string|150px
+sysProjectPreTaskTable,operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysProjectPreTaskOperateToolbar|200px
+sysWorkbenchProjectPreTaskTable,WBSNUMBER,WBS号,project.title.wbsNo,WBSNUMBER,type|width,string|150px
+sysWorkbenchProjectPreTaskTable,FULLNAME,任务名称,project.title.taskName,FULLNAME$,type|width,string|150px
+sysWorkbenchProjectPreTaskTable,PRETASKTYPE,类型,project.title.preTaskType,PRETASKTYPE,type|width,string|150px
+sysWorkbenchProjectPreTaskTable,DELAYTIME,间隔时间,project.title.delayTime,DELAYTIME,type|width,string|150px
+sysGlobalSearchTable,ID,编号,common.field.id,ID$,refreshCall|width|full|action|prefix|cellRenderer|disExp,false|150px|true|sysOpenGeneralBlankAction|ICON$|iconWithToolbar|!$HASAUTH&&$HASAUTH!==undefined
+sysGlobalSearchTable,NAME,名称,common.field.name,NAME$,width|disExp|action,190px|!$HASAUTH&&$HASAUTH!==undefined|sysGlobalSearchNameClickAction
+sysGlobalSearchTable,BOTITLE,类型,common.field.botitle,BOTITLE$,expression|width,${BOTITLE$}|140px
+sysGlobalSearchTable,FILENAME$,主文件,basic.system.field.masterFile,FILE$,width|type|canDeleteExpression|canUploadExpression|previewAction,150px|file|1===1|1===1|filePreviewAction
+sysGlobalSearchTable,thumbnail,缩略图,common.field.thumbnail,THUMBNAIL$,width|type|isIcon|imageAction,85px|image|false|OpenLightWeightChartAction
+sysGlobalSearchTable,position,位置,common.field.position,COMMITFOLDER$,width|action|expression|disExp,250px|event:positionLinkAction|$COMMITFOLDER$PATH|!$HASAUTH&&$HASAUTH!==undefined
+sysGlobalSearchTable,STATUS,状态,common.field.status,STATUS$,type|width|colorMapping|canFilter|filterURL,state|150px|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080|true|/rewrite/SysModel/CommonModel/listOptions
+sysGlobalSearchTable,REVISIONID,版本,common.field.revision,REVISIONID$,width|expression,70px|$REVISIONID$?$REVISIONID$+'.'+$ITERATIONID$:''
+sysGlobalSearchTable,updatetime,更新时间,common.field.updatetime,UPDATETIME$,canSort|type|format|order|width,true|date|yyyy-MM-dd HH:mm:ss|desc|170px
+sysGlobalSearchTable,ReleaseTime,发布时间,common.field.releasetime,RELEASETIME$,type|format|canSort|width,date|yyyy-MM-dd HH:mm:ss|false|170px
+sysGlobalSearchTable,CREATETIME,创建时间,common.field.createtime,CREATETIME$,type|format|width,date|yyyy-MM-dd HH:mm:ss|170px
+sysGlobalSearchTable,OWNERUSER,所有者,common.field.owneruser,OWNERUSER$,type|width,user|100px
+sysHasSpecGlobalSearchTable,ID,编号,common.field.id,ID$,refreshCall|width|full|action|prefix|cellRenderer|disExp,false|190px|true|sysOpenGeneralBlankAction|ICON$|iconWithToolbar|!$HASAUTH&&$HASAUTH!==undefined
+sysHasSpecGlobalSearchTable,NAME,名称,common.field.name,NAME$,width|disExp|action,190px|!$HASAUTH&&$HASAUTH!==undefined|sysOpenGeneralDrawerAction
+sysHasSpecGlobalSearchTable,BOTITLE,类型,common.field.botitle,BOTITLE$,expression|width,${BOTITLE$}|140px
+sysHasSpecGlobalSearchTable,thumbnail,缩略图,common.field.thumbnail,THUMBNAIL$,width|type|isIcon|imageAction,85px|image|false|OpenLightWeightChartAction
+sysHasSpecGlobalSearchTable,position,位置,common.field.position,COMMITFOLDER$,width|action|expression|disExp,250px|event:positionLinkAction|$COMMITFOLDER$PATH|!$HASAUTH&&$HASAUTH!==undefined
+sysHasSpecGlobalSearchTable,SPECIFICATION,规格,common.field.specification,SPECIFICATION,width,250px
+sysHasSpecGlobalSearchTable,STATUS,状态,common.field.status,STATUS$,type|width|colorMapping|canFilter|filterURL,state|100px|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080|true|/rewrite/SysModel/CommonModel/listOptions
+sysHasSpecGlobalSearchTable,REVISIONID,版本,common.field.revision,REVISIONID$,width|expression,70px|$REVISIONID$?$REVISIONID$+'.'+$ITERATIONID$:''
+sysHasSpecGlobalSearchTable,updatetime,更新时间,common.field.updatetime,UPDATETIME$,canSort|type|format|order|width,true|date|yyyy-MM-dd HH:mm:ss|desc|170px
+sysHasSpecGlobalSearchTable,ReleaseTime,发布时间,common.field.releasetime,RELEASETIME$,type|format|canSort|width,date|yyyy-MM-dd HH:mm:ss|false|170px
+sysHasSpecGlobalSearchTable,CREATETIME,创建时间,common.field.createtime,CREATETIME$,type|format|width,date|yyyy-MM-dd HH:mm:ss|170px
+sysHasSpecGlobalSearchTable,OWNERUSER,所有者,common.field.owneruser,OWNERUSER$,type|width,user|100px
+sysGlobalSearchRelateTable,ID,编号,common.field.id,ID$,refreshCall|width|full|action|prefix|cellRenderer,false|150px|true|sysOpenGeneralBlankAction|ICON$|iconWithToolbar
+sysGlobalSearchRelateTable,NAME,名称,common.field.name,NAME$,width|disExp,190px|!$HASAUTH&&$HASAUTH!==undefined
+sysGlobalSearchRelateTable,BOTITLE,类型,common.field.botitle,BOTITLE$,expression|width,${BOTITLE$}|140px
+sysGlobalSearchRelateTable,thumbnail,缩略图,common.field.thumbnail,THUMBNAIL$,width|type|isIcon|imageAction,85px|image|false|OpenLightWeightChartAction
+sysGlobalSearchRelateTable,position,位置,common.field.position,COMMITFOLDER$,width|action|expression|disExp,250px|event:positionLinkAction|$COMMITFOLDER$PATH|!$HASAUTH&&$HASAUTH!==undefined
+sysGlobalSearchRelateTable,STATUS,状态,common.field.status,STATUS$,type|width|colorMapping|,state|80px|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080
+sysGlobalSearchRelateTable,REVISIONID,版本,common.field.revision,REVISIONID$,width|expression,70px|$REVISIONID$?$REVISIONID$+'.'+$ITERATIONID$:''
+sysGlobalSearchRelateTable,updatetime,更新时间,common.field.updatetime,UPDATETIME$,canSort|type|format|order|width,true|date|yyyy-MM-dd HH:mm:ss|desc|170px
+sysGlobalSearchRelateTable,ReleaseTime,发布时间,common.field.releasetime,RELEASETIME$,type|format|canSort|width,date|yyyy-MM-dd HH:mm:ss|false|170px
+sysGlobalSearchRelateTable,CREATETIME,创建时间,common.field.createtime,CREATETIME$,type|format|width,date|yyyy-MM-dd HH:mm:ss|170px
+sysGlobalSearchRelateTable,OWNERUSER,所有者,common.field.owneruser,OWNERUSER$,type|width,user|100px
+sysProjectWbsErrTable,NAME,名称,common.field.name,NAME$,width,400px
+sysProjectWbsErrTable,wbs,编号,project.title.wbsNo,WBSNUMBER,width,90px
+sysProjectWbsErrTable,TaskType,任务类型,project.title.taskType,TASKTYPE,type|typeValue|editable|width,code|TaskType|false|100px
+sysProjectWbsErrTable,ImportanceLevel,重要程度,project.title.importantLevel,IMPORTANCELEVEL,type|typeValue|editable,code|ImportanceLevel|false
+sysProjectWbsErrTable,PlanStartTime,计划开始时间,project.title.planStartTime,PLANSTARTTIME,type|format|editable,date|yyyy-MM-dd|true
+sysProjectWbsErrTable,PlanFinishTime,计划结束时间,project.title.planEndTime,PLANFINISHTIME,type|format|editable|width,date|yyyy-MM-dd|true|125px
+sysProjectWbsErrTable,ExecuteStatus,执行状态,project.title.executeStatus,EXECUTESTATUS,type|typeValue|editable|width,code|ExecuteStatus|false|100px
+sysProjectWbsErrTable,OnTimeState,准时状态,project.title.onTime,ONTIMESTATE,type|typeValue|editable|width,code|OnTimeState|false|100px
+sysProjectWbsErrTable,OperationState,可操作状态,project.title.operationStatus,OPERATIONSTATE,type|typeValue|editable|width,code|OperationState|false|110px
+sysProjectWbsErrTable,PlannedDuration,计划工期(天),project.title.planDuration,PLANNEDDURATION,width,120px
+sysProjectWbsErrTable,PlanWorkload,计划工作量(时),project.title.planWorkload,PLANWORKLOAD,width,120px
+sysProjectWbsErrTable,RELATIONPROJECT,关联子项目,project.field.relatedSubProject,RELATIONPROJECT,type|width|action,object|120px|open:instance/class_Part?route=/instance&baseUri=ppm&guid=$GUID$&className=$CLASSNAME$&mode="edit"
+sysProjectWbsErrTable,Executor,执行人,project.field.executor,EXECUTOR,type|editable|width|optionURL|optionParams,user|true|100px|/team/listTeamUserOption|projectGuid=$OWNERPROJECT
+sysProjectWbsErrTable,ExecutorRole,执行角色,project.title.executorRole,EXECUTORROLE,translateType|width|type|editable|optionURL|optionParams|multiple,translate|100px|combo|true|/team/listOptionProjectRole|projectGuid=$OWNERPROJECT|false
+sysProjectWbsErrTable,PredecessorRelation,前置任务,project.title.predecessorRelation,PREDECESSORRELATION,type|editable|width,string|false|100px
+sysProjectWbsErrTable,message,失败原因,systemSetting.organization.groupManagment.field.failureReason,message,showDetail|showTooltip,true|true
+sysAdjustProportionTable,USERNAME,用户名,project.field.user,USERNAME,type|editable,string|false
+sysAdjustProportionTable,PROJECTROLENAME,角色,project.field.role,PROJECTROLENAME,type|editable|translateType,string|false|translate
+sysAdjustProportionTable,RESOURCERATE,占比,project.field.workloadPercentage,RESOURCERATE,type|editable|min|max|step,numerical|true|1|100|1
+sysWorkloadTable,FULLNAME,项目名称,project.title.name,FULLNAME,type,string
+sysWorkloadTable,EXECUTESTATUS,执行状态,project.title.executeStatus,EXECUTESTATUSNAME,type|translateType,string|translate
+sysWorkloadTable,PLANSTARTTIME,计划开始时间,project.title.planStartTime,PLANSTARTTIME,type,date
+sysWorkloadTable,PLANFINISHTIME,计划结束时间,project.title.planEndTime,PLANFINISHTIME,type,date
+sysWorkloadTable,PLANDURATION,计划工期,project.title.planDuration,PLANNEDDURATION,type,string
+sysWorkloadTable,PLANWORKLOAD,计划工作量,project.title.planWorkload,PLANWORKLOAD,type,string
+sysTBDeliverablesTable,ID$,交付物类型/对象,project.title.deliveryItems,ID,refreshCall|disExp|width|translateType|action,true|$ISROOT=='Y'|200px|translate|event:openInstanceAction
+sysTBDeliverablesTable,CLSFITILE,分类,common.field.classification,CLSFITILE,width|translateType,150px|translate
+sysTBDeliverablesTable,FILENAME$,主文件,basic.system.field.masterFile,FILE$,width|type|canDeleteExpression|canUploadExpression|previewAction,150px|file|1===1|1===1|filePreviewAction
+sysTBDeliverablesTable,ISNEED,必须,project.title.deliveryMandatory,ISNEED,type|width|updateAction|disabledExpression|visibleExpression,switch|100px|sysTBupdateDeliverablesTempAction|`$ISROOT!='Y'`|`$ISROOT=='Y'`
+sysTBDeliverablesTable,ISRELEASE,发布,project.title.deliveryReleaseNeed,ISRELEASE,type|width|updateAction|disabledExpression|visibleExpression,switch|100px|sysTBupdateDeliverablesTempAction|`$ISROOT!='Y'`|`$ISROOT=='Y'`
+sysTBDeliverablesTable,CREATEUSERNAME,创建者,common.field.createuser,CREATEUSERNAME,type|width,string|150px
+sysTBDeliverablesTable,COMMITUSER,提交者,project.title.submitUser,COMMITUSER,type|width,string|150px
+sysTBDeliverablesTable,STATUS,状态,common.field.status,STATUS$,type|width|colorMapping,state|100px|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080
+sysTBDeliverablesTable,CREATETIME,修改时间,common.title.modifyTime,UPDATETIME,type|format|canSort|width,date|yyyy-MM-dd HH:mm:ss|true|150px
+sysTBDeliverablesTable,operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysTbInstanceAddDeliverablesToolbar|200px
+sysProjectWorkflowTable,WFTEMPLATETITLE,名称,common.field.name,WFTEMPLATETITLE,translateType|width|action,translate|200px|open:page/sysApprovePage?baseUri=pdm&route=/page&guid=$GUID$&className=$CLASSNAME$&urlKey=guid:name
+sysProjectWorkflowTable,DESCRIPTION,描述,common.field.description,DESCRIPTION,width,200px
+sysProjectWorkflowTable,STATUS,状态,common.field.status,PROCESSSTATUS,type|width|colorMapping,state|100px|CREATED:#e6ac46;RUNNING:#4e84e4;ONHOLD:#678b87;CLOSED:#31c975;CANCEL:#534367;OBSOLETE:#fb6a6as
+sysProjectWorkflowTable,CREATEUSERNAME,发起人,workflow.field.promoter,CREATEUSERNAME,,
+sysProjectWorkflowTable,STARTTIME,发起时间,workflow.field.promottime,CREATETIME,type|format|width,date|yyyy-MM-dd HH:mm:ss|180px
+sysProjectTemplateSearchTable,ID,编号,common.field.id,ID$,refreshCall|width|full|action|prefix|disExp|cellRenderer,false|200px|true|sysOpenGeneralBlankAction|ICON$|!$HASAUTH&&$HASAUTH!==undefined|iconWithToolbar
+sysProjectTemplateSearchTable,NAME,名称,common.field.name,NAME$,width|disExp|action,250px|!$HASAUTH&&$HASAUTH!==undefined|drawer:page/sysProjectTemplatePreviewPage?guid=$GUID$&classGuid=$CLASSGUID$&className=$CLASSNAME$&mode="view"&passData=false
+sysProjectTemplateSearchTable,TEMPLATESTATUS,模板状态,project.title.templateStatus,TEMPLATESTATUS,width|type|canFilter|colorMapping|filterURL|filterParams|translateType,120px|code|false|Available:#29cc74;NotAvailable:#808080;Obsolete:#FF0000;|/rewrite/SysModel/CommonModel/listOptions|codeName=TemplateStatus|translate
+sysProjectTemplateSearchTable,MilestoneType,里程碑类型,project.title.mileStoneType,PROJECTTYPE$NAME,type|width,string|150px
+sysProjectTemplateSearchTable,STATUS,状态,common.field.status,STATUS$,type|width|colorMapping|canFilter,state|100px|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080|true
+sysProjectTemplateSearchTable,TASKPERFORMERTYPE,执行方式,project.title.taskPerformerType,TASKPERFORMERTYPE,type|width,code|180px
+sysProjectTemplateSearchTable,TASKSTARTTYPE,启动方式,project.field.taskStartType,TASKSTARTTYPE,type|width,code|130px
+sysProjectTemplateSearchTable,CREATEUSER,创建者,common.field.createuser,CREATEUSER$,width|type,150px|user
+sysProjectTemplateSearchTable,CREATETIME,创建时间,common.field.createtime,CREATETIME$,canSort|type|format|width,true|date|yyyy-MM-dd HH:mm:ss|160px
+sysProjectTemplateSearchTable,updatetime,更新时间,common.field.updatetime,UPDATETIME$,canSort|type|format|order|width,true|date|yyyy-MM-dd HH:mm:ss|desc|160px
+sysProjectTemplateSearchTable,PRODUCTTYPE,产品类别,project.title.productType,PRODUCTTYPE,width,150px
+sysProjectTemplateSearchTable,PROGRAMTYPE,项目类型,project.title.projectType,PROGRAMTYPE,type|width,code|150px
+sysInstanceRelatedTable,ID,编号,common.field.id,ID$,refreshCall|width|full|action|prefix|cellRenderer,false|150px|true|sysOpenGeneralBlankAction|ICON$|iconWithToolbar
+sysInstanceRelatedTable,NAME,名称,common.field.name,NAME$,linkGuid|linkClassGuid|width|action,GUID$|CLASSGUID$|200px|drawer:page/sysInstancePreviewPage?guid=$GUID$&classGuid=$CLASSGUID$&mode="view"&className=$CLASSNAME$&name=sysInstancePreviewPage&titleExpression=item&passData=false
+sysInstanceRelatedTable,ISCHECKOUT,是否检出,common.field.ischeckout,ISCHECKOUT$,width|type,120px|boolean
+sysInstanceRelatedTable,classname,类型,common.field.botitle,BOTITLE$,width|expression|translateType|canSort,120px|${BOTITLE$}|translate|true
+sysInstanceRelatedTable,STATUS,状态,common.field.status,STATUS$,type|canFilter|width|colorMapping,state|true|100px|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080
+sysInstanceRelatedTable,REVISIONID,版本,common.field.revision,REVISIONID$,width|expression,80px|$REVISIONID$?$REVISIONID$+'.'+$ITERATIONID$:''
+sysInstanceRelatedTable,LIFECYCLEPHASE,阶段,common.field.lifecyclephase,LIFECYCLEPHASE$,type,lcphase
+sysInstanceRelatedTable,FILENAME$,主文件,basic.system.field.masterFile,FILE$,width|type|canDeleteExpression|canUploadExpression|previewAction,150px|file|1===1|1===1|filePreviewAction
+sysInstanceRelatedTable,operation,操作,common.field.operation,OPERATION$,type|toolbar|width,operation|sysInstanceRelatedOptionToolBar|200px
+sysSelectLocationTable,ICON,图标,advsearch.field.icon,ICON$,type|width|isIcon,image|70px|true
+sysSelectLocationTable,NAME,名称,advsearch.field.name,FOLDERNAME,width,200px
+sysSelectLocationTable,OWNERUSERNAME,负责人,advsearch.field.leader,MANAGERNAMES,width,200px
+sysSelectLocationTable,UPDATETIME,上次修改时间,advsearch.field.lastUpdateTime,UPDATETIME,type|format|width,date|yyyy-MM-dd HH:mm:ss|170px
+sysSelectLocationTable,CREATEUSER,创建者,advsearch.field.creater,CREATEUSERNAME,width,200px
+sysSelectLocationTable,DESCRIPTION,描述,advsearch.field.description,DESCRIPTION,width,250px
+sysDeliveryStatisticTable,ID,交付物编号,project.field.deliveryId,MD_ID,type|width|full|action|prefix|cellRenderer|disExp,string|150px|true|sysOpenGeneralBlankAction|ICON$|iconWithToolbar|!$HASAUTH&&$HASAUTH!==undefined
+sysDeliveryStatisticTable,NAME,交付物名称,project.field.deliveryName,MD_NAME,width|type|action|disExp,180px|link|sysOpenGeneralDrawerAction|!$HASAUTH&&$HASAUTH!==undefined
+sysDeliveryStatisticTable,TYPE,交付物类型,project.field.deliveryType,BOTITLE$,type|canSort|canFilter|width|filterURL|filterParams,combo|false|true|180px|/rewrite/SysModel/CommonModel/listOptions|type=botitle
+sysDeliveryStatisticTable,CLASSIFICATION,分类,common.field.classification,CLASSIFICATION,width|type|translateType|canFilter|filterURL|filterParams,160px|combo|translate|false|/rewrite/SysModel/CommonModel/listOptions|codeName=classification
+sysDeliveryStatisticTable,STATUS,状态,common.field.status,STATUS$,type|canFilter|width|colorMapping|filterURL|filterParams,state|true|100px|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080|/rewrite/SysModel/CommonModel/listOptions|type=status
+sysDeliveryStatisticTable,CREATEUSER,创建者,common.field.createuser,CREATEUSER,width|type|canFilter|filterURL,150px|user|true|/rewrite/SysModel/CommonModel/listOptions
+sysDeliveryStatisticTable,CREATETIME,创建时间,common.field.createtime,CREATIONTIME,canSort|type|format|width,true|date|yyyy-MM-dd HH:mm:ss|160px
+sysDeliveryStatisticTable,SUBMISSIONTIME,提交日期,project.field.submissionDate,SUBMITTEDTIME,canSort|type|format|width,true|date|yyyy-MM-dd HH:mm:ss|160px
+sysDeliveryStatisticTable,OWNERPROJECT,所属项目,project.title.ownerProject,OWNERPROJECT,linkGuid|linkClassGuid|canFilter|type|filterUrl|action|width,OWNERPROJECT|OWNERPROJECT$CLASS|false|object|/ProjectManagement/IProjectService/listProjects|open:instance/class_Part?route=/instance&baseUri=ppm&guid=$OWNERPROJECT&className=$OWNERPROJECT$CLASSNAME$&mode="edit"|220px
+sysDeliveryStatisticTable_,PROJECTID,项目编号,project.title.id,PRJID,linkGuid|linkClassGuid|canFilter|type|filterURL|action,OWNERPROJECT|OWNERPROJECT$CLASS|false|object|/ProjectManagement/IProjectService/listProjects|open:instance/class_Part?route=/instance&baseUri=ppm&guid=$OWNERPROJECT&className=$OWNERPROJECT$CLASSNAME$&mode="edit"
+sysDeliveryStatisticTable_,PROJECTNAME,项目名称,project.title.name,PRJNAME,width|type,150px|string
+sysMilestoneViewTable,PROJECTID,项目编号,project.title.id,PROJECTID$,type|width|full|action|prefix|cellRenderer|disExp,string|150px|true|sysOpenGeneralBlankAction|ICON$|iconWithToolbar|!$HASAUTH&&$HASAUTH!==undefined
+sysMilestoneViewTable,PROJECTNAME,项目名称,project.title.name,PROJECTNAME$,width|type|action|disExp,150px|link|sysOpenGeneralDrawerAction|!$HASAUTH&&$HASAUTH!==undefined
+sysMilestoneViewTable,ExecuteStatus,执行状态,project.title.executeStatus,EXECUTESTATUS,type|typeValue|editable|width|colorMapping,code|ExecuteStatus|false|100px|APP:#518ce6;PUS:#484848;SSP:#fc6c85;INI:#e6a542;RUN:#619392;COP:#38cd90
+sysMilestoneViewTable,OnTimeState,准时状态,project.title.onTime,ONTIMESTATE,type|typeValue|editable|width|colorMapping,code|OnTimeState|false|100px|delay:#ec818e;potentialRisk:#c8cb00;progressonTime:#1fc933;
+sysMilestoneViewTable,ImportanceLevel,重要程度,project.title.importantLevel,IMPORTANCELEVEL,type|typeValue|editable,code|ImportanceLevel|false
+sysMilestoneViewTable,PlannedDuration,计划工期(天),project.title.planDuration,PLANNEDDURATION,type|min|width|editable|cellEditableExpression,numerical|0|120px|true|$current['ISROOT']!=='Y'&&$current['ISEDIT$']&&$current['TASKTYPE$CODE']!=='SUMMARY'&&$current['HAVEWORKFLOW']!=='Y'
+sysMilestoneViewTable,completerate,完成率,project.title.completeRate,COMPLETIONRATE,canSort|width|type,true|160px|progress
+sysMilestoneViewTable,PLANCOMPLETETIME-1,计划完成时间,project.field.planCompleteTime,PLANCOMPLETETIME,type|format|width|canSort|group|groupLabel,date|yyyy-MM-dd|180px|true|start|project.field.startupPhase
+sysMilestoneViewTable,ACTUALCOMPLETETIME-1,实际完成时间,project.field.actualCompleteTime,ACTUALCOMPLETETIME,type|format|width|canSort|group|groupLabel,date|yyyy-MM-dd|180px|true|start|project.field.startupPhase
+sysMilestoneViewTable,STARTCOMPLETIONRATE,完成率,project.title.completeRate,STARTCOMPLETIONRATE,canSort|width|type|group|groupLabel,true|160px|progress|start|project.field.startupPhase
+sysMilestoneViewTable,PLANCOMPLETETIME-2,计划完成时间,project.field.planCompleteTime,PLANCOMPLETETIME,type|format|width|canSort|group|groupLabel,date|yyyy-MM-dd|180px|true|demand|project.field.demandPhase
+sysMilestoneViewTable,ACTUALCOMPLETETIME-2,实际完成时间,project.field.actualCompleteTime,ACTUALCOMPLETETIME,type|format|width|canSort|group|groupLabel,date|yyyy-MM-dd|180px|true|demand|project.field.demandPhase
+sysMilestoneViewTable,DEMANDCOMPLETIONRATE,完成率,project.title.completeRate,DEMANDCOMPLETIONRATE,canSort|width|type|group|groupLabel,true|160px|progress|demand|project.field.demandPhase
+sysMilestoneViewTable,PLANCOMPLETETIME-3,计划完成时间,project.field.planCompleteTime,PLANCOMPLETETIME,type|format|width|canSort|group|groupLabel,date|yyyy-MM-dd|180px|true|design|project.field.designPhase
+sysMilestoneViewTable,ACTUALCOMPLETETIME-3,实际完成时间,project.field.actualCompleteTime,ACTUALCOMPLETETIME,type|format|width|canSort|group|groupLabel,date|yyyy-MM-dd|180px|true|design|project.field.designPhase
+sysMilestoneViewTable,DESIGNCOMPLETIONRATE,完成率,project.title.completeRate,DESIGNCOMPLETIONRATE,canSort|width|type|group|groupLabel,true|160px|progress|design|project.field.designPhase
+sysProjectTotalTable,PROJECTID,项目编号,project.title.id,MD_ID,type|width|full|action|prefix|cellRenderer|disExp,string|150px|true|sysOpenGeneralBlankAction|ICON$|iconWithToolbar|!$HASAUTH&&$HASAUTH!==undefined
+sysProjectTotalTable,PROJECTNAME,项目名称,project.title.name,MD_NAME,width|type|action|disExp,150px|link|sysOpenGeneralDrawerAction|!$HASAUTH&&$HASAUTH!==undefined
+sysProjectTotalTable,Executor,项目经理,project.title.manager,MANAGER,type|canFilter|width|filterURL,user|true|125px|/rewrite/SysModel/CommonModel/listOptions
+sysProjectTotalTable,GROUP,组,project.title.group,OWNERGROUP,width|type,160px|user
+sysProjectTotalTable,EXECUTESTATUS,执行状态,project.title.executeStatus,EXECUTESTATUS,width|type|canFilter|colorMapping|filterURL|filterParams,115px|code|true|APP:#518ce6;PUS:#484848;SSP:#fc6c85;INI:#e6a542;RUN:#619392;COP:#38cd90|/rewrite/SysModel/CommonModel/listOptions|codeName=ExecuteStatus
+sysProjectTotalTable,ProjectType,里程碑类型,project.title.mileStoneType,PROJECTTYPE,type|width|canFilter|filterURL,code|150px|true|/mileStone/listMileStone
+sysProjectTotalTable,ImportanceLevel,重要程度,project.title.importantLevel,IMPORTANCELEVEL,type|typeValue|editable,code|ImportanceLevel|false
+sysProjectTotalTable,OnTimeState,准时状态,project.title.onTime,ONTIMESTATE,type|typeValue|editable|width|colorMapping,code|OnTimeState|false|100px|delay:#ec818e;potentialRisk:#c8cb00;progressonTime:#1fc933;
+sysProjectTotalTable,PlanStartTime,计划开始时间,project.title.planStartTime,PLANSTARTTIME,type|format|width,date|yyyy-MM-dd|180px
+sysProjectTotalTable,PlanFinishTime,计划结束时间,project.title.planEndTime,PLANFINISHTIME,type|format|width,date|yyyy-MM-dd|180px
+sysProjectTotalTable,STATUS,状态,common.field.status,STATUS$,type|canFilter|width|colorMapping,state|true|100px|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080
+sysProjectTotalTable,ActualStartTime,实际开始时间,project.title.actualStartTime,ACTUALSTARTTIME,type|format|width|canSort,date|yyyy-MM-dd|180px|true
+sysProjectTotalTable,ActualFinishTime,实际结束时间,project.title.actualFinishTime,ACTUALFINISHTIME,type|format|width|canSort,date|yyyy-MM-dd|180px|true
+sysProjectTotalTable,PROGRAMTYPE,项目类型,project.title.projectType,PROGRAMTYPE,type|width,code|150px
+sysProjectTotalTable,completerate,完成率,project.title.completeRate,COMPLETIONRATE,canSort|width|type,true|160px|progress
+sysProjectTotalTable,SPI,SPI,project.title.SPI,SPI,width,80px
+sysProjectTotalTable,ProjectDeviationRate,项目偏差率,project.title.projectDeviationRate,DEVIATIONRATE,width|type,80px|string
+sysProjectExecuteStatusTable,PROJECTID,项目编号,project.title.id,PROJECTID$,type|width|prefix|cellRenderer,string|150px|ICON$|iconWithToolbar
+sysProjectExecuteStatusTable,PROJECTNAME,项目名称,project.title.name,PROJECTNAME$,width|type,150px|string
+sysProjectExecuteStatusTable,Executor,项目经理,project.title.manager,EXECUTOR,type|width,user|125px
+sysProjectExecuteStatusTable,GROUP,组,project.title.group,GROUP,width|type,60px|string
+sysProjectExecuteStatusTable,EXECUTESTATUS,执行状态,project.title.executeStatus,EXECUTESTATUS,width|type|canFilter|colorMapping|filterURL|filterParams,115px|code|true|APP:#518ce6;PUS:#484848;SSP:#fc6c85;INI:#e6a542;RUN:#619392;COP:#38cd90|/rewrite/SysModel/CommonModel/listOptions|codeName=ExecuteStatus
+sysProjectExecuteStatusTable,ProjectType,里程碑类型,project.title.mileStoneType,PROJECTTYPE,type|width|canFilter|filterURL,code|150px|true|/mileStone/listMileStone
+sysProjectExecuteStatusTable,ImportanceLevel,重要程度,project.title.importantLevel,IMPORTANCELEVEL,type|typeValue,code|ImportanceLevel
+sysProjectExecuteStatusTable,OnTimeState,准时状态,project.title.onTime,ONTIMESTATE,type|typeValue|width|colorMapping,code|OnTimeState|100px|delay:#ec818e;potentialRisk:#c8cb00;progressonTime:#1fc933;
+sysProjectOnTimeStateTable,PROJECTID,项目编号,project.title.id,PROJECTID$,type|width|prefix|cellRenderer,string|150px|ICON$|iconWithToolbar
+sysProjectOnTimeStateTable,PROJECTNAME,项目名称,project.title.name,PROJECTNAME$,width|type,150px|string
+sysProjectOnTimeStateTable,Executor,项目经理,project.title.manager,EXECUTOR,type|width,user|125px
+sysProjectOnTimeStateTable,GROUP,组,project.title.group,GROUP,width|type,60px|string
+sysProjectOnTimeStateTable,EXECUTESTATUS,执行状态,project.title.executeStatus,EXECUTESTATUS,width|type|canFilter|colorMapping,115px|code|true|APP:#518ce6;PUS:#484848;SSP:#fc6c85;INI:#e6a542;RUN:#619392;COP:#38cd90
+sysProjectOnTimeStateTable,ProjectType,里程碑类型,project.title.mileStoneType,PROJECTTYPE,type|width|canFilter|filterURL,code|150px|true|/mileStone/listMileStone
+sysProjectOnTimeStateTable,ImportanceLevel,重要程度,project.title.importantLevel,IMPORTANCELEVEL,type|typeValue,code|ImportanceLevel
+sysProjectOnTimeStateTable,OnTimeState,准时状态,project.title.onTime,ONTIMESTATE,type|typeValue|width|colorMapping,code|OnTimeState|100px|delay:#ec818e;potentialRisk:#c8cb00;progressonTime:#1fc933;
+sysProjectOnTimeStateTable,PlanStartTime,计划开始时间,project.title.planStartTime,PLANSTARTTIME,type|format|width,date|yyyy-MM-dd|180px
+sysProjectOnTimeStateTable,PlanFinishTime,计划结束时间,project.title.planEndTime,PLANFINISHTIME,type|format|width,date|yyyy-MM-dd|180px
+sysProjectOnTimeStateTable,ActualStartTime,实际开始时间,project.title.actualStartTime,ACTUALSTARTTIME,type|format|width|canSort,date|yyyy-MM-dd|180px|true
+sysProjectOnTimeStateTable,ActualFinishTime,实际结束时间,project.title.actualFinishTime,ACTUALFINISHTIME,type|format|width|canSort,date|yyyy-MM-dd|180px|true
+sysProjectOnTimeStateTable,completerate,完成率,project.title.completeRate,COMPLETIONRATE,canSort|width|type,true|160px|progress
+sysProjectManagerTable,PROJECTID,项目编号,project.title.id,PROJECTID$,type|width|prefix|cellRenderer,string|150px|ICON$|iconWithToolbar
+sysProjectManagerTable,PROJECTNAME,项目名称,project.title.name,PROJECTNAME$,width|type,150px|string
+sysProjectManagerTable,Executor,项目经理,project.title.manager,EXECUTOR,type|width,user|125px
+sysProjectManagerTable,GROUP,组,project.title.group,GROUP,width|type,60px|string
+sysProjectManagerTable,EXECUTESTATUS,执行状态,project.title.executeStatus,EXECUTESTATUS,width|type|canFilter|colorMapping,115px|code|true|APP:#518ce6;PUS:#484848;SSP:#fc6c85;INI:#e6a542;RUN:#619392;COP:#38cd90
+sysProjectManagerTable,ProjectType,里程碑类型,project.title.mileStoneType,PROJECTTYPE,type|width|canFilter|filterURL,code|150px|true|/mileStone/listMileStone
+sysProjectManagerTable,ImportanceLevel,重要程度,project.title.importantLevel,IMPORTANCELEVEL,type|typeValue,code|ImportanceLevel
+sysProjectManagerTable,OnTimeState,准时状态,project.title.onTime,ONTIMESTATE,type|typeValue|width|colorMapping,code|OnTimeState|100px|delay:#ec818e;potentialRisk:#c8cb00;progressonTime:#1fc933;
+sysProjectManagerTable,PlanStartTime,计划开始时间,project.title.planStartTime,PLANSTARTTIME,type|format|width,date|yyyy-MM-dd|180px
+sysProjectManagerTable,PlanFinishTime,计划结束时间,project.title.planEndTime,PLANFINISHTIME,type|format|width,date|yyyy-MM-dd|180px
+sysProjectManagerTable,ActualStartTime,实际开始时间,project.title.actualStartTime,ACTUALSTARTTIME,type|format|width|canSort,date|yyyy-MM-dd|180px|true
+sysProjectManagerTable,ActualFinishTime,实际结束时间,project.title.actualFinishTime,ACTUALFINISHTIME,type|format|width|canSort,date|yyyy-MM-dd|180px|true
+sysProjectManagerTable,completerate,完成率,project.title.completeRate,COMPLETIONRATE,canSort|width|type,true|160px|progress
+sysGroupStatisticTable,PROJECTID,项目编号,project.title.id,PROJECTID$,type|width|prefix|cellRenderer,string|150px|ICON$|iconWithToolbar
+sysGroupStatisticTable,PROJECTNAME,项目名称,project.title.name,PROJECTNAME$,width|type,150px|string
+sysGroupStatisticTable,Executor,项目经理,project.title.manager,EXECUTOR,type|width,user|125px
+sysGroupStatisticTable,GROUP,组,project.title.group,GROUP,width|type,60px|string
+sysGroupStatisticTable,EXECUTESTATUS,执行状态,project.title.executeStatus,EXECUTESTATUS,width|type|canFilter|colorMapping,115px|code|true|APP:#518ce6;PUS:#484848;SSP:#fc6c85;INI:#e6a542;RUN:#619392;COP:#38cd90
+sysGroupStatisticTable,ProjectType,里程碑类型,project.title.mileStoneType,PROJECTTYPE,type|width|canFilter|filterURL,code|150px|true|/mileStone/listMileStone
+sysGroupStatisticTable,ImportanceLevel,重要程度,project.title.importantLevel,IMPORTANCELEVEL,type|typeValue,code|ImportanceLevel
+sysGroupStatisticTable,OnTimeState,准时状态,project.title.onTime,ONTIMESTATE,type|typeValue|width|colorMapping,code|OnTimeState|100px|delay:#ec818e;potentialRisk:#c8cb00;progressonTime:#1fc933;
+sysGroupStatisticTable,PlanStartTime,计划开始时间,project.title.planStartTime,PLANSTARTTIME,type|format|width,date|yyyy-MM-dd|180px
+sysGroupStatisticTable,PlanFinishTime,计划结束时间,project.title.planEndTime,PLANFINISHTIME,type|format|width,date|yyyy-MM-dd|180px
+sysGroupStatisticTable,ActualStartTime,实际开始时间,project.title.actualStartTime,ACTUALSTARTTIME,type|format|width|canSort,date|yyyy-MM-dd|180px|true
+sysGroupStatisticTable,ActualFinishTime,实际结束时间,project.title.actualFinishTime,ACTUALFINISHTIME,type|format|width|canSort,date|yyyy-MM-dd|180px|true
+sysGroupStatisticTable,completerate,完成率,project.title.completeRate,COMPLETIONRATE,canSort|width|type,true|160px|progress
+sysGroupStatisticTable,SPI,SPI,project.title.SPI,SPI,width,80px
+sysTaskTotalTable,PROJECTID,任务编号,project.title.taskId,MD_ID,type|width|full|action|prefix|cellRenderer|disExp,string|150px|true|sysOpenGeneralBlankAction|ICON$|iconWithToolbar|!$HASAUTH&&$HASAUTH!==undefined
+sysTaskTotalTable,PROJECTNAME,任务名称,project.title.taskName,MD_NAME,width|type|action|disExp,150px|link|sysOpenGeneralDrawerAction|!$HASAUTH&&$HASAUTH!==undefined
+sysTaskTotalTable,Executor,执行人,project.field.executor,EXECUTOR,type|canFilter|width|filterURL,user|true|125px|/rewrite/SysModel/CommonModel/listOptions
+sysTaskTotalTable,OWNERPROJECT$FULLNAME,所属项目,project.title.ownerProject,OWNERPROJECT,linkGuid|linkClassGuid|canFilter|type|filterUrl|action,OWNERPROJECT|OWNERPROJECT$CLASS|false|object|/ProjectManagement/IProjectService/listProjects|open:instance/class_Part?route=/instance&baseUri=ppm&guid=$OWNERPROJECT&className=$OWNERPROJECT$CLASSNAME$&mode="edit"
+sysTaskTotalTable,GROUP,组,project.title.group,OWNERGROUP,width|type,160px|user
+sysTaskTotalTable,EXECUTESTATUS,执行状态,project.title.executeStatus,EXECUTESTATUS,width|type|canFilter|colorMapping|filterURL|filterParams,115px|code|true|APP:#518ce6;PUS:#484848;SSP:#fc6c85;INI:#e6a542;RUN:#619392;COP:#38cd90|/rewrite/SysModel/CommonModel/listOptions|codeName=ExecuteStatus
+sysTaskTotalTable,OnTimeState,准时状态,project.title.onTime,ONTIMESTATE,type|typeValue|editable|width|colorMapping,code|OnTimeState|false|100px|delay:#ec818e;potentialRisk:#c8cb00;progressonTime:#1fc933;
+sysTaskTotalTable,PlanStartTime,计划开始时间,project.title.planStartTime,PLANSTARTTIME,type|format|width,date|yyyy-MM-dd|180px
+sysTaskTotalTable,PlanFinishTime,计划结束时间,project.title.planEndTime,PLANFINISHTIME,type|format|width,date|yyyy-MM-dd|180px
+sysTaskTotalTable,STATUS,状态,common.field.status,STATUS$,type|canFilter|width|colorMapping,state|true|100px|WIP:#f2ba02;PRE:#4b87ff;RLS:#29cc74;ECP:#65b7ff;OBS:#808080
+sysTaskTotalTable,ActualStartTime,实际开始时间,project.title.actualStartTime,ACTUALSTARTTIME,type|format|width|canSort,date|yyyy-MM-dd|180px|true
+sysTaskTotalTable,ActualFinishTime,实际结束时间,project.title.actualFinishTime,ACTUALFINISHTIME,type|format|width|canSort,date|yyyy-MM-dd|180px|true
+sysTaskTotalTable,completerate,完成率,project.title.completeRate,COMPLETIONRATE,canSort|width|type,true|160px|progress
+sysTaskTotalTable,SPI,SPI,project.title.SPI,SPI,width,80px
+sysProjectManagerSummaryTable,USERNAME,项目经理,project.title.manager,USERNAME,width,210px
+sysProjectManagerSummaryTable,ALL,项目总数,project.title.totalProjects,ALL,width,210px
+sysProjectManagerSummaryTable,COMPLETEONTIME,按时完成数,project.field.punctualCompletion,COMPLETEONTIME,width,210px
+sysProjectManagerSummaryTable,COMPLETEONTIMERATE,按时完成率,project.field.punctualCompletionRate,COMPLETEONTIMERATE,width,210px
+sysProjectManagerSummaryTable,DELAYONTIME,延期完成数,project.field.delayedCompletion,DELAYONTIME,width,210px
+sysProjectManagerSummaryTable,DELAYONTIMERATE,延期完成率,project.field.delayedCompletionRate,DELAYONTIMERATE,width,210px
+sysExecutorSummaryTable,USERNAME,执行人,project.title.executor,USERNAME,width,210px
+sysExecutorSummaryTable,ALL,任务总数,project.title.totalTasks,ALL,width,210px
+sysExecutorSummaryTable,COMPLETEONTIME,按时完成数,project.field.punctualCompletion,COMPLETEONTIME,width,210px
+sysExecutorSummaryTable,COMPLETEONTIMERATE,按时完成率,project.field.punctualCompletionRate,COMPLETEONTIMERATE,width,210px
+sysExecutorSummaryTable,DELAYONTIME,延期完成数,project.field.delayedCompletion,DELAYONTIME,width,210px
+sysExecutorSummaryTable,DELAYONTIMERATE,延期完成率,project.field.delayedCompletionRate,DELAYONTIMERATE,width,210px
+sysGroupSummaryTable,GROUPNAME,组,project.title.group,GROUPNAME,width,210px
+sysGroupSummaryTable,ALL,任务总数,project.title.totalTasks,ALL,width,210px
+sysGroupSummaryTable,CREATED,已创建,project.title.created,INI,width,210px
+sysGroupSummaryTable,INPROGRESS,运行中,project.title.inProgress,RUN,width,210px
+sysGroupSummaryTable,COMPLETED,已完成,project.title.completed,COP,width,210px
+sysGroupSummaryTable,PAUSED,暂停,project.title.paused,PUS,width,210px
+sysGroupSummaryTable,TERMINATED,终止,project.title.terminated,SSP,width,210px
+sysProjectGroupSummaryTable,GROUPNAME,组,project.title.group,GROUPNAME,width,210px
+sysProjectGroupSummaryTable,ALL,项目总数,project.title.totalProjects,ALL,width,210px
+sysProjectGroupSummaryTable,CREATED,已创建,project.title.created,INI,width,210px
+sysProjectGroupSummaryTable,INPROGRESS,运行中,project.title.inProgress,RUN,width,210px
+sysProjectGroupSummaryTable,COMPLETED,已完成,project.title.completed,COP,width,210px
+sysProjectGroupSummaryTable,PAUSED,暂停,project.title.paused,PUS,width,210px
+sysProjectGroupSummaryTable,TERMINATED,终止,project.title.terminated,SSP,width,210px

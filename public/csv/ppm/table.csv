@@ -1,0 +1,56 @@
+Table Name,Description,Label,Action,Property Key,Property Value
+sysProjectManagementTable,项目管理,basic.common.table.sysProjectManagementTable,,frozenRight|sizeChanger,1|true
+sysProjectWbsTable,任务,basic.common.table.sysProjectWbsTable,,frozenRight|frozen|process|total|canExport|draggable|dragProcess,1|1|sysProjectTaskSaveAction|false|false|true|sysProjectTaskDragAction
+sysProjectTemplateWbsTable,项目模板任务,basic.common.table.sysProjectWbsTable,,frozenRight|process|total|canExport|draggable|dragProcess,1|sysProjectTaskSaveAction|false|false|true|sysProjectTemplateTaskDragAction
+sysProjectTemplateManageTable,项目模板管理,basic.common.table.sysProjectTemplateManageTable,,frozen|frozenRight|sizeChanger,2|1|true
+sysProjectTemplateTeamResourceTable,团队资源(项目模板),团队资源,,rowAddAction|mode|pagination,sysTeamResourceAddAction|edit|false
+sysProjectTeamResourceStructureTable,团队资源(项目-结构),团队资源,,frozenRight|canExport|canSet|mode|total|expandLevel,1|false|false|edit|false|1
+sysProjectChangeTable,项目变更table,项目变更table,,select|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols,multi|true|middle|true|220px|250px|12|24
+sysProjectChangeRecordListTable,项目变更记录table,项目变更记录table,,showFooter|select|mode|size|frozenRight|wrap|frozen|canExport,false|multi|view|middle|1|true|2|false
+sysProjectDetailTeamSourceTable,团队资源,团队资源,,,
+sysProjectDetailWarningTable,预警(详细信息）,预警,,,
+sysProductWarningTable,预警,预警,,total|pagination|sizeChanger,true|true|true
+sysMilestoneLeftTable,里程碑table,basic.common.table.,,total,false
+sysWarningAssignedTaskTable,（预警）指定任务,指定任务,,total,false
+sysRelevanceWbsTable,（指定）关联任务,关联任务,,total|checkStrictly,false|true
+sysProjectStructuretTable,交付物清单项目结构table,交付物清单项目结构table,,select|mode|size|wrap|frozen|canExport|total|showFooter,multi|view|middle|true|2|false|false|false
+sysProjectTemplateStructuretTable,交付物清单项目结构table,交付物清单项目结构table,,select|mode|size|wrap|frozen|canExport|total|showFooter,multi|view|middle|true|2|false|false|false
+sysDeliveryItemSummaryTable,交付物清单交付项汇总table,交付物清单交付项汇总table,,select|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|total|showFooter,multi|true|middle|true|220px|250px|12|24|false|false
+sysDeliverablesSummaryTable,交付物清单交付物汇总table,交付物清单交付物汇总table,,select|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|total|showFooter,multi|true|middle|true|220px|250px|12|24|false|false
+sysTBProjectStructuretTable,TB交付物清单项目结构table,交付物清单项目结构table,,select|mode|size|wrap|frozen|canExport|total|showFooter|isFrontSort,multi|view|middle|true|2|false|false|false|true
+sysTBDeliveryItemSummaryTable,TB交付物清单交付项汇总table,交付物清单交付项汇总table,,select|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|total|showFooter,multi|true|middle|true|220px|250px|12|24|false|false
+sysTBDeliverablesSummaryTable,TB交付物清单交付物汇总table,交付物清单交付物汇总table,,select|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|total|showFooter,multi|true|middle|true|220px|250px|12|24|false|false
+sysBatchErrorShowTable,失败原因(通用表格),basic.common.table.sysBatchErrorShowTable,,select|pagination,none|false
+sysBatchErrorNotIdTable,失败原因(通用表格),basic.common.table.sysBatchErrorNotIdTable,,select|pagination,none|false
+sysInstanceAddDeliverablesTable,任务对象交付物表格,交付物,,canExport|size|frozenRight|mode|process|isFrontSort|showFooter,false|middle|1|edit|sysEditDeliverablesIDAction|true|false
+sysInstanceAddDeliverablesTemplateTable,任务对象交付物表格,交付物,,canExport|size|frozenRight|showFooter,false|middle|1|false
+sysProjectTaskResourceTable,任务资源（项目）,任务资源,,canExport|frozenRight|mode,false|1|edit
+sysWorkbenchProjectTaskResourceTable,任务资源（项目）,任务资源,,canExport|frozenRight|mode,false|1|edit
+sysProjectPreTaskTable,前置任务（项目）,前置任务,,canExport|frozenRight,false|1
+sysWorkbenchProjectPreTaskTable,前置任务（项目）,前置任务,,canExport|frozenRight,false|1
+sysGlobalSearchTable,全局搜索,basic.common.table.sysGlobalSearchTable,,frozen|draggable|canExport|isRowCheckable|sizeChanger|initQuery,3|false|true|`($origin["HASAUTH"] === true || $origin['HASAUTH']===undefined)`|true|false
+sysHasSpecGlobalSearchTable,全局搜索,basic.common.table.sysGlobalSearchTable,,frozen|draggable|canExport|isRowCheckable|initQuery,3|false|true|`($origin["HASAUTH"] === true || $origin['HASAUTH']===undefined)`|false
+sysGlobalSearchRelateTable,全局搜索,basic.common.table.sysGlobalSearchTable,,frozen|frozenRight|draggable|canExport|select|isRowCheckable,3|1|false|true|single|`($origin["HASAUTH"] === true || $origin['HASAUTH']===undefined)`
+sysProjectWbsErrTable,项目任务表格,basic.common.table.tempSysRoleTable,,pagination|frozenRight,false|1,
+sysAdjustProportionTable,调整占比,basic.common.table.sysAdjustProportionTable,,pagination|frozenRight|mode|select,false|1|edit|normal,
+sysWorkloadTable,资源工作量,basic.common.table.sysWorkloadTable,,,
+sysTaskStructuretTable,交付物清单任务结构table,交付物清单任务结构table,,showFooter|select|mode|size|frozen|canExport|total|pagination,false|multi|view|middle|2|false|false|false
+sysTaskDeliveryItemSummaryTable,交付物清单交付项汇总table,交付物清单交付项汇总table,,select|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|total|pagination,multi|true|middle|true|220px|250px|12|24|false|false
+sysTaskDeliverablesSummaryTable,交付物清单交付物汇总table,交付物清单交付物汇总table,,frozen|select|sizeChanger|size|wrap|cardWidth|cardHeight|cardRows|cardCols|total|pagination,1|multi|true|middle|true|220px|250px|12|24|false|false
+sysTBDeliverablesTable,任务对象交付物表格,交付物,,canExport|canExpand|canLocation|canSet|size|frozenRight|showFooter|isFrontSort,false|false|false|false|middle|1|false|true
+sysProjectWorkflowTable,流程,basic.common.table.sysProjectWorkflowTable,,canExport|canSet|frozen|frozenRight|size,true|true|2|0|middle
+sysProjectTemplateSearchTable,复制模板搜索表格,basic.common.table.sysProjectTemplateSearchTable,,frozen|draggable|canExport|sizeChanger|select,2|false|false|true|single
+sysInstanceRelatedTable,相关附件,basic.common.table.sysProductDesignDetailTable,,select|frozen|frozenRight|sizeChanger|size|canExport,multi|3|1|true|middle|true
+sysSelectLocationTable,选择位置,basic.common.table.sysSelectLocationTable,,canExport|frozen,false|2
+sysDeliveryStatisticTable,交付物统计,basic.common.table.sysDeliveryStatisticTable,,select|frozen|frozenRight|sizeChanger|size|initQuery,normal|2|1|true|middle|false
+sysMilestoneViewTable,交付物统计,basic.common.table.MilestoneView,,select|frozen|frozenRight|sizeChanger|size,normal|2|1|true|middle
+sysProjectManagerTable,项目经理数据,basic.common.table.sysProjectManagerTable,,select|sizeChanger|size,normal|true|middle
+sysProjectTotalTable,项目总数数据,basic.common.table.sysProjectTotalTable,,select|sizeChanger|size,normal|true|middle
+sysProjectExecuteStatusTable,项目执行状态数据,basic.common.table.sysProjectExecuteStatusTable,,select|sizeChanger|size,normal|true|middle
+sysProjectOnTimeStateTable,项目准时状态数据,basic.common.table.sysProjectOnTimeStateTable,,select|sizeChanger|size,normal|true|middle
+sysGroupStatisticTable,按组统计数据,basic.common.table.sysGroupStatisticTable,,select|sizeChanger|size,normal|true|middle
+sysTaskTotalTable,任务总数数据,basic.common.table.sysTaskTotalTable,,select|sizeChanger|size,normal|true|middle
+sysProjectManagerSummaryTable,项目经理汇总表,basic.common.table.sysProjectManagerSummaryTable,,select|sizeChanger|size|pagination,normal|true|middle|false
+sysGroupSummaryTable,组汇总表,basic.common.table.sysGroupSummaryTable,,select|sizeChanger|size|pagination,normal|true|middle|false
+sysProjectGroupSummaryTable,项目组汇总表,basic.common.table.sysProjectGroupSummaryTable,,select|sizeChanger|size|pagination,normal|true|middle|false
+sysExecutorSummaryTable,执行人汇总表,basic.common.table.sysExecutorSummaryTable,,select|sizeChanger|size|pagination,normal|true|middle|false

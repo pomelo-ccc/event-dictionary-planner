@@ -1,10 +1,11 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { GripVertical, Trash2, MessageSquare, Star, Ban, Wrench } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
+import { GripVertical, Trash2, MessageSquare, Star, Ban, Wrench, ArrowUpRight } from "lucide-react"
+import { TracePanel } from "./trace-panel"
 import { useSortable } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
-import type { FunctionCard as FunctionCardType, EventDictionaryItem } from "@/lib/types"
+import type { FunctionCard as FunctionCardType, EventDictionaryItem, ProjectId } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { EventTypePicker } from "./event-type-picker"
 
@@ -18,11 +19,13 @@ interface Props {
   onToggleDictionaryStar?: (typeName: string) => void
   isSelected?: boolean
   onClick?: () => void
+  project?: ProjectId
 }
 
-export function FunctionCard({ card, dictionary, onChange, onDelete, isDragging: isOverlay, onToggleDictionaryStar, isSelected, onClick }: Props) {
+export function FunctionCard({ card, dictionary, onChange, onDelete, isDragging: isOverlay, onToggleDictionaryStar, isSelected, onClick, project }: Props) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: card.id })
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const [traceOpen, setTraceOpen] = useState(false)
 
   useEffect(() => {
     if (textareaRef.current) {
@@ -138,6 +141,14 @@ export function FunctionCard({ card, dictionary, onChange, onDelete, isDragging:
 
             <div className="flex items-center gap-1.5">
               <button
+                onClick={() => setTraceOpen(true)}
+                className="flex h-5 w-5 shrink-0 items-center justify-center rounded text-muted-foreground/50 opacity-0 hover:bg-sky-50 hover:text-sky-600 group-hover:opacity-100"
+                aria-label="追踪上游"
+                title="追踪上游"
+              >
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </button>
+              <button
                 onClick={() => onChange({ ...card, starred: !card.starred })}
                 className={cn(
                   "flex h-5 w-5 shrink-0 items-center justify-center rounded opacity-0 transition-colors group-hover:opacity-100",
@@ -193,6 +204,7 @@ export function FunctionCard({ card, dictionary, onChange, onDelete, isDragging:
           </div>
         </div>
       </div>
+      <TracePanel functionName={card.name} project={project} open={traceOpen} onOpenChange={setTraceOpen} />
     </div>
   )
 }

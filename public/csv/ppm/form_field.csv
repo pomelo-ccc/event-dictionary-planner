@@ -1,0 +1,183 @@
+Form Name,Field Name,Description,Label,Key,Property Key,Property Value,
+sysProjectNewStepForm,,baseInfo,,,type|isResponsive|cols|divider,collapse|false|2|false,
+sysProjectNewStepForm,ID,项目编号,project.title.id,ID$,columnSpan|maxLength|autoAllocate|editable,2|32|true|true
+sysProjectNewStepForm,NAME,项目名称,project.field.projectName,NAME$,columnSpan|required|maxLength,2|true|32
+sysProjectNewStepForm,FromTemplate,复制模板,project.field.copyTemplate,FromTemplate,columnSpan|type|searchShowMenu|tableName|dataSource|canDeactivateAction,2|object|false|sysProjectTemplateSearchTable|/projectTemplate/list?isIndexQuery=N&TemplateStatus=Available|formTemplateChangeAction
+sysProjectNewStepForm,ProjectType,里程碑类型,project.title.mileStoneType,ProjectType,columnSpan|type|typeValue|generalName,2|general|FoundationObject|milestone
+sysProjectNewStepForm,Executor,项目经理,project.field.projectManager,Executor,columnSpan|type|typeValue,2|user|IUser
+sysProjectNewStepForm,startOrEnd,开始/结束时间,project.field.startOrEndTime,startOrEnd,type|options|showTitle|columnSpan|defaultValue,radiobox|PLANSTARTTIME:project.title.start;PLANFINISHTIME:basic.system.state.COP|true|1|PLANSTARTTIME
+sysProjectNewStepForm,Time,时间,project.field.time,Time,type|columnSpan|showTitle|labelSeat|disabledMode|isForbiddenBefore,date|1|false|false|before|true
+sysProjectNewStepForm,ImportanceLevel,重要程度,project.field.importantLevel,ImportanceLevel,columnSpan|type|typeValue,2|code|ImportanceLevel
+sysProjectNewStepForm,PROGRAMTYPE,项目类别,project.field.projectCategory,PROGRAMTYPE,type|columnSpan|typeValue,code|2|ProgramType,
+sysProjectNewStepForm,PROJECTFOLDER,位置,project.field.projectFolder,PROJECTFOLDER,type|required|columnSpan,folder|false|2
+sysProjectNewTemplateForm,ID,模板编号,project.field.tempNumber,ID$,required|maxLength,true|32
+sysProjectNewTemplateForm,NAME,项目名称,project.field.projectName,NAME$,required|maxLength,true|32 
+sysProjectNewTemplateForm,FromTemplate,复制模板,project.field.copyTemplate,FromTemplate,columnSpan|type|searchShowMenu|tableName|dataSource|canDeactivateAction,2|object|false|sysProjectTemplateSearchTable|/projectTemplate/list?isIndexQuery=N&TemplateStatus=Available|formTemplateChangeAction
+sysProjectNewTemplateForm,ProjectType,里程碑类型,project.title.mileStoneType,ProjectType,type|typeValue|generalName,general|FoundationObject|milestone
+sysProjectNewTemplateForm,templateDescription,模板说明,project.field.TempDescription,templateDescription,type|inputType|maxLength,string|area|128
+sysProjectNewTaskForm,NAME,任务名称,project.title.taskName,NAME$,required,true
+sysProjectNewTaskForm,plannedStartDates,计划开始时间,project.title.planStartTime,plannedStartDates,type|inputType|disabledDateField|disabledMode,date|interval|PROJECTPLANFINISHTIME|before
+sysProjectNewTaskForm,Executor,执行人,project.title.executor,Executor,type|optionSource,user|/team/listTeamUserOption?projectGuid=$projectGuid
+sysProjectNewTaskForm,ImportanceLevel,任务优先级,project.field.taskPriority,ImportanceLevel,type|typeValue,code|ImportanceLevel
+sysProjectNewTaskForm,PLANWORKLOAD,计划工作量,project.field.plannedWorkload,PLANWORKLOAD,type|min,numerical|0
+sysProjectTemplateNewTaskForm,TASKNAME,名称,common.field.name,NAME$,type|maxLength|required,string|32|true
+sysProjectTemplatePreviewForm,ID,编号,common.field.id,ID$
+sysProjectTemplatePreviewForm,NAME,名称,common.field.name,NAME$
+sysProjectTemplatePreviewForm,Calendar,项目日历,project.field.projectCalendar,Calendar,type|optionSource,combo|/calendar/listCalendar?containObsolete='N'
+sysProjectTemplatePreviewForm,listMileStoneType,里程碑类型,project.title.mileStoneType,listMileStoneType,type|optionSource,ppm-listmilestone-card-table|/restful/ppm/mileStone/listMileStone?interfaceNames=IProjectType
+sysProjectTemplatePreviewForm,TASKSTARTTYPE,任务启动模式,project.field.taskStartupMode,TASKSTARTTYPE,type|typeValue,code|TaskStartType
+sysProjectTemplatePreviewForm,TASKPERFORMERTYPE,执行方式,project.field.taskPerformerType,TASKPERFORMERTYPE,type|typeValue,code|TaskPerformerType
+sysProjectTemplatePreviewForm,PlanDuration,计划工期(天),project.field.planDuration,PLANDURATION,type,date
+sysProjectTemplatePreviewForm,PlanWorkload,计划工作量(时),project.field.planWorkload,PLANWORKLOAD,type,date
+sysProjectTemplatePreviewForm,ProjectPlan,项目计划审批,project.field.projectPlanApproval,ProjectPlan
+sysProjectTemplatePreviewForm,CREATEUSER,创建者,common.field.createuser,CREATEUSER$NAME,type,user
+sysProjectTemplatePreviewForm,CREATETIME,创建时间,common.field.createtime,CREATETIME$,type,date
+sysProjectTemplatePreviewForm,projectType,项目类别,project.field.projectCategory,projectType
+sysProjectChangeRecordListBeforeForm,,baseInfo,,,type|isResponsive|cols|divider,collapse|false|2|false,
+sysProjectChangeRecordListBeforeForm,NAME$,项目名称,project.field.projectName,NAME$,columnSpan,1
+sysProjectChangeRecordListBeforeForm,PROGRAMTYPE$TITLE,项目类型,project.field.projectType,PROGRAMTYPE$TITLE,columnSpan|expression,1|i18n($PROGRAMTYPE$TITLE)
+sysProjectChangeRecordListBeforeForm,FROMTEMPLATE$FULLNAME,项目模板,project.field.projectTemplate,FROMTEMPLATE$FULLNAME,columnSpan,1
+sysProjectChangeRecordListBeforeForm,EXECUTOR$NAME,项目经理,project.field.projectManager,EXECUTOR$NAME,columnSpan,1
+sysProjectChangeRecordListBeforeForm,PROJECTCALENDAR$NAME,项目日历,project.field.projectCalendar,PROJECTCALENDAR$NAME,columnSpan,1
+sysProjectChangeRecordListBeforeForm,IMPORTANCELEVEL$TITLE,重要程度,project.field.importantLevel,IMPORTANCELEVEL$TITLE,columnSpan|expression,1|i18n($IMPORTANCELEVEL$TITLE)
+sysProjectChangeRecordListBeforeForm,TASKPERFORMERTYPE$TITLE,任务执行方式,project.field.taskExecutionMode,TASKPERFORMERTYPE$TITLE,columnSpan|expression,1|i18n($TASKPERFORMERTYPE$TITLE)
+sysProjectChangeRecordListBeforeForm,TASKSTARTTYPE$TITLE,任务启动模式,project.field.taskStartupMode,TASKSTARTTYPE$TITLE,columnSpan|expression,1|i18n($TASKSTARTTYPE$TITLE)
+sysProjectChangeRecordListBeforeForm,PLANSTARTTIME,计划开始日期,project.field.plannedStartDate,PLANSTARTTIME,columnSpan,1
+sysProjectChangeRecordListBeforeForm,PLANFINISHTIME,计划结束日期,project.field.plannedEndDate,PLANFINISHTIME,columnSpan,1
+sysProjectChangeRecordListBeforeForm,PLANNEDDURATION,计划工期,project.field.planProjectDuration,PLANNEDDURATION,columnSpan,1
+sysProjectChangeRecordListBeforeForm,PLANAPPROVAL,计划是否审批,project.field.planApproved,PLANAPPROVAL,columnSpan|type,1|boolean
+sysProjectChangeRecordListAfterForm,,baseInfo,,,type|isResponsive|cols|divider,collapse|false|2|false,
+sysProjectChangeRecordListAfterForm,NAME$,项目名称,project.field.projectName,NAME$,columnSpan|classNameExpression,1|if($NAME$Changed){return 'fField-font-color&&#ff4d4f'}
+sysProjectChangeRecordListAfterForm,PROGRAMTYPE$TITLE,项目类型,project.field.projectType,PROGRAMTYPE$TITLE,columnSpan|expression|classNameExpression,1|i18n($PROGRAMTYPE$TITLE)|if($PROGRAMTYPE$TITLEChanged){return 'fField-font-color&&#ff4d4f'}
+sysProjectChangeRecordListAfterForm,FROMTEMPLATE$FULLNAME,项目模板,project.field.projectTemplate,FROMTEMPLATE$FULLNAME,columnSpan,1
+sysProjectChangeRecordListAfterForm,EXECUTOR$NAME,项目经理,project.field.projectManager,EXECUTOR$NAME,columnSpan|classNameExpression,1|if($EXECUTOR$NAMEChanged){return 'fField-font-color&&#ff4d4f'}
+sysProjectChangeRecordListAfterForm,PROJECTCALENDAR$NAME,项目日历,project.field.projectCalendar,PROJECTCALENDAR$NAME,columnSpan|classNameExpression,1|if($PROJECTCALENDAR$NAMEChanged){return 'fField-font-color&&#ff4d4f'}
+sysProjectChangeRecordListAfterForm,IMPORTANCELEVEL$TITLE,重要程度,project.field.importantLevel,IMPORTANCELEVEL$TITLE,columnSpan|expression|classNameExpression,1|i18n($IMPORTANCELEVEL$TITLE)|if($IMPORTANCELEVEL$TITLEChanged){return 'fField-font-color&&#ff4d4f'}
+sysProjectChangeRecordListAfterForm,TASKPERFORMERTYPE$TITLE,任务执行方式,project.field.taskExecutionMode,TASKPERFORMERTYPE$TITLE,columnSpan|expression|classNameExpression,1|i18n($TASKPERFORMERTYPE$TITLE)|if($TASKPERFORMERTYPE$TITLEChanged){return 'fField-font-color&&#ff4d4f'}
+sysProjectChangeRecordListAfterForm,TASKSTARTTYPE$TITLE,任务启动模式,project.field.taskStartupMode,TASKSTARTTYPE$TITLE,columnSpan|expression|classNameExpression,1|i18n($TASKSTARTTYPE$TITLE)|if($TASKSTARTTYPE$TITLEChanged){return 'fField-font-color&&#ff4d4f'}
+sysProjectChangeRecordListAfterForm,PLANSTARTTIME,计划开始时间,project.field.plannedStartDate,PLANSTARTTIME,columnSpan|classNameExpression,1|if($PLANSTARTTIMEChanged){return 'fField-font-color&&#ff4d4f'}
+sysProjectChangeRecordListAfterForm,PLANFINISHTIME,计划结束时间,project.field.plannedEndDate,PLANFINISHTIME,columnSpan|classNameExpression,1|if($PLANNEDDURATIONChanged){return 'fField-font-color&&#ff4d4f'}
+sysProjectChangeRecordListAfterForm,PLANNEDDURATION,计划工期,project.field.planProjectDuration,PLANNEDDURATION,columnSpan|classNameExpression,1|if($PLANNEDDURATIONChanged){return 'fField-font-color&&#ff4d4f'}
+sysProjectChangeRecordListAfterForm,PLANAPPROVAL,计划是否审批,project.field.planApproved,PLANAPPROVAL,columnSpan|type|classNameExpression,1|boolean|if($PLANAPPROVALChanged){return 'fField-font-color&&#ff4d4f'}
+sysProductWarningAddForm,EVENTTYPE,事件类型,project.title.eventType,EVENTTYPE,type|optionSource|required,combo|/warning/listWaringEvents|true
+sysProductWarningAddForm,INTERVALUE-1,间隔,project.title.delay,INTERVALUE,required|type|suffix|max|min|visiableExpression,true|numerical|（天）|100|1|`$EVENTTYPE?.value==='P_START_DELAY'||$EVENTTYPE?.value==='T_START_DELAY'||$EVENTTYPE?.value==='T_START_BEFORE'||$EVENTTYPE?.value==='P_COMPLETE_DELAY'||$EVENTTYPE?.value==='T_COMPLETE_DELAY'||$EVENTTYPE?.value==='T_COMPLETE_BEFORE'||$EVENTTYPE?.value==='P_START_BEFORE'`
+sysProductWarningAddForm,INTERVALUE-2,间隔,project.title.delay,INTERVALUE,required|type|suffix|max|min|visiableExpression,true|numerical|%|100|1|`$EVENTTYPE?.value==='P_COMPLETE_DELAY_PERCENT'||$EVENTTYPE?.value==='T_COMPLETE_DELAY_PERCENT'`
+sysProductWarningAddForm,INTERVALUE-3,SPI小于,project.title.spiLessThan,INTERVALUE,required|type|typeValue|max|min|visiableExpression,true|numerical|float|1|0|`$EVENTTYPE?.value==='P_PROGRESS_RISK'||$EVENTTYPE?.value==='T_PROGRESS_RISK'`
+sysProductWarningAddForm,NOTICEMEMBERLIST,通知人员,project.title.notifyUser,NOTICEMEMBERLIST,type|customOpenClick|delAction|isMultiple|showAddIcon|isTranslate,object|sysOpenNotifySelectModelAction|sysDeletNotifySelectedAction|true|false|true
+sysProductWarningAddForm,ISENABLE,启用状态,project.title.enableState,ISENABLE,type|inputType,boolean|switch
+sysProductWarningAddForm,RELATEDOBJECTTYPE,适用对象,project.title.relatedObject,RELATEDOBJECTTYPE,visiableExpression|type|optionSource|defaultValue,`$EVENTTYPE?.value==='T_START_DELAY'||$EVENTTYPE?.value==='T_START_BEFORE'||$EVENTTYPE?.value==='T_COMPLETE_DELAY'||$EVENTTYPE?.value==='T_COMPLETE_DELAY_PERCENT'||$EVENTTYPE?.value==='T_COMPLETE_BEFORE'||$EVENTTYPE?.value==='T_PROGRESS_RISK'`|combo|/warning/listWaringRelatedObject|ALL_TASK
+sysProductWarningAddForm,APPLYTOTASKLIST,指定任务,project.title.relatedTask,APPLYTOTASKLIST,type|generalParam|visiableExpression,transfer-table|commandName=sysWarningAssignedTaskTableCommand|`$RELATEDOBJECTTYPE?.value==='SPECIAL_TASK'`
+sysProductWarningAddForm,REMARKS,备注,common.field.remark,REMARKS,type|inputType|maxLength,string|area|128
+sysProjectRoleNewForm, ,baseInfo,,,type|isResponsive|cols|divider,collapse|false|2|true
+sysProjectRoleNewForm,ROLENAME,角色名称,project.role.form.name,ROLENAME,type|required|placeholder|maxLength,string|true|project.role.placeholder.name|30
+sysProjectRoleNewForm,description,角色描述,project.role.form.description,DESCRIPTION,type|placeholder|inputType|maxLength,string|project.role.placeholder.description|area|100
+sysPreviewBaseForm,baseInfo,baseInfo,basic.common.group.baseInfo,,type|divier,collapse|false
+sysPreviewBaseForm,OWNERUSER,所有者,common.field.owneruser,OWNERUSER$,type|editable|typeValue,user|false|IUser
+sysPreviewBaseForm,OWNERGROUP,所有者组,common.field.ownergroup,OWNERGROUP$,type|editable|typeValue,group|false|IGroup
+sysPreviewBaseForm,RELEASETIME,发布时间,common.field.releasetime,RELEASETIME$,type|editable|inputType,datetime|false|single
+sysPreviewBaseForm,UPDATEUSER,更新者,common.field.updateuser,UPDATEUSER$,type|editable|typeValue,user|false|IUser
+sysPreviewBaseForm,UPDATETIME,更新时间,common.field.updatetime,UPDATETIME$,type|editable,datetime|false
+sysPreviewBaseForm,CREATEUSER,创建者,common.field.createuser,CREATEUSER$,type|editable|typeValue,user|false|IUser
+sysPreviewBaseForm,CREATETIME,创建时间,common.field.createtime,CREATETIME$,type|editable,datetime|false
+sysPreviewBaseForm,CHECKOUTUSER,检出者,common.field.checkoutuser,CHECKOUTUSER$,type|editable,string|false
+sysProjectChangeForm,CHANGETYPE,变更类型,project.title.change.boTitle,CHANGETYPE,type|optionSource|selectIndex,combo|/change/listChangeType|0
+sysProjectChangeForm,DESCRIPTION,问题描述,project.title.change.solution,DESCRIPTION,type|inputType|maxLength,string|area|100
+sysProjectChangeForm,SOLUTION,调整方案,project.title.change.description,SOLUTION,type|inputType|maxLength,string|area|100
+sysBatchAddDeliverablesForm,TASKNAME,名称,common.field.name,TASKNAME,type|editable,string|false
+sysBatchAddDeliverablesForm,TYPE,交付物类型,common.field.deliverableType,TYPE,type|optionSource|codeType|editable|selectIndex|required,combo|/lc/model/listClassTree?exceptItfNameList=$exceptItfNameList|Tree|true|0|true
+sysBatchAddDeliverablesForm,CLASSIFICATION,分类,common.field.classification,CLASSIFICATION,enableExpression|type|optionSource|required|codeType|isCascade|relatedField,$TYPE|combo|`/delivery/listCodeItemTree?classGuid=$TYPE['key']||$TYPE['value']||$TYPE`|false|Tree|true|TYPE
+sysBatchAddDeliverablesForm,ISMAST,必需?,common.field.isRequired,ISMAST,editable|type|defaultValue,true|boolean|N
+sysBatchAddDeliverablesForm,ISRELEASE,发布?,common.field.isPublished,ISRELEASE,editable|type|defaultValue,true|boolean|N
+sysBatchAddDeliverablesForm_,CANLOOK,查看权限,查看权限,CANLOOK,type|editable|showTitle,user|true|true
+sysBatchAddDeliverablesForm_,LOADDOWN,下载权限,下载权限,LOADDOWN,type|editable|showTitle,user|true|true
+sysBatchAddDeliverablesForm,Remark,备注,common.field.remark,Remark,type|editable|inputType|showTitle,string|true|area|true
+sysPreTaskForm, ,baseInfo,,,type|isResponsive|cols|divider,collapse|false|3|false
+sysPreTaskForm,TASKNAME,任务名称,project.title.taskName,TASKNAME,type|required|placeholder|columnSpan|showTitle|optionSource|codeType,combo|true|任务名称|1|false|/task/listPrerequisiteTasksOptions?GUID$=$OWNERPROJECT&CLASSNAME$=$OWNERPROJECT$CLASSNAME&CLASSGUID$=$OWNERPROJECT$CLASS&TASKGUID$=$GUID$|Tree
+sysPreTaskForm,TASKTYPE,类型,project.title.preTaskType,TYPE,type|required|placeholder|columnSpan|showTitle|optionSource,combo|true|类型|1|false|/task/listPreTaskType
+sysPreTaskForm,DELAYTIME,间隔时间,project.field.intervalTime,DELAYTIME,type|placeholder|columnSpan|showTitle|required|defaultValue,numerical|间隔时间|1|false|true|0
+sysPreTaskEditForm, ,baseInfo,,,type|isResponsive|cols|divider,collapse|false|1|false
+sysPreTaskEditForm,TASKNAME,任务名称,project.title.taskName,TASKNAME,type|required|editable,string|true|false
+sysPreTaskEditForm,TASKTYPE,类型,project.title.preTaskType,TYPE,type|required|editable|optionSource,combo|true|true|/task/listPreTaskType
+sysPreTaskEditForm,DELAYTIME,间隔时间,project.field.intervalTime,DELAYTIME,type|defaultValue,numerical|0
+sysStartApprovalProcessForm,template,流程模板,workflow.field.template,template,type|optionSource|selectIndex,combo|/rewrite/SysModel/CommonModel/listOptions?type=$type&classGuid=$classGuid&className=$className&guid=$guid|0
+sysStartApprovalProcessForm,Description,描述,common.field.description,Description,type|inputType|maxLength,string|area|100
+sysUpdateTaskProForm, ,baseInfo,,,type|isResponsive|cols|divider,collapse|false|1|false
+sysUpdateTaskProForm,REMARK,说明,basic.system.field.illustrate,REMARK,type|inputType|maxLength,string|area|100
+sysUpdateTaskProForm,PROGRESS,进展情况,project.field.progress,PROGRESS,type|optionSource|selectIndex,combo|/rewrite/SysModel/CommonModel/listOptions?type=code&codeName=TaskProgress|1
+sysUpdateTaskProForm,COMPLETIONRATE,完成率,workbench.sysWorkbenchTodoTable.field.completerate,COMPLETIONRATE,type,progress
+sysEditTaskForm, ,baseInfo,,,type|isResponsive|cols|divider,collapse|false|1|false
+sysEditTaskForm,TASKNAME,名称,common.field.name,TASKNAME,type|maxLength|required,string|100|true
+sysEditTaskForm,PLANNEDDURATION,计划工期,workbench.sysWorkbenchTodoTable.field.plannedduration,PLANNEDDURATION,type|min,numerical|0
+sysEditTaskForm,PLANWORKLOAD,计划工作量,project.field.plannedWorkload,PLANWORKLOAD,type|min,numerical|0
+sysApproveForm,promoter,发起人,workflow.field.promoter,CREATEUSERNAME,type|editable|controlWidth,string|false
+sysAddRelatTaskForm, ,baseInfo,,,type|isResponsive|cols|divider,collapse|false|1|false
+sysAddRelatTaskForm,PRETASKTYPE,类型,systemSetting.calender.field.Type,PRETASKTYPE,type|optionSource|codeType|required|defaultValue,combo|/task/listPreTaskType|List|true|FS,
+sysAddRelatTaskForm,DELAYTIME,间隔时间,project.field.intervalTime,DELAYTIME,type|defaultValue,numerical|0
+sysInstanceAddDeliverablesForm,POSITION,位置,common.field.position,COMMITFOLDER$,type|required|dataSource,folder|true|/rewrite/Common/ICommonLibraryService/listLibraryFolder?folderGuid=$libraryGuid&contailSelf=Y
+sysInstanceAddDeliverablesForm,ISAUTOCHECKOUT$,创建后自动检出,common.field.autoCheckout,ISAUTOCHECKOUT$,type|defaultValue,boolean|Y
+sysInstanceAddDeliverablesForm,CLASSNAME,类型,common.field.botitle,CLASSNAME$,type|optionSource|required|selectIndex|valueChangeAfterAction,combo|/rewrite/SysModel/CommonModel/listOptions?type=subClass&uiName=NewForm&className=$className|true|0|cadValueOptionAfterAction
+sysInstanceAddDeliverablesHasPROJECTFOLDERForm,POSITION,位置,common.field.position,COMMITFOLDER$,type|required|dataSource,folder|true|/rewrite/Common/IFolderService/listChildMenuItems?folderGuid=$libraryGuid&contailSelf=Y
+sysInstanceAddDeliverablesHasPROJECTFOLDERForm,ISAUTOCHECKOUT$,创建后自动检出,common.field.autoCheckout,ISAUTOCHECKOUT$,type|defaultValue,boolean|Y
+sysInstanceAddDeliverablesHasPROJECTFOLDERForm,CLASSNAME,类型,common.field.botitle,CLASSNAME$,type|optionSource|required|selectIndex|valueChangeAfterAction,combo|/rewrite/SysModel/CommonModel/listOptions?type=subClass&uiName=NewForm&className=$className|true|0|cadValueOptionAfterAction
+sysChangeExecRoleForm, ,baseInfo,,,type|isResponsive|cols|divider,collapse|false|1|false
+sysChangeExecRoleForm,ROLEGUID,执行角色,common.field.name,ROLEGUID,type|labelSeat|showTitle|optionSource,combo|false|false|/team/listOptionProjectRole?projectGuid=$projectGuid
+sysChangeExecutorForm, ,baseInfo,,,type|isResponsive|cols|divider,collapse|false|1|false
+sysChangeExecutorForm,EXECUTOR,执行人,common.field.name,EXECUTOR,type|labelSeat|showTitle|optionSource,combo|false|false|/team/listTeamUserOption?projectGuid=$projectGuid
+sysScalingForm, ,baseInfo,,,type|isResponsive|cols|divider,collapse|false|1|false
+sysScalingForm,TYPE,计划缩放类型,project.field.planScalType,TYPE,type|options|selectIndex,combo|0:project.option.setStartAndEndTimes;1:project.option.scalingTheDuration;2:project.option.specifyDate|0
+sysScalingForm,plannedStartDates,计划起止时间,project.field.plannedStartDates,plannedStartDates,editable|type|visiableExpression|inputType,true|date|$TYPE?.value==='0'|interval,
+sysScalingForm,PERCENT,缩放比,project.field.scaling,PERCENT,type|typeValue|min|required|columnSpan|visiableExpression,numerical|integer|0|false|1|$TYPE?.value==='1'
+sysScalingForm,DURATION,指定日期,project.field.specifyDate,DURATION,type|typeValue|min|max|required|columnSpan|visiableExpression,numerical|integer|0|100|false|1|$TYPE?.value==='2'
+sysPersonalCenterForm,baseInfo,baseInfo,,,type|layout|cols|isResponsive|rowSpace|divider,collapse|grid|1|false|15px|false
+sysPersonalCenterForm,USERNAME,用户名,userinfo.form.field.username,USERID,editable|required|type|labelWidth|maxByteLength|patternMessage|pattern,true|true|string|100px|64|common.validator.letterAndNumOnly|[a-zA-Z0-9]+$
+sysPersonalCenterForm,FULLNAME,姓名,userinfo.form.field.fullname,USERNAME,editable|type|labelWidth|required|maxByteLength,true|string|100px|true|20
+sysPersonalCenterForm,EMAIL,邮箱,userinfo.form.field.email,EMAIL,type|labelWidth|maxByteLength|pattern|patternMessage,string|100px|64|^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$|common.validator.mailWrongPattern
+sysPersonalCenterForm,TELEPHONE,电话,userinfo.form.field.telephone,TEL,type|labelWidth|maxByteLength|pattern|patternMessage,string|100px|20|^[0-9]+$|common.validator.numberOnly
+sysPersonalCenterForm,MOBILE,移动电话,userinfo.form.field.mobile,MOBILE,type|labelWidth|maxByteLength|pattern|patternMessage,string|100px|11|^[0-9]+$|common.validator.numberOnly
+sysPersonalCenterForm,COUNTRYANDAREA,国家/地区,userinfo.form.field.countryandarea,COUNTRY,type|labelWidth|maxByteLength,string|100px|64
+sysPersonalCenterForm,ADDRESS,地址,userinfo.form.field.address,ADDRESS,type|labelWidth|maxByteLength,string|100px|64
+sysPersonalCenterForm,CITY,城市,userinfo.form.field.city,CITY,type|labelWidth|maxByteLength,string|100px|64
+sysPersonalCenterForm,POSTALCODE,邮编,userinfo.form.field.postalcode,ZIPCODE,type|labelWidth|maxByteLength|pattern|patternMessage,string|100px|20|^[0-9]+$|common.validator.numberOnly
+sysPersonalCenterForm,FAX,传真,userinfo.form.field.fax,FAX,type|labelWidth|maxByteLength|pattern|patternMessage,string|100px|20|^[0-9]+$|common.validator.numberOnly
+sysPersonalCenterForm,ORGANIZATIONORROLE,用户组织或角色,userinfo.form.field.organizationorrole,RIGLIST,type|labelWidth|editable|inputType,string|100px|false|area
+sysProjectImportForm, ,baseInfo,,,type|divider,collapse|false
+sysProjectImportFileForm,FILENAME$,导入文件,basic.common.command.UploadFiles,FILENAME$,type|inputType|count,file|drag|1
+sysUnimportantFileForm,NORMALFILE,一般文件,common.field.normalfile,NORMALFILE,type|inputType|count|isResponsive,file|drag|10|false
+sysTaskApprovalForm, ,baseInfo,,,type|isResponsive|cols|divider,collapse|false|1|false
+sysTaskApprovalForm,ILLUSTRATE,说明,basic.system.field.illustrate,ILLUSTRATE,type|inputType|maxLength|height,string|area|200|300px
+sysNewItemCADForm,POSITION,位置,common.field.position,COMMITFOLDER$,type|required|dataSource,folder|true|/rewrite/Common/ICommonLibraryService/listLibraryFolder?folderGuid=$COMMITFOLDER$
+sysNewItemCADForm,ISAUTOCHECKOUT$,创建后自动检出,common.field.autoCheckout,ISAUTOCHECKOUT$,type|defaultValue,boolean|Y
+sysNewItemCADForm,CLASSTYPE,类型,common.field.botitle,CLASSTYPE,type|optionSource|required,combo|/rewrite/ItemManagement/IItemManagementService/listTypeOfCadTemplate|true
+sysNewItemCADForm,TEMPLATE,模板,common.field.cadTemplate,TEMPLATE,type|optionSource|relatedField|isCascade|enableExpression|required|valueChangeAfterAction,combo|/rewrite/ItemManagement/IItemManagementService/listAllCadTemplateByType?otherForm=sysNewItemCADManagementForm&uiName=NewForm&className=$CLASSTYPE.className&guid=$CLASSTYPE.value|CLASSTYPE|true|`$CLASSTYPE`|true|cadValueAfterAction
+sysNewRelatedForm1,POSITION,位置,common.field.position,COMMITFOLDER$,type|required|dataSource,folder|true|/rewrite/Common/ICommonLibraryService/listLibraryFolder?folderGuid=$COMMITFOLDER$
+sysNewRelatedForm1,ISAUTOCHECKOUT$,创建后自动检出,common.field.autoCheckout,ISAUTOCHECKOUT$,type|defaultValue,boolean|Y
+sysNewRelatedForm1,CLASSNAME,类型,common.field.botitle,CLASSNAME$,type|optionSource|required|valueChangeAfterAction,combo|/rewrite/SysModel/CommonModel/listOptions?type=newClass&uiName=NewForm&templateNames=$TEMPLATENAME&isBeUsed=$BEUSED&CLASSNAME$=$className&GUID$=$guid|true|cadValueClassTypeAfterAction
+sysNewRelatedForm,POSITION,位置,common.field.position,COMMITFOLDER$,type|required|dataSource,folder|true|/rewrite/Common/ICommonLibraryService/listLibraryFolder?folderGuid=$COMMITFOLDER$
+sysNewRelatedForm,ISAUTOCHECKOUT$,创建后自动检出,common.field.autoCheckout,ISAUTOCHECKOUT$,type|defaultValue,boolean|Y
+sysNewRelatedForm,CLASSNAME,类型,common.field.botitle,CLASSNAME$,type|optionSource|required|valueChangeAfterAction,combo|/rewrite/SysModel/CommonModel/listOptions?type=newClass&uiName=NewForm&templateNames=$TEMPLATENAME&isBeUsed=$BEUSED&CLASSNAME$=$className&GUID$=$guid|true|cadValueClassTypeAfterAction
+sysGeneralConditionSaveForm,conditionName,名称,common.field.name,queryInfoName,type|required|placeholder|maxLength,string|true|advsearch.placeHolder.inputConditionName|56
+sysGeneralConditionSaveForm,conditionText,条件,advsearch.title.condition,queryInfoText,type|inputType|editable,string|area|false
+sysProjectTaskExportForm,,baseInfo,,,type|cols|isResponsive|divider,collapse|1|false|true,
+sysProjectTaskExportForm,TYPE,类型,project.title.preTaskType,type,required|type|divider|options|defaultValue|selectIndex|editable,true|combo|true|excel:xlsx;xml:xml|excel|0|true
+sysProjectStatisticFilterForm,,baseInfo,,,type|isResponsive|cols|divider,collapse|false|1|false
+sysProjectStatisticFilterForm,ID,项目编号,project.title.id,MD_ID,columnSpan|maxLength|editable,2|32|true
+sysProjectStatisticFilterForm,NAME,项目名称,project.title.name,NAME,columnSpan|maxLength,2|32
+sysProjectStatisticFilterForm,ProjectType,里程碑类型,project.title.mileStoneType,TYPEGUID,columnSpan|type|typeValue|generalName,2|general|FoundationObject|milestone
+sysProjectStatisticFilterForm,ImportanceLevel,重要程度,project.title.importantLevel,IMPORTANCE,columnSpan|type|typeValue,2|code|ImportanceLevel
+sysProjectStatisticFilterForm,PROGRAMTYPE,项目类别,project.title.projectCategory,PROJECTTYPE,type|columnSpan|typeValue,code|2|ProgramType
+sysProjectStatisticFilterForm,CREATORGROUP,创建者组,project.title.group,OWNERGROUPGUID,type|typeValue|inputType|isMultiple|columnSpan|types|disabledRigParent|disabledGroupsParent,user|IUser|tag|true|2|GROUP|true|true
+sysTaskStatisticFilterForm,,baseInfo,,,type|isResponsive|cols|divider,collapse|false|1|false
+sysTaskStatisticFilterForm,OWNERPROJECT,所属项目,project.title.ownerProject,PRJNAME,columnSpan|type|searchShowMenu|tableName|dataSource,2|object|false|sysProjectManagementTable|/project/listProjects
+sysTaskStatisticFilterForm,ID,任务编号,project.title.taskId,MD_ID,columnSpan|maxLength|editable,2|32|true
+sysTaskStatisticFilterForm,NAME,任务名称,project.title.taskName,NAME,columnSpan|maxLength,2|32
+sysTaskStatisticFilterForm,Executor,执行人,project.title.executor,MANAGER,type|typeValue|inputType|isMultiple|columnSpan|types|disabledRigParent|disabledGroupsParent,user|IUser|tag|true|2|USER|true|true
+sysTaskStatisticFilterForm,CREATORGROUP,创建者组,project.title.group,OWNERGROUPGUID,type|typeValue|inputType|isMultiple|columnSpan|types|disabledRigParent|disabledGroupsParent,user|IUser|tag|true|2|GROUP|true|true
+sysDeliveryStatisticFilterForm,,baseInfo,,,type|isResponsive|cols|divider,collapse|false|1|false
+sysDeliveryStatisticFilterForm,OWNERPROJECT,所属项目,project.title.ownerProject,OWNERPROJECT,columnSpan|type|searchShowMenu|tableName|dataSource,2|object|false|sysProjectManagementTable|/project/listProjects
+sysDeliveryStatisticFilterForm,ID,交付物编号,project.field.deliveryId,ID,columnSpan|maxLength|editable,2|32|true
+sysDeliveryStatisticFilterForm,NAME,交付物名称,project.field.deliveryName,NAME,columnSpan|maxLength,2|32
+sysDeliveryStatisticFilterForm,STATUS,交付物状态,project.title.deliveryStatus,STATUS,type|options,combo|WIP:basic.system.state.WIP;ECP:basic.system.state.ECP;PRE:basic.system.state.PRE;RLS:basic.system.state.RLS;OBS:basic.system.state.OBS
+sysDeliveryStatisticFilterForm,TYPE,交付物类型,project.field.deliveryType,TYPE,type|optionSource|codeType|editable,combo|/lc/model/listClassTree?exceptItfNameList=$exceptItfNameList|Tree|true
+sysDeliveryStatisticFilterForm,CLASSIFICATION,分类,common.field.classification,CLASSIFICATION,enableExpression|type|optionSource|required|codeType|isCascade|relatedField,$TYPE|combo|`/delivery/listCodeItemTree?classGuid=$TYPE['key']||$TYPE['value']||$TYPE`|false|Tree|true|TYPE
+sysDeliveryStatisticFilterForm,CREATORGROUP,交付物创建者,project.title.deliveryCreater,CREATOR,type|typeValue|inputType|isMultiple|columnSpan|types|disabledRigParent|disabledGroupsParent,user|IUser|tag|true|2|USER|true|true
+

@@ -1,0 +1,7 @@
+Panel Name,Description,Class,Label,Children,Property Key,Property Value
+sysRuleManagementPanel,规则管理,,版本规则,sysEditionRuleCommand|sysRuleCommand_|sysConstraintRuleCommand_,,
+sysOrganizationTablePanel,组织结构,,,sysOrganSPageCommand|sysOrganGroupCommand|sysRoleTableCommand,,
+sysConfigurationTransformationPanel,转换配置,,,sysConfigurationTransformationInTabPageCommand|sysSignatureSchemeInTabPageCommand|sysTransformationTypeCommand
+sysCodeManageTabsPanel,组码管理Tab页签,,,sysClassificationCodeManageCommand|sysNormalCodeManageCommand,,
+sysDispatchCenterPanel,调度中心,,,sysNodeManageCommand|sysTaskManageCommand|sysScheduleManageCommand,,
+sysBusinessRulePanel,业务规则页面Panel,,,sysAmendmentCommand|_sysDerivativeRulesCommand,,

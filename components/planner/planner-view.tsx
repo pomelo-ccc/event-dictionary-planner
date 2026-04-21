@@ -424,6 +424,7 @@ export function PlannerView({ project, files, setFiles, dictionary, setDictionar
                       onDictionaryUpdate={setDictionary}
                       selectedCardId={selectedCardId}
                       onSelectCard={setSelectedCardId}
+                      project={project}
                     />
                   ))}
                 </SortableContext>
