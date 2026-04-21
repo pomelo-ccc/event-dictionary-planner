@@ -1,7 +1,7 @@
 "use client"
 
 import { useCallback, useEffect, useState } from "react"
-import { Download, Upload } from "lucide-react"
+import { Download, Upload, Settings2 } from "lucide-react"
 import { AppShell } from "@/components/app-shell"
 import { DictionaryView } from "@/components/dictionary/dictionary-view"
 import { PlannerView } from "@/components/planner/planner-view"
@@ -51,6 +51,68 @@ function usePersistedState<T>(key: string, defaultValue: T) {
   }, [key, state, isLoaded])
 
   return [state, setState, isLoaded] as const
+}
+
+function DataProcessButton({
+  files,
+  dictionary,
+}: {
+  files: EventFile[]
+  dictionary: EventDictionaryItem[]
+}) {
+  const handleProcess = () => {
+    // 深拷贝避免修改原数据
+    const processedFiles = JSON.parse(JSON.stringify(files)) as EventFile[]
+    let utilityCount = 0
+    let removeCount = 0
+
+    // 遍历所有文件、分组、卡片
+    processedFiles.forEach((file) => {
+      file.groups.forEach((group) => {
+        group.cards.forEach((card) => {
+          if (card.note) {
+            // 标记工具函数：note 包含 "工具" 且不包含 "工具栏"
+            if (card.note.includes("工具") && !card.note.includes("工具栏")) {
+              card.isUtility = true
+              utilityCount++
+            }
+            // 标记需要移除：note 包含 "移除" 或 "废弃"
+            if (card.note.includes("移除") || card.note.includes("废弃")) {
+              card.toRemove = true
+              removeCount++
+            }
+          }
+        })
+      })
+    })
+
+    // 输出统计信息
+    console.log("=== 数据处理完成 ===")
+    console.log(`标记为工具函数: ${utilityCount} 个`)
+    console.log(`标记为需要移除: ${removeCount} 个`)
+
+    // 下载处理后的数据
+    const data = {
+      files: processedFiles,
+      dictionary: dictionary,
+      processedAt: new Date().toISOString(),
+    }
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement("a")
+    a.href = url
+    a.download = `processed-data-${new Date().toISOString().slice(0, 10)}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+
+    alert(`处理完成！\n工具函数: ${utilityCount} 个\n需要移除: ${removeCount} 个\n\n数据已下载，请将文件放到项目目录后告诉我路径。`)
+  }
+
+  return (
+    <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground" onClick={handleProcess} title="数据处理：扫描note标记工具函数和移除项">
+      <Settings2 className="h-4 w-4" />
+    </Button>
+  )
 }
 
 function DataSyncButtons({
@@ -388,6 +450,7 @@ export default function Page() {
         onProjectChange={setProject}
         rightSlot={
           <div className="flex items-center gap-2">
+            <DataProcessButton files={files} dictionary={dictionary} />
             <DataSyncButtons
               files={files}
               setFiles={setFiles}

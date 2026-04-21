@@ -1,0 +1,622 @@
+[
+  {
+    "id": "d1",
+    "type_name": "TableCellToolbarExecuteEvent",
+    "group": "table",
+    "import_source": "@pdm/table/types",
+    "trigger_scene": "用户点击表格单元格工具栏中的执行按钮时触发",
+    "typical_fields": [
+      "data",
+      "node",
+      "tableApi",
+      "rowIndex"
+    ],
+    "legacy_helper_mapping": [
+      {
+        "from": "getRowData(event)",
+        "to": "event.data"
+      },
+      {
+        "from": "getTableApi(event)",
+        "to": "event.tableApi"
+      }
+    ],
+    "detect_all": [
+      "getRowData",
+      "getContentCom"
+    ],
+    "negative": [
+      "getFormApi"
+    ],
+    "fallback": "RowEvent",
+    "starred": true
+  },
+  {
+    "id": "d3",
+    "type_name": "CardActionClickEvent",
+    "group": "card",
+    "import_source": "@pdm/card/types",
+    "trigger_scene": "卡片操作按钮点击事件",
+    "typical_fields": [
+      "action",
+      "cardId",
+      "data"
+    ],
+    "legacy_helper_mapping": [
+      {
+        "from": "getCardData(event)",
+        "to": "event.data"
+      }
+    ],
+    "detect_all": [
+      "getCardData"
+    ],
+    "negative": []
+  },
+  {
+    "id": "d5",
+    "type_name": "ModalConfirmEvent",
+    "group": "modal",
+    "import_source": "@pdm/modal/types",
+    "trigger_scene": "弹窗确认按钮点击",
+    "typical_fields": [
+      "modalApi",
+      "data"
+    ],
+    "legacy_helper_mapping": [
+      {
+        "from": "getModalApi(event)",
+        "to": "event.modalApi"
+      }
+    ],
+    "detect_all": [
+      "getModalApi"
+    ],
+    "negative": []
+  },
+  {
+    "id": "d1776415921007",
+    "type_name": "FormBooleanValueChangeFn",
+    "group": "form",
+    "import_source": "ng-lc-dpp/form",
+    "trigger_scene": "form-item 为 boolean 类型时  值变化后触发",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": "",
+    "starred": false
+  },
+  {
+    "id": "d1776416002047",
+    "type_name": "FormCustomFolderClickFn",
+    "group": "form",
+    "import_source": "ng-lc-dpp/form",
+    "trigger_scene": "文件夹字段   点击 link 后触发   ",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": "",
+    "starred": false
+  },
+  {
+    "id": "d1776416075667",
+    "type_name": "FormCustomObjectOpenFn",
+    "group": "form",
+    "import_source": "ng-lc-dpp/form",
+    "trigger_scene": "对象类型    点击聊天图标后触发",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776416115994",
+    "type_name": "FormCustomObjectAddFn",
+    "group": "form",
+    "import_source": "ng-lc-dpp/form",
+    "trigger_scene": "object 类型 点击加号图标后触发",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": "",
+    "starred": false
+  },
+  {
+    "id": "d1776416331928",
+    "type_name": "FormCustomRelatedEventFn",
+    "group": "form",
+    "import_source": "ng-lc-dpp/form",
+    "trigger_scene": "string 类型有 a(string)  b 两个字段    b 变化后触发    a触发",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776416362632",
+    "type_name": "FormCustomObjectTagDelFn",
+    "group": "form",
+    "import_source": "ng-lc-dpp/form",
+    "trigger_scene": "对象      tag删除事件",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776416395367",
+    "type_name": "FormCustomObjectTagClickFn",
+    "group": "table",
+    "import_source": "ng-lc-dpp/table",
+    "trigger_scene": "object 类型  点击 tag 事件",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776416538048",
+    "type_name": "FormCustomSearchFn",
+    "group": "form",
+    "import_source": "ng-lc-dpp/form",
+    "trigger_scene": "user/combo类型   输入框搜索后触发的事件  过滤",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776416565390",
+    "type_name": "FormFolderValueChangeFunc",
+    "group": "form",
+    "import_source": "ng-lc-dpp/form",
+    "trigger_scene": "文件夹    值变化后触发的事件",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776416720710",
+    "type_name": "FormValueChangeAfterFunc",
+    "group": "table",
+    "import_source": "ng-lc-dpp/table",
+    "trigger_scene": "combo  值变化后触发的事件",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776416785611",
+    "type_name": "FormValueChangeBeforeFunc",
+    "group": "form",
+    "import_source": "ng-lc-dpp/form",
+    "trigger_scene": "user/combo/code  值变化前触发的事件    ",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776417061769",
+    "type_name": "FormInitDataActionFn",
+    "group": "form",
+    "import_source": "ng-lc-dpp/form",
+    "trigger_scene": "form 请求数据后触发 已经拿到数据了",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776417183954",
+    "type_name": "FormInitFieldControlFunc",
+    "group": "form",
+    "import_source": "ng-lc-dpp/form",
+    "trigger_scene": "form 请求模型后 触发",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776417351304",
+    "type_name": "FormObjectCanDeactivate",
+    "group": "form",
+    "import_source": "ng-lc-dpp/form",
+    "trigger_scene": "对象类型    值变化前触发 （api 变化不会触发）  返回 false 阻止值变化",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776417445296",
+    "type_name": "FormToolbarEvent",
+    "group": "form",
+    "import_source": "ng-lc-dpp/form",
+    "trigger_scene": "form 顶部 toolbar 事件",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": "",
+    "starred": true
+  },
+  {
+    "id": "d1776417752597",
+    "type_name": "GanttToolbarEvent",
+    "group": "other",
+    "import_source": "ng-lc-dpp/other",
+    "trigger_scene": "gantt 图顶部 toolbar 触发",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776417822828",
+    "type_name": "GanttAssociatedActionEvent",
+    "group": "other",
+    "import_source": "ng-lc-dpp/other",
+    "trigger_scene": "gantt 条目连接后触发",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776418085048",
+    "type_name": "GanttUpdateTimeActionEvent",
+    "group": "other",
+    "import_source": "ng-lc-dpp/other",
+    "trigger_scene": "甘特图调整条目后触发",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776418246045",
+    "type_name": "FigureConnectedEvent",
+    "group": "other",
+    "import_source": "ng-lc-dpp/other",
+    "trigger_scene": "x6  连接线后触发",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776418269069",
+    "type_name": "FigureDeleteEdgeEvent",
+    "group": "other",
+    "import_source": "ng-lc-dpp/other",
+    "trigger_scene": "x6  删除连接线后触发",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776418294988",
+    "type_name": "FigureDeleteNodeEvent",
+    "group": "other",
+    "import_source": "ng-lc-dpp/other",
+    "trigger_scene": "x6  删除节点后触发",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776418325734",
+    "type_name": "FigureDragNodeEvent",
+    "group": "other",
+    "import_source": "ng-lc-dpp/other",
+    "trigger_scene": "x6  拖拽节点后触发",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776418370017",
+    "type_name": "WizardToolbarEvent",
+    "group": "wizard",
+    "import_source": "ng-lc-dpp/wizard",
+    "trigger_scene": "向导 toolbarEvent 下方",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776418397727",
+    "type_name": "WizardTitleEvent",
+    "group": "wizard",
+    "import_source": "ng-lc-dpp/wizard",
+    "trigger_scene": "向导   点击标题后触发的事件",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776418709049",
+    "type_name": "MenuNodeClickEvent",
+    "group": "menu",
+    "import_source": "ng-lc-dpp/menu",
+    "trigger_scene": "menu 节点点击事件",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776418734738",
+    "type_name": "MenuNodeCheckChangeEvent",
+    "group": "menu",
+    "import_source": "ng-lc-dpp/menu",
+    "trigger_scene": "menu 节点复选框选中事件",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776418772003",
+    "type_name": "MenuTopToolbarExecuteEvent",
+    "group": "menu",
+    "import_source": "ng-lc-dpp/menu",
+    "trigger_scene": "menu顶部 toolbar 事件",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776418843931",
+    "type_name": "MenuOptionToolbarExecuteEvent",
+    "group": "menu",
+    "import_source": "ng-lc-dpp/menu",
+    "trigger_scene": "menu  node节点上的 toolbar 触发的事件",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776418978232",
+    "type_name": "PageToolbarExecuteEvent",
+    "group": "page",
+    "import_source": "ng-lc-dpp/page",
+    "trigger_scene": "page toolbar触发的事件",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": ""
+  },
+  {
+    "id": "d1776419516113-rybmh0q",
+    "type_name": "FormFieldChangeEvent",
+    "group": "form",
+    "import_source": "@pdm/form/types",
+    "typical_fields": [
+      "value",
+      "field",
+      "formApi"
+    ],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "表单字段值变化时触发",
+    "fallback": "FormEvent"
+  },
+  {
+    "id": "d1776419516113-ui1sgfr",
+    "type_name": "MenuItemSelectEvent",
+    "group": "menu",
+    "import_source": "@pdm/menu/types",
+    "typical_fields": [
+      "item",
+      "key",
+      "path"
+    ],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "菜单项被选中时触发"
+  },
+  {
+    "id": "d1776419516113-j9ji3rl",
+    "type_name": "PageMountEvent",
+    "group": "page",
+    "import_source": "@pdm/page/types",
+    "typical_fields": [
+      "route",
+      "params"
+    ],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "页面挂载完成时触发"
+  },
+  {
+    "id": "d1776419516113-ksl6drz",
+    "type_name": "TableTopToolbarExecuteEvent",
+    "group": "table",
+    "import_source": "ng-lc-dpp/dpp-table",
+    "typical_fields": [
+      "tableApi",
+      "btnApi",
+      "data"
+    ],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "点击表格顶部 toolbar",
+    "starred": true
+  },
+  {
+    "id": "d1776419516113-5dopx69",
+    "type_name": "TableCellActionExecuteEvent",
+    "group": "table",
+    "import_source": "ng-lc-dpp/table",
+    "typical_fields": [
+      "extra",
+      "data",
+      "tableApi"
+    ],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "在表格中点击 link  其中的 action 配置的有事件"
+  },
+  {
+    "id": "d1776419516113-pxzx2g8",
+    "type_name": "TableSelectionToolbarExecuteEvent",
+    "group": "table",
+    "import_source": "ng-lc-dpp/table",
+    "typical_fields": [
+      "tableApi",
+      "btnApi",
+      "checkNodes"
+    ],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "table 悬浮 toolbar 触发的事件",
+    "starred": true
+  },
+  {
+    "id": "d1776419516113-14khkzv",
+    "type_name": "RowDragEvent",
+    "group": "table",
+    "import_source": "ng-lc-dpp/table",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "拖拽行数据，结束后触发的事件"
+  },
+  {
+    "id": "d1776419516113-688z8c9",
+    "type_name": "SwitchChangeEvent",
+    "group": "table",
+    "import_source": "ng-lc-dpp/table",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "switch 类型的单元格 值变化后触发的事件  一般用于保存"
+  },
+  {
+    "id": "d1776419516113-fpkcu5t",
+    "type_name": "CellSaveEvent",
+    "group": "table",
+    "import_source": "ng-lc-dpp/table",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "单元格编辑结束后 触发的事件  一般用于保存值"
+  },
+  {
+    "id": "d1776419516113-gtm12oy",
+    "type_name": "TagDeleteEvent",
+    "group": "table",
+    "import_source": "ng-lc-dpp/table",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "tag类型单元格删除 tag 后触发"
+  },
+  {
+    "id": "d1776419516113-4uosqnh",
+    "type_name": "TagOpenEvent",
+    "group": "table",
+    "import_source": "ng-lc-dpp/table",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "tag 类型单元格   点击加号后触发的事件"
+  },
+  {
+    "id": "d1776419516113-5f1d6ut",
+    "type_name": "RowSaveEvent",
+    "group": "table",
+    "import_source": "ng-lc-dpp/table",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "表格   点击行保存按钮后 触发的事件"
+  },
+  {
+    "id": "d1776663403290",
+    "type_name": "TableUndefined",
+    "group": "table",
+    "import_source": "ng-lc-dpp/table",
+    "trigger_scene": "需要事件类型 但还未定义的  先选择这个替代",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "fallback": "",
+    "starred": true
+  },
+  {
+    "id": "d1776671138273-x1loirg",
+    "type_name": "InstanceToolbarExecuteEvent",
+    "group": "page",
+    "import_source": "ng-lc-dpp/page",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "instance顶部toolbar"
+  },
+  {
+    "id": "d1776671138273-cdt446v",
+    "type_name": "instanceStateExecuteEvent",
+    "group": "page",
+    "import_source": "ng-lc-dpp/page",
+    "typical_fields": [],
+    "legacy_helper_mapping": [],
+    "detect_all": [],
+    "negative": [],
+    "trigger_scene": "instance界面状态栏"
+  }
+]
