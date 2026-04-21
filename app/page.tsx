@@ -1,7 +1,7 @@
 "use client"
 
 import { useCallback, useEffect, useState } from "react"
-import { Download, Upload, Settings2 } from "lucide-react"
+import { Download, Upload, Settings2, Database } from "lucide-react"
 import { AppShell } from "@/components/app-shell"
 import { DictionaryView } from "@/components/dictionary/dictionary-view"
 import { PlannerView } from "@/components/planner/planner-view"
@@ -51,6 +51,85 @@ function usePersistedState<T>(key: string, defaultValue: T) {
   }, [key, state, isLoaded])
 
   return [state, setState, isLoaded] as const
+}
+
+function IndexedDBManager({
+  files,
+  dictionary,
+  dictGroups,
+  setFiles,
+  setDictionary,
+  setDictGroups,
+}: {
+  files: EventFile[]
+  dictionary: EventDictionaryItem[]
+  dictGroups: string[]
+  setFiles: (f: EventFile[]) => void
+  setDictionary: (d: EventDictionaryItem[]) => void
+  setDictGroups: (g: string[]) => void
+}) {
+  const [confirmOpen, setConfirmOpen] = useState(false)
+
+  const handleBackupAndClear = () => {
+    // 1. 备份当前 IndexedDB 数据
+    const backupData = {
+      files,
+      dictionary,
+      dictGroups,
+      backupAt: new Date().toISOString(),
+    }
+    const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: "application/json" })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement("a")
+    a.href = url
+    a.download = `indexeddb-backup-${new Date().toISOString().slice(0, 10)}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+
+    // 2. 清除 IndexedDB 数据（重置为初始值）
+    setFiles(initialFiles)
+    setDictionary(initialDictionary)
+    setDictGroups(["table", "form", "card", "menu", "page", "modal", "action", "wizard", "other"])
+
+    setConfirmOpen(false)
+    alert("已备份并清除 IndexedDB 数据！\n页面将刷新以加载静态数据。")
+    window.location.reload()
+  }
+
+  return (
+    <>
+      <Button
+        variant="ghost"
+        size="icon"
+        className="h-8 w-8 text-muted-foreground"
+        onClick={() => setConfirmOpen(true)}
+        title="备份并清除 IndexedDB 数据"
+      >
+        <Database className="h-4 w-4" />
+      </Button>
+
+      <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>备份并清除 IndexedDB</DialogTitle>
+            <DialogDescription>
+              此操作将：
+              <br />
+              1. 下载当前 IndexedDB 数据的备份文件
+              <br />
+              2. 清除 IndexedDB，使用静态数据重新初始化
+              <br /><br />
+              <strong className="text-amber-600">注意：清除后页面会刷新！</strong>
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setConfirmOpen(false)}>取消</Button>
+            <Button onClick={handleBackupAndClear}>备份并清除</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
+  )
 }
 
 function DataProcessButton({
@@ -450,6 +529,14 @@ export default function Page() {
         onProjectChange={setProject}
         rightSlot={
           <div className="flex items-center gap-2">
+            <IndexedDBManager
+              files={files}
+              dictionary={dictionary}
+              dictGroups={dictGroups}
+              setFiles={setFiles}
+              setDictionary={setDictionary}
+              setDictGroups={setDictGroups}
+            />
             <DataProcessButton files={files} dictionary={dictionary} />
             <DataSyncButtons
               files={files}
