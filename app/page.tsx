@@ -1,7 +1,7 @@
 "use client"
 
 import { useCallback, useEffect, useState } from "react"
-import { Download, Upload, Settings2, Database } from "lucide-react"
+import { Download, Upload, Settings2, Database, FolderTree } from "lucide-react"
 import { AppShell } from "@/components/app-shell"
 import { DictionaryView } from "@/components/dictionary/dictionary-view"
 import { PlannerView } from "@/components/planner/planner-view"
@@ -129,6 +129,138 @@ function IndexedDBManager({
         </DialogContent>
       </Dialog>
     </>
+  )
+}
+
+function AutoGroupButton({
+  files,
+}: {
+  files: EventFile[]
+}) {
+  // 需要自动分组的目标文件名（模糊匹配）
+  const targetFilenames = [
+    "bom-compare",
+    "modify-instance",
+    "organization.event",
+    "outside.event",
+    "page-mess.event",
+    "process.event",
+    "product-design.event",
+    "tree-table-edit.event",
+    "workbench.event",
+  ]
+
+  const handleAutoGroup = () => {
+    // 深拷贝避免修改原数据
+    const processedFiles = JSON.parse(JSON.stringify(files)) as EventFile[]
+    let groupedFileCount = 0
+    const stats: { filename: string; utility: number; noEventType: number; other: number }[] = []
+
+    processedFiles.forEach((file) => {
+      // 检查文件名是否匹配目标
+      const isTarget = targetFilenames.some((name) =>
+        file.filename.toLowerCase().includes(name.toLowerCase())
+      )
+      if (!isTarget) return
+
+      // 收集所有卡片
+      const allCards: typeof file.groups[0]["cards"] = []
+      file.groups.forEach((group) => {
+        allCards.push(...group.cards)
+      })
+
+      if (allCards.length === 0) return
+
+      // 分类卡片
+      const utilityCards: typeof allCards = []
+      const noEventTypeCards: typeof allCards = []
+      const otherCards: typeof allCards = []
+
+      allCards.forEach((card) => {
+        if (card.isUtility) {
+          utilityCards.push(card)
+        } else if (!card.event_type) {
+          noEventTypeCards.push(card)
+        } else {
+          otherCards.push(card)
+        }
+      })
+
+      // 创建新分组
+      const newGroups: typeof file.groups = []
+
+      if (utilityCards.length > 0) {
+        newGroups.push({
+          id: `${file.id}_utility`,
+          name: "工具函数",
+          cards: utilityCards,
+        })
+      }
+
+      if (noEventTypeCards.length > 0) {
+        newGroups.push({
+          id: `${file.id}_no_event`,
+          name: "未选择事件类型",
+          cards: noEventTypeCards,
+        })
+      }
+
+      if (otherCards.length > 0) {
+        newGroups.push({
+          id: `${file.id}_other`,
+          name: "待分组",
+          cards: otherCards,
+        })
+      }
+
+      file.groups = newGroups
+      groupedFileCount++
+      stats.push({
+        filename: file.filename,
+        utility: utilityCards.length,
+        noEventType: noEventTypeCards.length,
+        other: otherCards.length,
+      })
+    })
+
+    // 输出统计信息
+    console.log("=== 自动分组完成 ===")
+    console.log(`处理文件数: ${groupedFileCount}`)
+    stats.forEach((s) => {
+      console.log(`${s.filename}: 工具函数=${s.utility}, 未选事件类型=${s.noEventType}, 待分组=${s.other}`)
+    })
+
+    // 下载处理后的数据
+    const data = {
+      files: processedFiles,
+      processedAt: new Date().toISOString(),
+      stats,
+    }
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement("a")
+    a.href = url
+    a.download = `auto-grouped-${new Date().toISOString().slice(0, 10)}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+
+    const summary = stats
+      .map((s) => `${s.filename}: 工具${s.utility}/未选${s.noEventType}/待分组${s.other}`)
+      .join("\n")
+
+    alert(`自动分组完成！\n处理文件: ${groupedFileCount} 个\n\n${summary}\n\n数据已下载，请将文件路径告诉我。`)
+  }
+
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      className="h-8 w-8 text-muted-foreground"
+      onClick={handleAutoGroup}
+      title="自动分组：将指定文件按工具函数/未选事件类型分组"
+    >
+      <FolderTree className="h-4 w-4" />
+    </Button>
   )
 }
 
@@ -529,6 +661,7 @@ export default function Page() {
         onProjectChange={setProject}
         rightSlot={
           <div className="flex items-center gap-2">
+            <AutoGroupButton files={files} />
             <IndexedDBManager
               files={files}
               dictionary={dictionary}
