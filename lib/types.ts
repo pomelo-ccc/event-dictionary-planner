@@ -34,6 +34,10 @@ export interface FunctionCard {
   usageCount?: number
   /** 函数代码内容 */
   code?: string
+  /** 标记为需要移除 */
+  toRemove?: boolean
+  /** 标记为工具函数 */
+  isUtility?: boolean
 }
 
 export interface SplitGroup {

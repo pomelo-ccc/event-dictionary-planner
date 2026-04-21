@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { GripVertical, Trash2, MessageSquare, Star } from "lucide-react"
+import { GripVertical, Trash2, MessageSquare, Star, Ban, Wrench } from "lucide-react"
 import { useSortable } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
 import type { FunctionCard as FunctionCardType, EventDictionaryItem } from "@/lib/types"
@@ -104,6 +104,36 @@ export function FunctionCard({ card, dictionary, onChange, onDelete, isDragging:
                 {card.lines}
                 <span className="opacity-60">L</span>
               </span>
+
+              {/* 需要移除状态 */}
+              <button
+                onClick={() => onChange({ ...card, toRemove: !card.toRemove })}
+                className={cn(
+                  "inline-flex shrink-0 items-center gap-1 rounded-md px-2 py-1 text-xs font-medium transition-colors",
+                  card.toRemove
+                    ? "bg-rose-100 text-rose-700 ring-1 ring-inset ring-rose-200"
+                    : "text-muted-foreground/60 hover:bg-muted/50 hover:text-muted-foreground ring-1 ring-inset ring-dashed ring-border"
+                )}
+                title={card.toRemove ? "取消移除标记" : "标记为需要移除"}
+              >
+                <Ban className="h-3 w-3" />
+                <span className="hidden sm:inline">移除</span>
+              </button>
+
+              {/* 工具函数状态 */}
+              <button
+                onClick={() => onChange({ ...card, isUtility: !card.isUtility })}
+                className={cn(
+                  "inline-flex shrink-0 items-center gap-1 rounded-md px-2 py-1 text-xs font-medium transition-colors",
+                  card.isUtility
+                    ? "bg-violet-100 text-violet-700 ring-1 ring-inset ring-violet-200"
+                    : "text-muted-foreground/60 hover:bg-muted/50 hover:text-muted-foreground ring-1 ring-inset ring-dashed ring-border"
+                )}
+                title={card.isUtility ? "取消工具函数标记" : "标记为工具函数"}
+              >
+                <Wrench className="h-3 w-3" />
+                <span className="hidden sm:inline">工具</span>
+              </button>
             </div>
 
             <div className="flex items-center gap-1.5">
